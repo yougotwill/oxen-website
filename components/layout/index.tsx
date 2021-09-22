@@ -20,11 +20,12 @@ export default function Layout({ children }: Props) {
 
   const router = useRouter();
 
-  const marginLeft = `${
-    pageType === PageType.NORMAL && isTablet
-      ? UI.SIDE_MENU_SIDE_BAR_WIDTH_PX
-      : 0
-  }px`;
+  // const marginLeft = `${
+  //   pageType === PageType.NORMAL && isTablet
+  //     ? UI.SIDE_MENU_SIDE_BAR_WIDTH_PX
+  //     : 0
+  // }px`;
+  const marginLeft = '0px';
 
   const mobileMenuOpen =
     (pageType === PageType.BLOG || pageType === PageType.POST) &&
@@ -57,7 +58,7 @@ export default function Layout({ children }: Props) {
         }}
         className="flex w-full h-full"
       >
-        <SideMenu />
+        {/* <SideMenu /> */}
 
         <div
           ref={ref}

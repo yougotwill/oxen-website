@@ -13,7 +13,7 @@ export default function Index() {
     <>
       {/* Only visible when no pages are open */}
       <HomeHero />
-      <HomeHeroBubble />
+      {/* <HomeHeroBubble /> */}
     </>
   );
 }

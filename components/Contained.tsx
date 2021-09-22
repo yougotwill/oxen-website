@@ -28,10 +28,9 @@ export function Contained(props: Props) {
         backgroundColor && `bg-${backgroundColor}`,
         classes,
       )}
+      style={containerStyle}
     >
-      <div className="relative" style={containerStyle}>
-        {children}
-      </div>
+      {children}
     </div>
   );
 }
