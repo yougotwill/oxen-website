@@ -5,15 +5,14 @@ import { CMS } from '../constants';
 import { CmsApi } from '../services/cms';
 import generateRSSFeed from '../utils/rss';
 
-import { HomeHero } from '../components/HomeHero';
-import { HomeHeroBubble } from '../components/HomeHeroBubble';
+import Hero from '../components/sections/Hero';
+import About from '../components/sections/About';
 
 export default function Index() {
   return (
     <>
-      {/* Only visible when no pages are open */}
-      <HomeHero />
-      {/* <HomeHeroBubble /> */}
+      <Hero />
+      <About />
     </>
   );
 }

@@ -4,7 +4,7 @@ import { UI } from '../constants';
 
 interface Props {
   id?: string;
-  backgroundColor?: 'primary' | 'secondary' | 'secondary-1';
+  backgroundColor?: 'primary' | 'secondary' | 'alt' | 'secondary-1';
   classes?: string;
   children: ReactNode;
 }
@@ -20,17 +20,22 @@ export function Contained(props: Props) {
     margin: '0 auto',
   };
 
+  const backgroundColorClasses = [
+    backgroundColor === 'primary' && 'bg-primary',
+    backgroundColor === 'secondary' && 'bg-secondary',
+    backgroundColor === 'alt' && 'bg-alt',
+    backgroundColor === 'primary' && 'bg-secondary-1',
+  ];
+
   return (
-    <div
-      id={id}
-      className={classNames(
-        'w-full',
-        backgroundColor && `bg-${backgroundColor}`,
-        classes,
-      )}
-      style={containerStyle}
-    >
-      {children}
+    <div className={classNames('w-screen', backgroundColorClasses)}>
+      <div
+        id={id}
+        className={classNames('w-full', classes)}
+        style={containerStyle}
+      >
+        {children}
+      </div>
     </div>
   );
 }

@@ -1,16 +1,19 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 
-import { Button } from './Button';
-import bannerImage from '../public/site-banner.png';
-import { Contained } from './Contained';
+import { Button } from '../Button';
+import bannerImage from '../../public/site-banner.png';
+import { Contained } from '../Contained';
 
-export function HomeHero() {
+export default function Hero(): ReactElement {
   return (
     <Contained
+      backgroundColor="secondary"
       classes={classNames(
-        'tablet:h-screen tablet:flex tablet:flex-col tablet:justify-center tablet:items-center',
-        'desktop:h-full desktop:flex-row desktop:items-start desktop:pt-40',
+        'h-screen',
+        'tablet:flex tablet:flex-col tablet:justify-center tablet:items-center',
+        'desktop:flex-row desktop:items-start desktop:pt-40',
       )}
     >
       <div
@@ -28,10 +31,10 @@ export function HomeHero() {
         >
           Crypto powering private applications
         </h1>
-        <h2 className={classNames('text-2xl leading-tight')}>
+        <p className={classNames('text-2xl leading-tight')}>
           Oxen is this and that, and we use the power of blockchain blah blah
           blah.
-        </h2>
+        </p>
         <div
           className={classNames(
             'flex justify-around items-center mt-6 mb-4 w-full',
