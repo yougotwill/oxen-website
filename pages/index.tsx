@@ -9,6 +9,7 @@ import Hero from '../components/sections/Hero';
 import About from '../components/sections/About';
 import Stats from '../components/sections/Stats';
 import Products from '../components/sections/Products';
+import Privacy from '../components/sections/Privacy';
 
 export default function Index() {
   return (
@@ -17,6 +18,7 @@ export default function Index() {
       <About />
       <Stats />
       <Products />
+      <Privacy />
     </>
   );
 }
