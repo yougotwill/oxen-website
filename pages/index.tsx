@@ -8,6 +8,7 @@ import generateRSSFeed from '../utils/rss';
 import Hero from '../components/sections/Hero';
 import About from '../components/sections/About';
 import Stats from '../components/sections/Stats';
+import Products from '../components/sections/Products';
 
 export default function Index() {
   return (
@@ -15,6 +16,7 @@ export default function Index() {
       <Hero />
       <About />
       <Stats />
+      <Products />
     </>
   );
 }

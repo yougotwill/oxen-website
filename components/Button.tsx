@@ -3,7 +3,7 @@ import React, { LegacyRef, useContext } from 'react';
 import { ScreenContext } from '../contexts/screen';
 
 export interface Props {
-  color?: 'primary' | 'secondary' | 'danger';
+  color?: 'primary' | 'secondary' | 'danger' | 'white';
   type?: 'text' | 'ghost' | 'solid' | 'outline';
   size?: 'tiny' | 'small' | 'medium' | 'large';
 
