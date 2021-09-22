@@ -7,11 +7,12 @@ import { Input } from './Input';
 import { Button } from './Button';
 
 interface Props {
+  buttonPosition?: 'left' | 'center' | 'right';
   classes?: string;
 }
 
 export default function EmailSignup(props: Props): ReactElement {
-  const { classes } = props;
+  const { buttonPosition = 'center', classes } = props;
   const router = useRouter();
   const buttonRef = useRef<HTMLButtonElement>(null);
   const setButtonText = (value: string) => {
@@ -46,61 +47,70 @@ export default function EmailSignup(props: Props): ReactElement {
         break;
     }
   };
+
+  const buttonStyles = [
+    buttonPosition === 'left' && 'ml-0 mr-auto',
+    buttonPosition === 'center' && 'mx-auto',
+    buttonPosition === 'right' && 'mr-0 ml-auto',
+  ];
+
   return (
-    <Contained
-      id="signup"
-      classes={classNames(
-        'border-2 border-solid border-primary py-6 px-2 mt-6 mb-10',
-        'tablet:w-4/5 tablet:mx-auto tablet:py-4 tablet:mt-6 tablet:mb-8',
-        'desktop:py-6',
-        router.asPath !== '/get-involved' && 'tablet:w-full',
-        classes,
-      )}
-    >
-      <h3
+    <Contained>
+      <div
+        id="signup"
         className={classNames(
-          'text-2xl font-semibold leading-none mb-2',
-          'tablet:text-3xl',
-          'desktop:text-4xl desktop:mb-3',
+          'border-2 border-solid border-primary py-6 px-2 mt-6 mb-10',
+          'tablet:mx-auto tablet:py-4 tablet:mt-6 tablet:mb-8',
+          'desktop:py-6',
+          router.asPath !== '/get-involved' ? 'tablet:w-full' : 'tablet:w-4/5',
+          classes,
         )}
       >
-        You&apos;ve got mail!
-      </h3>
-      <p
-        className={classNames(
-          'leading-none mb-6',
-          'tablet:mb-3 tablet:leading-tight',
-          'desktop:mb-6 desktop:text-xl',
-        )}
-      >
-        Sign up to our newsletter to keep up to date with everything Oxen.
-      </p>
-      <form onSubmit={handleSubscription}>
-        <Input
-          type="email"
-          placeholder="Your Email"
-          value={email}
-          onValueChange={value => setEmail(value)}
-          size={'large'}
-          border={'primary'}
-          inputMode={'text'}
+        <h3
           className={classNames(
-            'mb-6 rounded-sm',
-            'tablet:mb-4',
-            'desktop:mb-6',
+            'text-2xl font-semibold leading-none mb-2',
+            'tablet:text-3xl',
+            'desktop:text-4xl desktop:mb-3',
           )}
-          required
-        />
-        <Button
-          color="primary"
-          size="medium"
-          className={classNames('mx-auto', 'tablet:w-40')}
-          buttonType={'submit'}
-          reference={buttonRef}
         >
-          Sign up
-        </Button>
-      </form>
+          You&apos;ve got mail!
+        </h3>
+        <p
+          className={classNames(
+            'leading-none mb-6',
+            'tablet:mb-3 tablet:leading-tight',
+            'desktop:mb-6 desktop:text-xl',
+          )}
+        >
+          Sign up to our newsletter to keep up to date with everything Oxen.
+        </p>
+        <form onSubmit={handleSubscription}>
+          <Input
+            type="email"
+            placeholder="Your Email"
+            value={email}
+            onValueChange={value => setEmail(value)}
+            size={'large'}
+            border={'primary'}
+            inputMode={'text'}
+            className={classNames(
+              'mb-6 rounded-sm',
+              'tablet:mb-4',
+              'desktop:mb-6',
+            )}
+            required
+          />
+          <Button
+            color="primary"
+            size="medium"
+            className={classNames(buttonStyles, 'tablet:w-40')}
+            buttonType={'submit'}
+            reference={buttonRef}
+          >
+            Sign up
+          </Button>
+        </form>
+      </div>
     </Contained>
   );
 }
