@@ -7,12 +7,14 @@ import generateRSSFeed from '../utils/rss';
 
 import Hero from '../components/sections/Hero';
 import About from '../components/sections/About';
+import Stats from '../components/sections/Stats';
 
 export default function Index() {
   return (
     <>
       <Hero />
       <About />
+      <Stats />
     </>
   );
 }
