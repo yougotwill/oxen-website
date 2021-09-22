@@ -10,6 +10,7 @@ import About from '../components/sections/About';
 import Stats from '../components/sections/Stats';
 import Products from '../components/sections/Products';
 import Privacy from '../components/sections/Privacy';
+import GetInvolved from '../components/sections/GetInvolved';
 
 export default function Index() {
   return (
@@ -19,6 +20,7 @@ export default function Index() {
       <Stats />
       <Products />
       <Privacy />
+      <GetInvolved />
     </>
   );
 }
@@ -47,6 +49,8 @@ export const getStaticProps: GetStaticProps = async (
 
     generateRSSFeed(posts);
   }
+
+  // TODO Fetch stats here and pass through
 
   return {
     props: {},
