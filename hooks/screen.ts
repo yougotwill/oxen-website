@@ -3,27 +3,26 @@ import { useWindowSize } from 'react-use';
 import { UI } from '../constants';
 
 export function useScreenSize() {
-  // Default to mobile view
   const { width } = useWindowSize();
 
-  // Default to mobile view
   const [isMobile, setIsMobile] = useState(true);
   const [isTablet, setIsTablet] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [isHuge, setIsHuge] = useState(false);
 
   useEffect(() => {
-    const _isMobile = width <= UI.MOBILE_BREAKPOINT;
+    const _isMobile = width < UI.TABLET_BREAKPOINT;
     const _isTablet =
-      width > UI.MOBILE_BREAKPOINT && width <= UI.TABLET_BREAKPOINT;
-    const _isDesktop = width > UI.TABLET_BREAKPOINT;
-    const _isHuge = width > UI.DESKTOP_BREAKPOINT;
+      width >= UI.TABLET_BREAKPOINT && width < UI.DESKTOP_BREAKPOINT;
+    const _isDesktop =
+      width >= UI.DESKTOP_BREAKPOINT && width < UI.HUGE_BREAKPOINT;
+    const _isHuge = width >= UI.HUGE_BREAKPOINT;
 
-    if (isMobile !== _isMobile) setIsMobile(_isMobile);
-    if (isTablet !== _isTablet) setIsTablet(_isTablet);
-    if (isDesktop !== _isDesktop) setIsDesktop(_isDesktop);
-    if (isHuge !== _isHuge) setIsHuge(_isHuge);
+    setIsMobile(_isMobile);
+    setIsTablet(_isTablet);
+    setIsDesktop(_isDesktop);
+    setIsHuge(_isHuge);
   }, [width]);
 
-  return { isMobile, isTablet, isDesktop, isHuge, width };
+  return { width, isMobile, isTablet, isDesktop, isHuge };
 }

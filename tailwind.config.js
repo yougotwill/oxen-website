@@ -10,13 +10,10 @@ module.exports = {
   mode: 'jit',
   theme: {
     screens: {
-      // Constants taken from UI constants.
-      // Think of them as 'beyond this breakpoint' when using
-      // mobile:my-class, for example.
-      // -> @media (min-width: {}px) { ... }
       mobile: '500px',
-      tablet: '715px',
+      tablet: '768px',
       desktop: '1100px',
+      huge: '1920px',
     },
     fontFamily: {
       prompt: ['Prompt'],

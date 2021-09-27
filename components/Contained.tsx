@@ -15,9 +15,7 @@ export function Contained(props: Props) {
   const containerStyle = {
     paddingLeft: `${UI.PAGE_CONTAINED_PADDING_VW}vw`,
     paddingRight: `${UI.PAGE_CONTAINED_PADDING_VW}vw`,
-    width: '100%',
     maxWidth: `${UI.MAX_CONTENT_WIDTH}px`,
-    margin: '0 auto',
   };
 
   const backgroundColorClasses = [
@@ -31,7 +29,7 @@ export function Contained(props: Props) {
     <div className={classNames('w-screen', backgroundColorClasses)}>
       <div
         id={id}
-        className={classNames('w-full', classes)}
+        className={classNames('w-full my-0 mx-auto', classes)}
         style={containerStyle}
       >
         {children}
