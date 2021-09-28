@@ -1,11 +1,10 @@
 import Link from 'next/link';
-import React, { useContext } from 'react';
-import { ScreenContext } from '../../contexts/screen';
+import { useScreen } from '../../contexts/screen';
 import { IPost } from '../../types/cms';
 import { generateURL } from '../../utils/routing';
 
 export function ArticleCardRow(post: IPost) {
-  const { isMobile } = useContext(ScreenContext);
+  const { isMobile } = useScreen();
   const { slug, tags } = post;
   const { href, as } = generateURL(slug);
 

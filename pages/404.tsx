@@ -1,14 +1,15 @@
-import { useContext, ReactElement } from 'react';
+import { ReactElement } from 'react';
 import classNames from 'classnames';
 
-// import _404 from '../assets/svgs/404.svg';
 import { UI, METADATA } from '../constants';
-import { ScreenContext } from '../contexts/screen';
+import { useScreen } from '../contexts/screen';
 
 import CustomHead from '../components/CustomHead';
 
+// import _404 from '../assets/svgs/404.svg';
+
 export default function Custom404(): ReactElement {
-  const { isMobile, isTablet, isDesktop, isHuge } = useContext(ScreenContext);
+  const { isMobile, isTablet, isDesktop, isHuge } = useScreen();
 
   const wrapperStyles = {
     width: '100%',

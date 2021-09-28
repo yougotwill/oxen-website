@@ -1,13 +1,16 @@
-import classNames from 'classnames';
-import Link from 'next/link';
-import React, { useContext, useRef } from 'react';
+import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHoverDirty } from 'react-use';
-import { ReactComponent as TriangleOutlinedSVG } from '../../assets/svgs/triangle-outlined.svg';
+import Link from 'next/link';
+import classNames from 'classnames';
+
 import { UI } from '../../constants';
-import { ScreenContext } from '../../contexts/screen';
+import { useScreen } from '../../contexts/screen';
 import { collapseSideMenu } from '../../state/navigation';
+
 import { ISideMenuItem } from './SideMenu';
+
+import { ReactComponent as TriangleOutlinedSVG } from '../../assets/svgs/triangle-outlined.svg';
 
 interface SideMenuRowProps {
   item: ISideMenuItem;
@@ -15,7 +18,7 @@ interface SideMenuRowProps {
 }
 
 export function SideMenuRow({ item, isActive }: SideMenuRowProps) {
-  const { isMobile, isTablet, isDesktop, isHuge } = useContext(ScreenContext);
+  const { isMobile, isTablet, isDesktop, isHuge } = useScreen();
   const isCollapsible = isMobile || isTablet;
   const dispatch = useDispatch();
 

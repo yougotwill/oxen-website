@@ -1,7 +1,7 @@
-import { useContext, ReactElement } from 'react';
+import { ReactElement } from 'react';
 import ReactPaginate from 'react-paginate';
 
-import { ScreenContext } from '../contexts/screen';
+import { useScreen } from '../contexts/screen';
 import { Contained } from '../components/Contained';
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 
 export default function Pagination(props: Props): ReactElement {
   const { currentPage, pageCount, paginationHandler } = props;
-  const { isMobile } = useContext(ScreenContext);
+  const { isMobile } = useScreen();
 
   // Mobile Pagination Settings
   const MAX_PAGINATION_BUTTONS_MOBILE = 5; // On mobile, we want to only have a maximum of 5 pagination buttons

@@ -1,11 +1,9 @@
 import classNames from 'classnames';
 import _ from 'lodash';
-import React, { useContext } from 'react';
 import { useMeasure } from 'react-use';
 import { v4 as uuid } from 'uuid';
-import { ScreenContext } from '../../contexts/screen';
+import { useScreen } from '../../contexts/screen';
 import { Contained } from '../Contained';
-import { HorizontalScrollable } from '../HorizontalScrollable';
 
 interface Props {
   rows?: number;
@@ -13,7 +11,7 @@ interface Props {
 }
 
 export function CardGrid({ rows, children }: Props) {
-  const { isTablet, isDesktop, isHuge } = useContext(ScreenContext);
+  const { isTablet, isDesktop, isHuge } = useScreen();
 
   const [ref, { width }] = useMeasure();
   const widthOfCardPx = 200;

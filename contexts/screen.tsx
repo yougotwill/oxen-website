@@ -1,5 +1,5 @@
-import React from 'react';
 import { useScreenSize } from '../hooks/screen';
+import { ReactElement, ReactNode, createContext, useContext } from 'react';
 
 interface IScreen {
   width: number;
@@ -9,7 +9,7 @@ interface IScreen {
   isHuge: boolean;
 }
 
-export const ScreenContext = React.createContext<IScreen>({
+const ScreenContext = createContext<IScreen>({
   width: 0,
   isMobile: true,
   isTablet: false,
@@ -17,14 +17,20 @@ export const ScreenContext = React.createContext<IScreen>({
   isHuge: false,
 });
 
-const ScreenProvider = ({ children }) => {
-  const screenParams: IScreen = useScreenSize();
+export function useScreen() {
+  return useContext(ScreenContext);
+}
+
+interface Props {
+  children: ReactNode;
+}
+
+export function ScreenProvider(props: Props): ReactElement {
+  const { children } = props;
+
+  const value: IScreen = useScreenSize();
 
   return (
-    <ScreenContext.Provider value={screenParams}>
-      {children}
-    </ScreenContext.Provider>
+    <ScreenContext.Provider value={value}>{children}</ScreenContext.Provider>
   );
-};
-
-export default ScreenProvider;
+}

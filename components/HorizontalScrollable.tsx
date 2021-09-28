@@ -1,16 +1,12 @@
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import classNames from 'classnames';
-import React, {
-  ReactNode,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { useScroll, useWindowSize } from 'react-use';
+import classNames from 'classnames';
+
 import { UI } from '../constants';
-import { ScreenContext } from '../contexts/screen';
+import { useScreen } from '../contexts/screen';
 import { Contained } from './Contained';
+
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 interface Props {
   onScroll?: (x: number) => void;
@@ -19,7 +15,7 @@ interface Props {
 }
 
 export function HorizontalScrollable(props: Props) {
-  const { isDesktop, isHuge } = useContext(ScreenContext);
+  const { isDesktop, isHuge } = useScreen();
 
   return (
     <>
@@ -46,7 +42,7 @@ function HorizontalScrollableInner(props: Props) {
 
   const [rightScrollHidden, setRightScrollHidden] = useState(false);
 
-  const { isDesktop, isHuge } = useContext(ScreenContext);
+  const { isDesktop, isHuge } = useScreen();
 
   const handleLeftScroll = () => {
     scrollRef.current.scrollBy({

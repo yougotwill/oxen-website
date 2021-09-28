@@ -1,10 +1,12 @@
 import { useRouter } from 'next/router';
-import React, { ReactNode, useContext, useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
+
 import { UI } from '../../constants';
-import { ScreenContext } from '../../contexts/screen';
+import { useScreen } from '../../contexts/screen';
 import { PageType } from '../../state/navigation';
 import { IState } from '../../state/reducers';
+
 import { Header } from '../navigation/Header';
 import { SideMenu } from '../navigation/SideMenu';
 
@@ -13,7 +15,7 @@ interface Props {
 }
 
 export default function Layout({ children }: Props) {
-  const { isMobile, isTablet, isDesktop, isHuge } = useContext(ScreenContext);
+  const { isMobile, isTablet, isDesktop, isHuge } = useScreen();
   const { pageType, headerMobileMenuExpanded } = useSelector(
     (state: IState) => state.navigation,
   );

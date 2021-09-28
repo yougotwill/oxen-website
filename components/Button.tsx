@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import React, { LegacyRef, useContext } from 'react';
-import { ScreenContext } from '../contexts/screen';
+import React, { LegacyRef } from 'react';
+import { useScreen } from '../contexts/screen';
 
 export interface Props {
   color?: 'primary' | 'secondary' | 'danger' | 'white';
@@ -39,7 +39,7 @@ export function Button(props: Props) {
     wide = false,
   } = props;
 
-  const { isDesktop, isHuge } = useContext(ScreenContext);
+  const { isDesktop, isHuge } = useScreen();
 
   const clickHandler = (e: React.MouseEvent) => {
     if (onClick) {

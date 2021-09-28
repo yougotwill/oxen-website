@@ -5,6 +5,7 @@ import { UI } from '../constants';
 export function useScreenSize() {
   const { width } = useWindowSize();
 
+  // Mobile first
   const [isMobile, setIsMobile] = useState(true);
   const [isTablet, setIsTablet] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);

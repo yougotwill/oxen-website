@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { ScreenContext } from '../../../contexts/screen';
+import { useScreen } from '../../../contexts/screen';
+
 import { Contained } from '../../Contained';
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
 }
 
 export function ArticleSubtitleSection({ subtitle }: Props) {
-  const { isDesktop, isHuge } = useContext(ScreenContext);
+  const { isDesktop, isHuge } = useScreen();
 
   if (!subtitle) {
     return null;

@@ -6,7 +6,7 @@ import { createStore } from 'redux';
 
 import '../assets/style.css';
 import { NAVIGATION } from '../constants';
-import ScreenProvider from '../contexts/screen';
+import { ScreenProvider } from '../contexts/screen';
 import {
   collapseMobileHeader,
   collapseSideMenu,
@@ -63,16 +63,14 @@ function App({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <>
-      <StoreProvider store={store}>
-        <ScreenProvider>
-          <CustomHead />
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ScreenProvider>
-      </StoreProvider>
-    </>
+    <StoreProvider store={store}>
+      <ScreenProvider>
+        <CustomHead />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ScreenProvider>
+    </StoreProvider>
   );
 }
 

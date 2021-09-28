@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { ScreenContext } from '../../contexts/screen';
+import { useScreen } from '../../contexts/screen';
+
 import { DesktopHeader } from './DesktopHeader';
 import { MobileHeader } from './MobileHeader';
 
 export function Header() {
-  const { isDesktop, isHuge } = useContext(ScreenContext);
+  const { isDesktop, isHuge } = useScreen();
   return <>{isDesktop || isHuge ? <DesktopHeader /> : <MobileHeader />}</>;
 }

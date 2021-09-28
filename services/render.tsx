@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import classNames from 'classnames';
@@ -6,7 +5,7 @@ import { Block, Inline } from '@contentful/rich-text-types';
 import sanitize from '../utils/sanitize';
 
 import EmbedContent from '../components/EmbedContent';
-import { ScreenContext } from '../contexts/screen';
+import { useScreen } from '../contexts/screen';
 import { ReactElement, CSSProperties } from 'react';
 
 function Markup(node: any): ReactElement {
@@ -59,7 +58,7 @@ function EmbeddedLink(node: any, isInline = false): ReactElement {
 }
 
 function EmbeddedMedia(node: any, isInline = false): ReactElement {
-  const { isMobile, isTablet, isDesktop, isHuge } = useContext(ScreenContext);
+  const { isMobile, isTablet, isDesktop, isHuge } = useScreen();
   // is either an asset or entry
   const media = node.file.fields ?? node;
   const url = media.file.url.replace('//', 'https://');

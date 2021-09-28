@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import { ScreenContext } from '../../../contexts/screen';
+import { useScreen } from '../../../contexts/screen';
 import { IPost } from '../../../types/cms';
+
 import { RichBody } from '../../RichBody';
 
 export function ArticleSectionContent(post: IPost) {
-  const { isDesktop, isHuge } = useContext(ScreenContext);
+  const { isDesktop, isHuge } = useScreen();
   return (
     <>
       {!(isDesktop || isHuge) ? (

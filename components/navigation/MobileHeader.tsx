@@ -1,11 +1,9 @@
-import classNames from 'classnames';
 import Link from 'next/link';
-import React, { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ReactComponent as OxenLogoSVG } from '../../assets/svgs/brand.svg';
-import { ReactComponent as TriangleSVG } from '../../assets/svgs/triangle.svg';
+import classNames from 'classnames';
+
 import { UI } from '../../constants';
-import { ScreenContext } from '../../contexts/screen';
+import { useScreen } from '../../contexts/screen';
 import {
   collapseMobileHeader,
   collapseSideMenu,
@@ -14,10 +12,14 @@ import {
   PageType,
 } from '../../state/navigation';
 import { IState } from '../../state/reducers';
+
 import { MobileMenu } from './MobileMenu';
 
+import { ReactComponent as OxenLogoSVG } from '../../assets/svgs/brand.svg';
+import { ReactComponent as TriangleSVG } from '../../assets/svgs/triangle.svg';
+
 export function MobileHeader() {
-  const { isMobile, isTablet } = useContext(ScreenContext);
+  const { isMobile, isTablet } = useScreen();
   const { sideMenuExpanded, headerMobileMenuExpanded, pageType } = useSelector(
     (state: IState) => state.navigation,
   );

@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-no-target-blank */
-import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,7 +8,7 @@ import classNames from 'classnames';
 import _ from 'lodash';
 
 import { NAVIGATION } from '../../constants';
-import { ScreenContext } from '../../contexts/screen';
+import { useScreen } from '../../contexts/screen';
 import { IState } from '../../state/reducers';
 
 import { Contained } from '../Contained';
@@ -27,7 +26,7 @@ import { ReactComponent as TwitterSVG } from '../../assets/svgs/socials/twitter.
 import { ReactComponent as YouTubeSVG } from '../../assets/svgs/socials/youtube.svg';
 
 export function SideMenuInner() {
-  const { isDesktop, isHuge } = useContext(ScreenContext);
+  const { isDesktop, isHuge } = useScreen();
   const { pages } = useSelector((state: IState) => state.navigation);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -136,7 +135,7 @@ export function SideMenuInner() {
 }
 
 const SocialsRow = () => {
-  const { isTablet } = useContext(ScreenContext);
+  const { isTablet } = useScreen();
 
   return (
     // TODO does this work with the screen hook changes?

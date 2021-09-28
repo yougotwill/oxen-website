@@ -1,10 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useContext } from 'react';
 import classNames from 'classnames';
 
-import { ScreenContext } from '../../contexts/screen';
+import { useScreen } from '../../contexts/screen';
 import { IPost } from '../../types/cms';
 import { generateURL } from '../../utils/routing';
 
@@ -26,7 +25,7 @@ export function ArticleCardFeature(props: IPost) {
   // Blog keeps the title
 
   const { href, as } = generateURL(slug);
-  const { isMobile, isTablet } = useContext(ScreenContext);
+  const { isMobile, isTablet } = useScreen();
 
   const router = useRouter();
   const onClick = () => router.push(href, as);

@@ -1,13 +1,15 @@
-import classNames from 'classnames';
+import { useRef } from 'react';
 import Link from 'next/link';
-import React, { useContext, useRef } from 'react';
+import classNames from 'classnames';
 import { v4 as uuid } from 'uuid';
-import { ReactComponent as OxenLogoSVG } from '../../assets/svgs/brand.svg';
+
 import { NAVIGATION, UI } from '../../constants';
-import { ScreenContext } from '../../contexts/screen';
+import { useScreen } from '../../contexts/screen';
+
+import { ReactComponent as OxenLogoSVG } from '../../assets/svgs/brand.svg';
 
 export function DesktopHeader() {
-  const { width } = useContext(ScreenContext);
+  const { width } = useScreen();
   const navBarRef = useRef(null);
 
   const tightHeader = width < 740 && width > UI.TABLET_BREAKPOINT;

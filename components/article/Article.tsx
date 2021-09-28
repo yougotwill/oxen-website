@@ -1,6 +1,7 @@
 import classNames from 'classnames';
-import React from 'react';
+
 import { IPost } from '../../types/cms';
+
 import { ArticleContained } from '../ArticleContained';
 import { Contained } from '../Contained';
 import EmailSignup from '../EmailSignup';
@@ -23,7 +24,7 @@ export function Article(props: IPost) {
     description,
   } = props;
 
-  // const { isMobile } = useContext(ScreenContext);
+  // const { isMobile } = useScreen();
 
   return (
     <article>
