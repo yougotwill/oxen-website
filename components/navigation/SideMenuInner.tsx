@@ -27,7 +27,7 @@ import { ReactComponent as TwitterSVG } from '../../assets/svgs/socials/twitter.
 import { ReactComponent as YouTubeSVG } from '../../assets/svgs/socials/youtube.svg';
 
 export function SideMenuInner() {
-  const { isHuge, isDesktop } = useContext(ScreenContext);
+  const { isDesktop, isHuge } = useContext(ScreenContext);
   const { pages } = useSelector((state: IState) => state.navigation);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -65,7 +65,7 @@ export function SideMenuInner() {
 
       <Contained>
         <div className="flex flex-col w-full mb-4 space-y-6">
-          {!isDesktop && (
+          {!(isDesktop || isHuge) && (
             <div
               className={classNames(
                 'flex flex-col pt-8 pl-6 font-medium uppercase font-prompt text-lg',
@@ -85,7 +85,7 @@ export function SideMenuInner() {
         </div>
       </Contained>
 
-      {isDesktop ? (
+      {isDesktop || isHuge ? (
         <div className="px-3 pb-3">
           <SocialsRow />
 
@@ -139,6 +139,7 @@ const SocialsRow = () => {
   const { isTablet } = useContext(ScreenContext);
 
   return (
+    // TODO does this work with the screen hook changes?
     <div
       className={classNames(
         'flex pt-4 pb-4',

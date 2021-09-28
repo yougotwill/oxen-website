@@ -16,7 +16,7 @@ interface SideMenuRowProps {
 
 export function SideMenuRow({ item, isActive }: SideMenuRowProps) {
   const { isMobile, isTablet, isDesktop, isHuge } = useContext(ScreenContext);
-  const isCollapsible = isTablet || isMobile;
+  const isCollapsible = isMobile || isTablet;
   const dispatch = useDispatch();
 
   const handleOnClick = () => {
@@ -40,7 +40,7 @@ export function SideMenuRow({ item, isActive }: SideMenuRowProps) {
       }}
       className={classNames(
         'flex flex-1 space-x-6 justify-between text-primary items-center cursor-pointer border-b border-black py-4 hover:bg-secondary duration-300 whitespace-nowrap',
-        isHuge ? 'text-2xl' : isDesktop ? 'text-xl' : 'text-xl',
+        isDesktop || isHuge ? 'text-2xl' : 'text-xl',
         isActive ? 'bg-secondary' : 'bg-transparent',
         item.shouldHide ? 'hidden' : '',
       )}

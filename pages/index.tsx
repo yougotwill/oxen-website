@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { GetStaticProps, GetStaticPropsContext } from 'next';
+import classNames from 'classnames';
 
 import { IPost } from '../types/cms';
 import { CMS } from '../constants';
@@ -14,10 +15,10 @@ import Products from '../components/sections/Products';
 import Privacy from '../components/sections/Privacy';
 import GetInvolved from '../components/sections/GetInvolved';
 import EmailSignup from '../components/EmailSignup';
-import classNames from 'classnames';
+import { containerStyles } from '../components/Contained';
 
 export default function Index() {
-  const { isDesktop } = useContext(ScreenContext);
+  const { isDesktop, isHuge } = useContext(ScreenContext);
 
   return (
     <>
@@ -27,14 +28,16 @@ export default function Index() {
       <Products />
       <Privacy />
       <GetInvolved />
-      <EmailSignup
-        buttonPosition={isDesktop ? 'left' : 'center'}
-        classes={classNames(
-          'border-none pt-10 pb-16',
-          'tablet:py-8 tablet:max-w-lg',
-          'desktop:py-12 desktop:ml-0',
-        )}
-      />
+      <div className={classNames('w-full mx-auto')} style={containerStyles}>
+        <EmailSignup
+          buttonPosition={isDesktop || isHuge ? 'left' : 'center'}
+          classes={classNames(
+            'border-none pt-10 pb-16',
+            'tablet:py-8 tablet:max-w-lg',
+            'desktop:py-12 desktop:pl-0 desktop:ml-0',
+          )}
+        />
+      </div>
     </>
   );
 }

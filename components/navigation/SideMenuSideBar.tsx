@@ -42,7 +42,7 @@ export function SideMenuSideBar({ mode }: Props) {
     : isBlog
     ? 'Blog'
     : selectedSideMenuItem;
-  const isCollapsible = (isTablet || isMobile) && !isPost && !isBlog;
+  const isCollapsible = (isMobile || isTablet) && !isPost && !isBlog;
 
   const toggleSideMenu = () =>
     dispatch(expanded ? collapseSideMenu() : expandSideMenu());

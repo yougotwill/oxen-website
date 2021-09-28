@@ -19,11 +19,11 @@ interface Props {
 }
 
 export function HorizontalScrollable(props: Props) {
-  const { isDesktop } = useContext(ScreenContext);
+  const { isDesktop, isHuge } = useContext(ScreenContext);
 
   return (
     <>
-      {!isDesktop ? (
+      {!(isDesktop || isHuge) ? (
         <HorizontalScrollableInner {...props} />
       ) : (
         <Contained>
@@ -46,7 +46,7 @@ function HorizontalScrollableInner(props: Props) {
 
   const [rightScrollHidden, setRightScrollHidden] = useState(false);
 
-  const { isDesktop } = useContext(ScreenContext);
+  const { isDesktop, isHuge } = useContext(ScreenContext);
 
   const handleLeftScroll = () => {
     scrollRef.current.scrollBy({
@@ -84,7 +84,7 @@ function HorizontalScrollableInner(props: Props) {
       <div
         className={classNames(
           'absolute left-0 flex items-center justify-between h-full w-full',
-          !isDesktop && 'hidden',
+          !(isDesktop || isHuge) && 'hidden',
         )}
       >
         <div
@@ -118,7 +118,7 @@ function HorizontalScrollableInner(props: Props) {
           'w-full',
           'hide_scroll',
           'scrolling-touch hide-scroll',
-          isDesktop ? 'overflow-x-scroll' : 'overflow-x-scroll',
+          isDesktop || isHuge ? 'overflow-x-scroll' : 'overflow-x-scroll',
         )}
       >
         <div
@@ -126,8 +126,12 @@ function HorizontalScrollableInner(props: Props) {
           className={classNames('flex space-x-8 overflow-y-visible')}
           style={{
             width: 'min-content',
-            marginLeft: `${!isDesktop ? UI.PAGE_CONTAINED_PADDING_VW : 0}vw`,
-            paddingRight: `${!isDesktop ? UI.PAGE_CONTAINED_PADDING_VW : 0}vw`,
+            marginLeft: `${
+              !(isDesktop || isHuge) ? UI.PAGE_CONTAINED_PADDING_VW : 0
+            }vw`,
+            paddingRight: `${
+              !(isDesktop || isHuge) ? UI.PAGE_CONTAINED_PADDING_VW : 0
+            }vw`,
           }}
         >
           {children}

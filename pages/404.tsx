@@ -13,20 +13,22 @@ export default function Custom404(): ReactElement {
   const wrapperStyles = {
     width: '100%',
     maxWidth: '760px',
-    margin: isDesktop ? '50px auto 100px' : '-10px auto',
-    paddingLeft: isHuge ? '0' : `${UI.PAGE_CONTAINED_PADDING_VW}vw`,
-    paddingRight: isHuge ? '0' : `${UI.PAGE_CONTAINED_PADDING_VW}vw`,
-    paddingBottom: !isDesktop ? '33px' : '0px',
+    margin: !isMobile ? '50px auto 100px' : '-10px auto',
+    paddingLeft:
+      isDesktop || isHuge ? '0' : `${UI.PAGE_CONTAINED_PADDING_VW}vw`,
+    paddingRight:
+      isDesktop || isHuge ? '0' : `${UI.PAGE_CONTAINED_PADDING_VW}vw`,
+    paddingBottom: !(isDesktop || isHuge) ? '33px' : '0px',
   };
 
   const svgStyles = {
-    top: isDesktop ? '125px' : isTablet ? '20px' : '85px',
-    left: isDesktop ? '-50px' : isTablet ? '30vw' : '-65px',
-    width: isDesktop ? '810px' : isTablet ? '833px' : '933px',
+    top: isDesktop || isHuge ? '125px' : isTablet ? '20px' : '85px',
+    left: isDesktop || isHuge ? '-50px' : isTablet ? '30vw' : '-65px',
+    width: isDesktop || isHuge ? '810px' : isTablet ? '833px' : '933px',
   };
 
   const _404SectionStyles = {
-    top: isDesktop ? '45px' : isTablet ? '35px' : '25px',
+    top: isDesktop || isHuge ? '45px' : isTablet ? '35px' : '65px',
   };
 
   const _404TitleStyles = {
@@ -40,8 +42,8 @@ export default function Custom404(): ReactElement {
   };
 
   const absoluteBoxStyles = {
-    marginTop: isTablet ? '20px' : '0px',
-    minHeight: isTablet ? '330px' : '450px',
+    marginTop: isMobile || isTablet ? '20px' : '0px',
+    minHeight: isMobile ? '250px' : isTablet ? '300px' : '450px',
   };
 
   return (
@@ -51,7 +53,7 @@ export default function Custom404(): ReactElement {
         <div
           className={classNames(
             'flex w-full justify-between',
-            !isDesktop && 'flex-col',
+            !(isDesktop || isHuge) && 'flex-col',
           )}
         >
           <div style={absoluteBoxStyles} className="relative flex w-full">
