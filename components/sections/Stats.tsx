@@ -1,11 +1,53 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 
+import { UI } from '../../constants';
+import { useScreen } from '../../contexts/screen';
+
 import { Contained } from '../Contained';
+import CountUp from '../animations/CountUp';
 
 import { ReactComponent as OxenLogoSVG } from '../../assets/svgs/logo.svg';
 
-export default function Stats(): ReactElement {
+export interface StatsProps {
+  currentValue: number;
+  coinsLocked: number;
+}
+
+export default function Stats(props: StatsProps): ReactElement {
+  const { currentValue, coinsLocked } = props;
+  const { isMobile, isTablet, isDesktop, isHuge } = useScreen();
+
+  const [startAnimation, setStartAnimation] = useState(false);
+  const statsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollOffset =
+        UI.HEADER_HEIGHT_PX + (isMobile ? -600 : isDesktop || isHuge ? 400 : 0);
+      const scrollEffectStart =
+        statsRef.current?.offsetTop! -
+        statsRef.current?.scrollHeight! -
+        scrollOffset;
+      const scrollEffectStop = statsRef.current?.offsetTop! - scrollOffset;
+
+      if (
+        window.scrollY >= scrollEffectStart &&
+        window.scrollY < scrollEffectStop
+      ) {
+        setStartAnimation(true);
+      }
+    };
+    document.addEventListener('scroll', () => {
+      onScroll();
+    });
+    return () => {
+      document.removeEventListener('scroll', () => {
+        onScroll();
+      });
+    };
+  }, [isMobile, isTablet, isDesktop, isHuge]);
+
   return (
     <Contained
       backgroundColor="secondary"
@@ -20,18 +62,16 @@ export default function Stats(): ReactElement {
           'tablet:w-full',
           'desktop:flex-row',
         )}
+        ref={statsRef}
       >
         <OxenLogoSVG
           className={classNames('w-36 h-36 my-8', 'desktop:w-2/12')}
         />
-
-        {/* TODO Count up animation on first load */}
-        {/* Fetch latest value from somewhere? */}
         <div
           className={classNames(
             'flex flex-col justify-center items-center',
             'tablet:w-full tablet:max-w-xl tablet:flex-row tablet:justify-around',
-            'desktop:max-w-none desktop:w-6/12 desktop:mx-4',
+            'desktop:max-w-none desktop:w-6/12 desktop:mx-3',
           )}
         >
           <div className={classNames('my-8 leading-tight')}>
@@ -41,7 +81,7 @@ export default function Stats(): ReactElement {
                 'desktop:text-7xl',
               )}
             >
-              .65c
+              <CountUp wait={!startAnimation}>{currentValue}</CountUp>c
             </h3>
             <p className={classNames('font-medium')}>CURRENT VALUE</p>
           </div>
@@ -52,7 +92,10 @@ export default function Stats(): ReactElement {
                 'desktop:text-7xl',
               )}
             >
-              48%
+              <CountUp percentage={true} wait={!startAnimation}>
+                {coinsLocked}
+              </CountUp>
+              %
             </h3>
             <p className={classNames('font-medium')}>COINS LOCKED</p>
           </div>

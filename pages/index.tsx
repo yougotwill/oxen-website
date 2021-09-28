@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import { GetStaticProps, GetStaticPropsContext } from 'next';
 import classNames from 'classnames';
 
@@ -6,25 +5,26 @@ import { IPost } from '../types/cms';
 import { CMS } from '../constants';
 import { CmsApi } from '../services/cms';
 import generateRSSFeed from '../utils/rss';
-import { ScreenContext } from '../contexts/screen';
+import { useScreen } from '../contexts/screen';
 
 import Hero from '../components/sections/Hero';
 import About from '../components/sections/About';
-import Stats from '../components/sections/Stats';
+import Stats, { StatsProps } from '../components/sections/Stats';
 import Products from '../components/sections/Products';
 import Privacy from '../components/sections/Privacy';
 import GetInvolved from '../components/sections/GetInvolved';
 import EmailSignup from '../components/EmailSignup';
 import { containerStyles } from '../components/Contained';
 
-export default function Index() {
-  const { isDesktop, isHuge } = useContext(ScreenContext);
+export default function Index(props: StatsProps) {
+  const { currentValue, coinsLocked } = props;
+  const { isDesktop, isHuge } = useScreen();
 
   return (
     <>
       <Hero />
       <About />
-      <Stats />
+      <Stats currentValue={currentValue} coinsLocked={coinsLocked} />
       <Products />
       <Privacy />
       <GetInvolved />
@@ -68,9 +68,11 @@ export const getStaticProps: GetStaticProps = async (
   }
 
   // TODO Fetch stats here and pass through
+  let currentValue = 0.65;
+  let coinsLocked = 0.48;
 
   return {
-    props: {},
+    props: { currentValue, coinsLocked },
     revalidate: CMS.CONTENT_REVALIDATE_RATE,
   };
 };
