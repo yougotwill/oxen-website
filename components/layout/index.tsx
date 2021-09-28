@@ -13,7 +13,7 @@ interface Props {
 }
 
 export default function Layout({ children }: Props) {
-  const { isMobile, isTablet, isDesktop } = useContext(ScreenContext);
+  const { isMobile, isTablet, isDesktop, isHuge } = useContext(ScreenContext);
   const { pageType, headerMobileMenuExpanded } = useSelector(
     (state: IState) => state.navigation,
   );
@@ -21,7 +21,7 @@ export default function Layout({ children }: Props) {
   const router = useRouter();
 
   // const marginLeft = `${
-  //   pageType === PageType.NORMAL && isTablet
+  //   pageType === PageType.NORMAL && (isMobile || isTablet)
   //     ? UI.SIDE_MENU_SIDE_BAR_WIDTH_PX
   //     : 0
   // }px`;
@@ -46,17 +46,14 @@ export default function Layout({ children }: Props) {
   }, []);
 
   return (
-    <div
-      style={{ height: '100vh', width: '100%' }}
-      className="relative flex flex-col justify-between overflow-hidden bg-alt text-primary"
-    >
+    <div className="relative flex flex-col justify-between w-full bg-alt text-primary">
       <Header />
 
       <div
         style={{
           height: `calc(100vh - ${UI.HEADER_HEIGHT_PX}px`,
         }}
-        className="flex w-full h-full"
+        className="flex w-full"
       >
         {/* <SideMenu /> */}
 
@@ -66,7 +63,7 @@ export default function Layout({ children }: Props) {
             marginLeft,
             filter: `brightness(${mobileMenuOpen ? 0.85 : 1})`,
           }}
-          className="relative z-50 w-full h-full overflow-y-auto duration-300 bg-alt"
+          className="relative z-50 w-full duration-300 bg-alt"
         >
           {children}
         </div>

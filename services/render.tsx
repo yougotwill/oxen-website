@@ -59,7 +59,7 @@ function EmbeddedLink(node: any, isInline = false): ReactElement {
 }
 
 function EmbeddedMedia(node: any, isInline = false): ReactElement {
-  const { isMobile, isTablet, isDesktop } = useContext(ScreenContext);
+  const { isMobile, isTablet, isDesktop, isHuge } = useContext(ScreenContext);
   // is either an asset or entry
   const media = node.file.fields ?? node;
   const url = media.file.url.replace('//', 'https://');
@@ -88,7 +88,7 @@ function EmbeddedMedia(node: any, isInline = false): ReactElement {
     if (!isMobile && node.position) {
       figureStyles.width = imageWidth;
     }
-    if (isDesktop) {
+    if (isDesktop || isHuge) {
       figureStyles.maxWidth = '800px';
     }
     return (

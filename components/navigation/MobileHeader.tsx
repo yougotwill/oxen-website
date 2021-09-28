@@ -66,7 +66,7 @@ export function MobileHeader() {
           />
         )}
 
-        {(isTablet || isMobile) && isBlog && (
+        {(isMobile || isTablet) && isBlog && (
           <>
             <TriangleSVG
               onClick={() => toggleMobileMenu()}

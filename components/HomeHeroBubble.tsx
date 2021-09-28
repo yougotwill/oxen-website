@@ -12,12 +12,16 @@ export function HomeHeroBubble() {
     <div
       style={{
         marginTop:
-          isMobile || isTablet ? '33px' : isHuge ? '16rem' : 'min(50vh, 20rem)',
+          isMobile || isTablet
+            ? '33px'
+            : isDesktop || isHuge
+            ? '16rem'
+            : 'min(50vh, 20rem)',
       }}
       onClick={() => dispatch(expandSideMenu())}
       className={classNames(
         'absolute z-40 px-4 tablet:px-6 duration-300 w-full h-full tablet:w-auto tablet:h-auto flex justify-center items-center tablet:flex-none',
-        !isDesktop && 'cursor-pointer',
+        !(isDesktop || isHuge) && 'cursor-pointer',
       )}
     >
       <div

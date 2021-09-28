@@ -2,19 +2,19 @@ import React from 'react';
 import { useScreenSize } from '../hooks/screen';
 
 interface IScreen {
+  width: number;
   isMobile: boolean;
   isTablet: boolean;
   isDesktop: boolean;
   isHuge: boolean;
-  width: number;
 }
 
-export const ScreenContext = React.createContext({
+export const ScreenContext = React.createContext<IScreen>({
+  width: 0,
   isMobile: true,
   isTablet: false,
   isDesktop: false,
   isHuge: false,
-  width: 0,
 });
 
 const ScreenProvider = ({ children }) => {

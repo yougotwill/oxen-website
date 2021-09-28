@@ -4,10 +4,14 @@ import { IPost } from '../../../types/cms';
 import { RichBody } from '../../RichBody';
 
 export function ArticleSectionContent(post: IPost) {
-  const { isDesktop } = useContext(ScreenContext);
+  const { isDesktop, isHuge } = useContext(ScreenContext);
   return (
     <>
-      {!isDesktop ? <MobileContent {...post} /> : <DesktopContent {...post} />}
+      {!(isDesktop || isHuge) ? (
+        <MobileContent {...post} />
+      ) : (
+        <DesktopContent {...post} />
+      )}
     </>
   );
 }

@@ -1,7 +1,15 @@
+// https://tailwindcss.com/docs/responsive-design
+import tailwindConfig from '../tailwind.config.js';
+
+function makeNumber(input: string) {
+  return Number(input.split('px')[0]);
+}
+
 const UI = {
-  MOBILE_BREAKPOINT: 500,
-  TABLET_BREAKPOINT: 850,
-  DESKTOP_BREAKPOINT: 1100,
+  MOBILE_BREAKPOINT: makeNumber(tailwindConfig.theme.screens.mobile),
+  TABLET_BREAKPOINT: makeNumber(tailwindConfig.theme.screens.tablet),
+  DESKTOP_BREAKPOINT: makeNumber(tailwindConfig.theme.screens.desktop),
+  HUGE_BREAKPOINT: makeNumber(tailwindConfig.theme.screens.huge),
   MAX_CONTENT_WIDTH: 1100,
   MAX_ARTICLE_WIDTH: 900,
   PAGE_CONTAINED_PADDING_VW: 5,

@@ -9,16 +9,14 @@ interface Props {
   children: ReactNode;
 }
 
+export const containerStyles = {
+  paddingLeft: `${UI.PAGE_CONTAINED_PADDING_VW}vw`,
+  paddingRight: `${UI.PAGE_CONTAINED_PADDING_VW}vw`,
+  maxWidth: `${UI.MAX_CONTENT_WIDTH}px`,
+};
+
 export function Contained(props: Props) {
   const { id, backgroundColor, classes, children } = props;
-
-  const containerStyle = {
-    paddingLeft: `${UI.PAGE_CONTAINED_PADDING_VW}vw`,
-    paddingRight: `${UI.PAGE_CONTAINED_PADDING_VW}vw`,
-    width: '100%',
-    maxWidth: `${UI.MAX_CONTENT_WIDTH}px`,
-    margin: '0 auto',
-  };
 
   const backgroundColorClasses = [
     backgroundColor === 'primary' && 'bg-primary',
@@ -28,11 +26,11 @@ export function Contained(props: Props) {
   ];
 
   return (
-    <div className={classNames('w-screen', backgroundColorClasses)}>
+    <div className={classNames('w-full', backgroundColorClasses)}>
       <div
         id={id}
-        className={classNames('w-full', classes)}
-        style={containerStyle}
+        className={classNames('w-full my-0 mx-auto', classes)}
+        style={containerStyles}
       >
         {children}
       </div>

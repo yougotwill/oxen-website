@@ -39,7 +39,7 @@ export function Button(props: Props) {
     wide = false,
   } = props;
 
-  const { isDesktop } = useContext(ScreenContext);
+  const { isDesktop, isHuge } = useContext(ScreenContext);
 
   const clickHandler = (e: React.MouseEvent) => {
     if (onClick) {
@@ -78,7 +78,7 @@ export function Button(props: Props) {
   const sizeStyles = [
     size === 'large' && 'text-lg py-2',
     size === 'medium' && 'text-base py-1',
-    size === 'small' && ['text-sm', isDesktop ? 'py-0' : 'py-1'],
+    size === 'small' && ['text-sm', isDesktop || isHuge ? 'py-0' : 'py-1'],
     size === 'tiny' && 'text-xs py-0',
   ];
 

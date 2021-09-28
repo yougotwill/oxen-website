@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useMeasure } from 'react-use';
+import classNames from 'classnames';
 
 import { NAVIGATION, METADATA } from '../constants';
 import { SideMenuItem } from '../state/navigation';
@@ -19,6 +20,8 @@ function Roadmap() {
   console.log('roadmap ➡️ width:', width);
   console.log('roadmap ➡️ ratio:', aspectRatio);
 
+  const imageClasses = ['relative w-full max-w-7xl mx-auto'];
+
   return (
     <>
       <CustomHead
@@ -27,7 +30,7 @@ function Roadmap() {
       />
       <div className="mx-4">
         <div className="flex items-center justify-center mt-8">
-          <div className="relative w-full" style={{ height: '90%' }}>
+          <div className={classNames(imageClasses)} style={{ height: '90%' }}>
             <Image
               src={`/img/roadmap-${horizontal ? 'x' : 'y'}.png`}
               alt="Oxen's Roadmap and Plans for the future."
@@ -47,7 +50,7 @@ function Roadmap() {
               Session in 2021
             </h2>
             <div
-              className="relative w-full"
+              className={classNames(imageClasses)}
               style={{ height: horizontal ? '90%' : 'auto' }}
             >
               <Image
@@ -67,7 +70,7 @@ function Roadmap() {
             <h2 className="mt-6 mb-3 text-3xl font-medium text-center tablet:text-4xl font-prompt text-primary">
               Lokinet in 2021
             </h2>
-            <div className="relative w-full" style={{ height: '90%' }}>
+            <div className={classNames(imageClasses)} style={{ height: '90%' }}>
               <Image
                 src={`/img/lokinet-${horizontal ? 'x' : 'y'}.png`}
                 alt="Lokinet's Roadmap and Plans for the future."
