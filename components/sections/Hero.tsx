@@ -3,7 +3,7 @@ import Image from 'next/image';
 import classNames from 'classnames';
 
 import { Button } from '../Button';
-import bannerImage from '../../public/site-banner.png';
+import heroImage from '../../assets/svgs/hero.svg';
 import { Contained } from '../Contained';
 
 export default function Hero(): ReactElement {
@@ -11,15 +11,15 @@ export default function Hero(): ReactElement {
     <Contained
       backgroundColor="white"
       classes={classNames(
-        'h-screen',
-        'tablet:flex tablet:flex-col tablet:justify-center tablet:items-center',
-        'desktop:flex-row desktop:items-start desktop:pt-40',
+        'h-full',
+        'tablet:flex tablet:flex-col tablet:justify-start tablet:items-center tablet:pt-8',
+        'desktop:h-screen desktop:flex-row desktop:items-start desktop:pt-32 desktop:overflow-x-hidden',
       )}
     >
       <div
         className={classNames(
-          'flex flex-col justify-center items-center text-center pt-8',
-          'tablet:max-w-2xl',
+          'flex flex-col justify-center items-center text-center pt-2',
+          'tablet:max-w-lg',
           'desktop:max-w-none desktop:w-1/2 desktop:text-left desktop:items-start',
         )}
       >
@@ -29,33 +29,39 @@ export default function Hero(): ReactElement {
             'desktop:w-3/4',
           )}
         >
-          Crypto powering private applications
+          Privacy is possible
         </h1>
         <p className={classNames('text-2xl leading-tight')}>
-          Oxen is this and that, and we use the power of blockchain blah blah
-          blah.
+          Oxen is a cryptocurrency powering a new class of interconnected
+          privacy apps.
         </p>
         <div
           className={classNames(
-            'flex justify-around items-center mt-6 mb-4 w-full',
-            'tablet:justify-center',
+            'flex justify-center items-center my-8 w-full',
             'desktop:justify-start',
           )}
         >
-          <Button color="primary">Learn more</Button>
-          <Button color="primary" type="text" className={'underline'}>
-            View our products
+          <Button color="secondary" shape={'round'}>
+            Learn more
+          </Button>
+          <Button color="secondary" type="text" className={''}>
+            Our apps
           </Button>
         </div>
       </div>
       <div
         className={classNames(
-          'relative mt-8',
-          'tablet:max-w-lg',
-          'desktop:max-w-none desktop:w-1/2 desktop:px-8',
+          'relative py-8 mx-auto',
+          'tablet:pt-16 tablet:pb-24 tablet:max-w-lg',
+          'desktop:pt-0 desktop:pb-0 desktop:max-w-none desktop:-mt-24 desktop:-mr-24',
         )}
       >
-        <Image src={bannerImage} alt={'Oxen Logo Blue Background'} />
+        <Image
+          src={heroImage}
+          alt={'Oxen written in Neon Pink'}
+          width={643}
+          height={426}
+        />
       </div>
     </Contained>
   );

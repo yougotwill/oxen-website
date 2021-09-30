@@ -6,7 +6,8 @@ export interface Props {
   color?: 'primary' | 'secondary' | 'danger' | 'white';
   type?: 'text' | 'ghost' | 'solid' | 'outline';
   size?: 'tiny' | 'small' | 'medium' | 'large';
-
+  shape?: 'round' | 'semiround' | 'square';
+  fontWeight?: 'normal' | 'semibold' | 'bold';
   disabled?: boolean;
   selected?: boolean;
   buttonType?: 'submit';
@@ -19,13 +20,15 @@ export interface Props {
   prefix?: JSX.Element;
   suffix?: JSX.Element;
 
-  wide?: boolean;
+  wideText?: boolean;
 }
 
 export function Button(props: Props) {
   const {
     color = 'primary',
     size = 'medium',
+    shape = 'square',
+    fontWeight = 'normal',
     type = 'solid',
     disabled = false,
     selected = false,
@@ -36,7 +39,7 @@ export function Button(props: Props) {
     className,
     prefix,
     suffix,
-    wide = false,
+    wideText: wide = false,
   } = props;
 
   const { isDesktop, isHuge } = useScreen();
@@ -65,7 +68,7 @@ export function Button(props: Props) {
     selected && 'bg-opacity-75',
   ];
 
-  const outlineClassNames = ['rounded-none py-2'];
+  const outlineClassNames = ['py-2'];
 
   const textTypeClassNames = [`text-${color}`, 'hover:opacity-75'];
 
@@ -80,6 +83,19 @@ export function Button(props: Props) {
     size === 'medium' && 'text-base py-1',
     size === 'small' && ['text-sm', isDesktop || isHuge ? 'py-0' : 'py-1'],
     size === 'tiny' && 'text-xs py-0',
+  ];
+
+  const shapeStyles = [
+    shape === 'round' && 'rounded-3xl',
+    shape === 'semiround' && 'rounded-lg',
+    shape === 'square' && 'rounded-none',
+  ];
+
+  const fontStyles = [
+    'font-raleway',
+    fontWeight === 'normal' && 'font-normal',
+    fontWeight === 'semibold' && 'font-semibold',
+    fontWeight === 'bold' && 'font-bold',
   ];
 
   // Make bg crop to text with tailwind on gradient
@@ -99,16 +115,15 @@ export function Button(props: Props) {
         'flex',
         'justify-center',
         'items-center',
-        'px-4',
+        'px-8',
         'outline-none',
         'duration-300',
         'ease-in-out',
         'text-center',
-        'rounded-none',
-        'font-raleway',
-        'font-semibold',
         off,
         sizeStyles,
+        shapeStyles,
+        fontStyles,
         typeStyles,
         wide && 'tracking-widest',
         !disabled && type !== 'text' && 'hover:text-white',
