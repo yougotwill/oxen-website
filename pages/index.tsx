@@ -6,6 +6,7 @@ import { CMS } from '../constants';
 import { CmsApi } from '../services/cms';
 import generateRSSFeed from '../utils/rss';
 import { useScreen } from '../contexts/screen';
+import { fetchCurrentPrice } from '../services/coingecko';
 
 import Hero from '../components/sections/Hero';
 import About from '../components/sections/About';
@@ -68,7 +69,7 @@ export const getStaticProps: GetStaticProps = async (
   }
 
   // TODO Fetch stats here and pass through
-  let currentValue = 0.65;
+  const currentValue = await fetchCurrentPrice();
   let coinsLocked = 0.48;
 
   return {
