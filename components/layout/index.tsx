@@ -7,8 +7,7 @@ import { useScreen } from '../../contexts/screen';
 import { PageType } from '../../state/navigation';
 import { IState } from '../../state/reducers';
 
-import { Header } from '../navigation/Header';
-import { SideMenu } from '../navigation/SideMenu';
+import Nav from '../navigation/Nav';
 
 interface Props {
   children: ReactNode;
@@ -48,8 +47,8 @@ export default function Layout({ children }: Props) {
   }, []);
 
   return (
-    <div className="relative flex flex-col justify-between w-full bg-alt text-primary">
-      <Header />
+    <div className="relative flex flex-col justify-between w-full text-primary">
+      <Nav />
 
       <div
         style={{
@@ -57,15 +56,13 @@ export default function Layout({ children }: Props) {
         }}
         className="flex w-full"
       >
-        {/* <SideMenu /> */}
-
         <div
           ref={ref}
           style={{
             marginLeft,
             filter: `brightness(${mobileMenuOpen ? 0.85 : 1})`,
           }}
-          className="relative z-50 w-full duration-300 bg-alt"
+          className="relative w-full duration-300"
         >
           {children}
         </div>

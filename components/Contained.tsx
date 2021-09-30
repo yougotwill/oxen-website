@@ -4,7 +4,7 @@ import { UI } from '../constants';
 
 interface Props {
   id?: string;
-  backgroundColor?: 'primary' | 'secondary' | 'alt' | 'secondary-1';
+  backgroundColor?: 'primary' | 'secondary' | 'alt' | 'white';
   classes?: string;
   children: ReactNode;
 }
@@ -22,7 +22,7 @@ export function Contained(props: Props) {
     backgroundColor === 'primary' && 'bg-primary',
     backgroundColor === 'secondary' && 'bg-secondary',
     backgroundColor === 'alt' && 'bg-alt',
-    backgroundColor === 'primary' && 'bg-secondary-1',
+    backgroundColor === 'white' && 'bg-white',
   ];
 
   return (

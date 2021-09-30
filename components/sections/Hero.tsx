@@ -9,7 +9,7 @@ import { Contained } from '../Contained';
 export default function Hero(): ReactElement {
   return (
     <Contained
-      backgroundColor="secondary"
+      backgroundColor="white"
       classes={classNames(
         'h-screen',
         'tablet:flex tablet:flex-col tablet:justify-center tablet:items-center',

@@ -57,7 +57,7 @@ export default function EmailSignup(props: Props): ReactElement {
     <div
       id="signup"
       className={classNames(
-        'border-2 border-solid border-primary p-6 mt-6 mb-10',
+        'bg-alt border-2 border-solid border-primary p-6 mt-6 mb-10',
         'tablet:mx-auto tablet:py-4 tablet:px-12 tablet:mt-6 tablet:mb-8',
         'desktop:py-6 desktop:px-14',
         router.asPath !== '/get-involved' ? 'tablet:w-full' : 'tablet:w-4/5',

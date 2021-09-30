@@ -23,7 +23,7 @@ export default function Index(props: StatsProps) {
   const { isDesktop, isHuge } = useScreen();
 
   return (
-    <>
+    <div className={classNames('relative bg-alt')}>
       <Hero />
       <About />
       <Stats currentValue={currentValue} coinsLocked={coinsLocked} />
@@ -41,7 +41,7 @@ export default function Index(props: StatsProps) {
         />
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

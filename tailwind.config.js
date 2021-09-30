@@ -37,6 +37,13 @@ module.exports = {
       '9xl': ['7rem'],
     },
     extend: {
+      animation: {
+        push: 'push 0.3s linear 1',
+        float: 'float 9s infinite',
+      },
+      borderWidth: {
+        3: '3px',
+      },
       colors: {
         primary: '#1F1C47',
         secondary: '#12C7BA',
@@ -49,9 +56,6 @@ module.exports = {
       display: ['huge', 'desktop', 'tablet', 'mobile'],
       backgroundOpacity: {
         10: '0.1',
-      },
-      animation: {
-        float: 'float 9s infinite',
       },
       keyframes: {
         float: {
@@ -68,11 +72,18 @@ module.exports = {
             animationTimingFunction: 'linear',
           },
         },
+        push: {
+          '50%': { transform: 'scale(0.8)' },
+        },
+      },
+      transitionProperty: {
+        height: 'height',
       },
     },
   },
   variants: {
     extend: {
+      animation: ['hover'],
       borderWidth: ['last'],
       fontWeight: ['last'],
     },
