@@ -6,7 +6,7 @@ import { v4 as uuid } from 'uuid';
 import { NAVIGATION, UI } from '../../constants';
 import { useScreen } from '../../contexts/screen';
 
-import { ReactComponent as OxenLogoSVG } from '../../assets/svgs/brand.svg';
+import { ReactComponent as OxenLogoSVG } from '../../assets/svgs/brand-dark.svg';
 
 export function DesktopHeader() {
   const { width } = useScreen();

@@ -8,6 +8,7 @@ import generateRSSFeed from '../utils/rss';
 import { useScreen } from '../contexts/screen';
 import { fetchCurrentPrice } from '../services/coingecko';
 
+import { containerStyles } from '../components/Contained';
 import Hero from '../components/sections/Hero';
 import About from '../components/sections/About';
 import Stats, { StatsProps } from '../components/sections/Stats';
@@ -15,7 +16,7 @@ import Products from '../components/sections/Products';
 import Privacy from '../components/sections/Privacy';
 import GetInvolved from '../components/sections/GetInvolved';
 import EmailSignup from '../components/EmailSignup';
-import { containerStyles } from '../components/Contained';
+import Footer from '../components/navigation/Footer';
 
 export default function Index(props: StatsProps) {
   const { currentValue, coinsLocked } = props;
@@ -39,6 +40,7 @@ export default function Index(props: StatsProps) {
           )}
         />
       </div>
+      <Footer />
     </>
   );
 }

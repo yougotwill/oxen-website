@@ -15,7 +15,7 @@ import { IState } from '../../state/reducers';
 
 import { MobileMenu } from './MobileMenu';
 
-import { ReactComponent as OxenLogoSVG } from '../../assets/svgs/brand.svg';
+import { ReactComponent as OxenLogoSVG } from '../../assets/svgs/brand-dark.svg';
 import { ReactComponent as TriangleSVG } from '../../assets/svgs/triangle.svg';
 
 export function MobileHeader() {
