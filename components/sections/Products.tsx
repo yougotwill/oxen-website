@@ -13,7 +13,7 @@ export default function Products(): ReactElement {
     <Contained
       backgroundColor="white"
       classes={classNames(
-        'flex flex-col justify-center items-center pb-16',
+        'flex flex-col justify-center items-center pb-8',
         'tablet:pb-24',
         'desktop:items-start desktop:pb-16',
       )}
@@ -77,7 +77,7 @@ export default function Products(): ReactElement {
       </div>
       <div
         className={classNames(
-          'flex flex-col justify-center items-center mt-4 mb-12',
+          'flex flex-col justify-center items-center mb-12',
           'tablet:flex-row tablet:mt-12 tablet:mb-16',
         )}
       >
