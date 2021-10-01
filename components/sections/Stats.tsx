@@ -1,4 +1,5 @@
 import { ReactElement, useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import classNames from 'classnames';
 
 import { UI } from '../../constants';
@@ -7,7 +8,9 @@ import { useScreen } from '../../contexts/screen';
 import { Contained } from '../Contained';
 import CountUp from '../animations/CountUp';
 
-import { ReactComponent as OxenLogoSVG } from '../../assets/svgs/logo.svg';
+import dollarImage from '../../assets/svgs/dollar.svg';
+import padlockImage from '../../assets/svgs/padlock.svg';
+import nodeImage from '../../assets/svgs/node.svg';
 
 export interface StatsProps {
   currentValue: number;
@@ -24,7 +27,8 @@ export default function Stats(props: StatsProps): ReactElement {
   useEffect(() => {
     const onScroll = () => {
       const scrollOffset =
-        UI.HEADER_HEIGHT_PX + (isMobile ? -600 : isDesktop || isHuge ? 400 : 0);
+        UI.HEADER_HEIGHT_PX +
+        (isMobile ? -1100 : isDesktop || isHuge ? 200 : 500);
       const scrollEffectStart =
         statsRef.current?.offsetTop! -
         statsRef.current?.scrollHeight! -
@@ -49,72 +53,139 @@ export default function Stats(props: StatsProps): ReactElement {
   }, [isMobile, isTablet, isDesktop, isHuge]);
 
   return (
-    <Contained
-      backgroundColor="secondary"
-      classes={classNames(
-        'tablet:flex tablet:flex-col tablet:justify-center tablet:items-center',
-        'desktop:flex-row desktop:pt-8 desktop:pb-16',
-      )}
-    >
+    <Contained backgroundColor="alt">
       <div
         className={classNames(
-          'flex flex-col justify-center items-center text-center pt-8',
-          'tablet:w-full',
-          'desktop:flex-row',
+          'flex flex-col justify-center items-center text-black text-center pt-16 pb-24',
+          'tablet:flex-row tablet:text-left',
         )}
         ref={statsRef}
       >
-        <OxenLogoSVG
-          className={classNames('w-36 h-36 my-8', 'desktop:w-2/12')}
-        />
         <div
           className={classNames(
             'flex flex-col justify-center items-center',
-            'tablet:w-full tablet:max-w-xl tablet:flex-row tablet:justify-around',
-            'desktop:max-w-none desktop:w-6/12 desktop:mx-3',
+            'tablet:flex-row tablet:w-full',
           )}
         >
-          <div className={classNames('my-8 leading-tight')}>
-            <h3
+          <div
+            className={classNames(
+              'leading-tight',
+              'tablet:flex tablet:items-center tablet:mr-8',
+              'desktop:w-1/3 desktop:leading-snug desktop:pr-16',
+            )}
+          >
+            <div
               className={classNames(
-                'text-8xl font-semibold',
-                'desktop:text-7xl',
+                'relative mx-auto pb-4',
+                'desktop:ml-0 desktop:mr-2',
               )}
             >
-              <CountUp wait={!startAnimation}>{currentValue}</CountUp>c
-            </h3>
-            <p className={classNames('font-medium')}>CURRENT VALUE</p>
+              <Image
+                src={dollarImage}
+                alt={'Dollar Sign'}
+                width={122}
+                height={200}
+              />
+            </div>
+            <div className={classNames('tablet:ml-4')}>
+              <p className={classNames('text-lg', 'desktop:w-24 desktop:pt-2')}>
+                Current Value:
+              </p>
+              <h3
+                className={classNames(
+                  'text-7xl font-light',
+                  'tablet:text-5xl tablet:w-28',
+                  'desktop:text-7xl',
+                )}
+              >
+                <CountUp
+                  decimal={true}
+                  wait={!startAnimation}
+                  classes={'font-semibold'}
+                >
+                  {currentValue}
+                </CountUp>
+                c
+              </h3>
+            </div>
           </div>
-          <div className={classNames('my-8 leading-tight')}>
-            <h3
+          <div
+            className={classNames(
+              'mt-16 leading-tight',
+              'tablet:mt-0 tablet:flex tablet:items-center tablet:mr-8',
+              'desktop:w-1/3 desktop:leading-snug desktop:pr-16',
+            )}
+          >
+            <div
               className={classNames(
-                'text-8xl font-semibold',
-                'desktop:text-7xl',
+                'relative mx-auto pb-4',
+                'desktop:ml-0 desktop:mr-2',
               )}
             >
-              <CountUp percentage={true} wait={!startAnimation}>
-                {coinsLocked}
-              </CountUp>
-              %
-            </h3>
-            <p className={classNames('font-medium')}>COINS LOCKED</p>
+              <Image
+                src={padlockImage}
+                alt={'Locked Padlock'}
+                width={131}
+                height={200}
+              />
+            </div>
+            <div className={classNames('tablet:ml-4')}>
+              <p className={classNames('text-lg', 'desktop:w-24 desktop:pt-2')}>
+                Coins Locked:
+              </p>
+              <h3
+                className={classNames(
+                  'text-7xl font-light',
+                  'tablet:text-5xl tablet:w-28',
+                  'desktop:text-7xl',
+                )}
+              >
+                <CountUp
+                  percentage={true}
+                  wait={!startAnimation}
+                  classes={'font-semibold'}
+                >
+                  {coinsLocked}
+                </CountUp>
+                %
+              </h3>
+            </div>
           </div>
-        </div>
-
-        <div
-          className={classNames(
-            'my-8',
-            'tablet:max-w-sm',
-            'desktop:max-w-none desktop:w-4/12 desktop:text-left desktop:mt-4 desktop:mb-0',
-          )}
-        >
-          <p className={classNames('font-semibold leading-snug mb-4')}>
-            Something short and sweet here or maybe another stat if you have
-            one?
-          </p>
-          <p className={classNames('mb-8', 'desktop:mb-0')}>
-            Coin Market Cap Coin Gecko
-          </p>
+          <div
+            className={classNames(
+              'mt-16 leading-tight',
+              'tablet:mt-0 tablet:flex tablet:items-center',
+              'desktop:w-1/3 desktop:leading-snug desktop:pr-16',
+            )}
+          >
+            <div
+              className={classNames(
+                'relative mx-auto pb-4',
+                'desktop:ml-0 desktop:mr-2',
+              )}
+            >
+              <Image
+                src={nodeImage}
+                alt={'Server box'}
+                width={135}
+                height={200}
+              />
+            </div>
+            <div className={classNames('tablet:ml-4')}>
+              <p className={classNames('text-lg', 'desktop:w-24 desktop:pt-2')}>
+                Service Nodes:
+              </p>
+              <h3
+                className={classNames(
+                  'text-7xl font-semibold',
+                  'tablet:text-5xl tablet:w-28',
+                  'desktop:text-7xl',
+                )}
+              >
+                <CountUp wait={!startAnimation}>{1700}</CountUp>
+              </h3>
+            </div>
+          </div>
         </div>
       </div>
     </Contained>
