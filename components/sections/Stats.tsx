@@ -15,10 +15,11 @@ import nodeImage from '../../assets/svgs/node.svg';
 export interface StatsProps {
   currentValue: number;
   coinsLocked: number;
+  serviceNodes: number;
 }
 
 export default function Stats(props: StatsProps): ReactElement {
-  const { currentValue, coinsLocked } = props;
+  const { currentValue, coinsLocked, serviceNodes } = props;
   const { isMobile, isTablet, isDesktop, isHuge } = useScreen();
 
   const [startAnimation, setStartAnimation] = useState(false);
@@ -182,7 +183,7 @@ export default function Stats(props: StatsProps): ReactElement {
                   'desktop:text-7xl',
                 )}
               >
-                <CountUp wait={!startAnimation}>{1700}</CountUp>
+                <CountUp wait={!startAnimation}>{serviceNodes}</CountUp>
               </h3>
             </div>
           </div>

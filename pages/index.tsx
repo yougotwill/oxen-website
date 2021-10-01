@@ -6,7 +6,11 @@ import { CMS } from '../constants';
 import { CmsApi } from '../services/cms';
 import generateRSSFeed from '../utils/rss';
 import { useScreen } from '../contexts/screen';
-import { fetchCurrentPrice } from '../services/coingecko';
+import {
+  fetchCurrentPrice,
+  fetchActiveNodes,
+  fetchCoinsLocked,
+} from '../services/oxenObserver';
 
 import { containerStyles } from '../components/Contained';
 import Hero from '../components/sections/Hero';
@@ -19,14 +23,18 @@ import EmailSignup from '../components/EmailSignup';
 import Footer from '../components/navigation/Footer';
 
 export default function Index(props: StatsProps) {
-  const { currentValue, coinsLocked } = props;
+  const { currentValue, coinsLocked, serviceNodes } = props;
   const { isDesktop, isHuge } = useScreen();
 
   return (
     <div className={classNames('relative bg-alt')}>
       <Hero />
       <About />
-      <Stats currentValue={currentValue} coinsLocked={coinsLocked} />
+      <Stats
+        currentValue={currentValue}
+        coinsLocked={coinsLocked}
+        serviceNodes={serviceNodes}
+      />
       <Products />
       <Privacy />
       <GetInvolved />
@@ -70,12 +78,12 @@ export const getStaticProps: GetStaticProps = async (
     generateRSSFeed(posts);
   }
 
-  // TODO Fetch stats here and pass through
   const currentValue = await fetchCurrentPrice();
-  let coinsLocked = 0.48;
+  const coinsLocked = await fetchCoinsLocked();
+  const serviceNodes = await fetchActiveNodes();
 
   return {
-    props: { currentValue, coinsLocked },
+    props: { currentValue, coinsLocked, serviceNodes },
     revalidate: CMS.CONTENT_REVALIDATE_RATE,
   };
 };
