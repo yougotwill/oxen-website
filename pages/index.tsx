@@ -5,26 +5,22 @@ import { IPost } from '../types/cms';
 import { CMS } from '../constants';
 import { CmsApi } from '../services/cms';
 import generateRSSFeed from '../utils/rss';
-import { useScreen } from '../contexts/screen';
 import {
   fetchCurrentPrice,
   fetchActiveNodes,
   fetchCoinsLocked,
 } from '../services/oxenObserver';
 
-import { containerStyles } from '../components/Contained';
 import Hero from '../components/sections/Hero';
 import About from '../components/sections/About';
 import Stats, { StatsProps } from '../components/sections/Stats';
 import Products from '../components/sections/Products';
 import Privacy from '../components/sections/Privacy';
 import GetInvolved from '../components/sections/GetInvolved';
-import EmailSignup from '../components/EmailSignup';
 import Footer from '../components/navigation/Footer';
 
 export default function Index(props: StatsProps) {
   const { currentValue, coinsLocked, serviceNodes } = props;
-  const { isDesktop, isHuge } = useScreen();
 
   return (
     <div className={classNames('relative bg-alt')}>

@@ -4,13 +4,6 @@ import classNames from 'classnames';
 
 import { Contained } from '../Contained';
 
-import youtubeImage from '../../assets/svgs/community/youtube.svg';
-import twitterImage from '../../assets/svgs/community/twitter.svg';
-import telegramImage from '../../assets/svgs/community/telegram.svg';
-import githubImage from '../../assets/svgs/community/github.svg';
-import redditImage from '../../assets/svgs/community/reddit.svg';
-import sessionImage from '../../assets/svgs/community/session.svg';
-
 export default function GetInvolved(): ReactElement {
   return (
     <Contained
@@ -73,10 +66,11 @@ export default function GetInvolved(): ReactElement {
             )}
           >
             <Image
-              src={youtubeImage}
+              src={'/svgs/community/youtube.svg'}
               alt={'Isomorphic YouTube logo'}
               width={64}
               height={73}
+              quality={100}
             />
           </div>
         </a>
@@ -94,10 +88,11 @@ export default function GetInvolved(): ReactElement {
             )}
           >
             <Image
-              src={twitterImage}
+              src={'/svgs/community/twitter.svg'}
               alt={'Isomorphic Twitter logo'}
               width={64}
               height={73}
+              quality={100}
             />
           </div>
         </a>
@@ -115,10 +110,11 @@ export default function GetInvolved(): ReactElement {
             )}
           >
             <Image
-              src={telegramImage}
+              src={'/svgs/community/telegram.svg'}
               alt={'Isomorphic Telegram logo'}
               width={60}
               height={71}
+              quality={100}
             />
           </div>
         </a>
@@ -136,10 +132,11 @@ export default function GetInvolved(): ReactElement {
             )}
           >
             <Image
-              src={githubImage}
+              src={'/svgs/community/github.svg'}
               alt={'Isomorphic Github logo'}
               width={62}
               height={74}
+              quality={100}
             />
           </div>
         </a>
@@ -157,10 +154,11 @@ export default function GetInvolved(): ReactElement {
             )}
           >
             <Image
-              src={redditImage}
+              src={'/svgs/community/reddit.svg'}
               alt={'Isomorphic Reddit logo'}
               width={64}
               height={80}
+              quality={100}
             />
           </div>
         </a>
@@ -178,10 +176,11 @@ export default function GetInvolved(): ReactElement {
             )}
           >
             <Image
-              src={sessionImage}
+              src={'/svgs/community/session.svg'}
               alt={'Isomorphic Session logo'}
               width={52}
               height={77}
+              quality={100}
             />
           </div>
         </a>

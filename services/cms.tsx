@@ -2,8 +2,8 @@ import { Document, Block, Inline } from '@contentful/rich-text-types';
 import { ContentfulClientApi, createClient, EntryCollection } from 'contentful';
 import { format, parseISO } from 'date-fns';
 import React from 'react';
-import { ReactComponent as BittrexSVG } from '../assets/svgs/bittrex-logo.svg';
-import { ReactComponent as KucoinSVG } from '../assets/svgs/kucoin-logo.svg';
+import { ReactComponent as BittrexSVG } from '../public/svgs/bittrex-logo.svg';
+import { ReactComponent as KucoinSVG } from '../public/svgs/kucoin-logo.svg';
 import { ReactComponent as DiscordSVG } from '../assets/svgs/socials/brand-discord.svg';
 import { ReactComponent as RedditSVG } from '../assets/svgs/socials/brand-reddit.svg';
 import { ReactComponent as TelegramSVG } from '../assets/svgs/socials/brand-telegram.svg';
@@ -411,7 +411,7 @@ export const renderShortcode = (shortcode: string) => {
         <h4 className="text-lg font-bold tracking-wide">Find $OXEN on</h4>
         <div className="flex justify-center mb-4 space-x-4">
           <Button
-            wide
+            wideText={true}
             prefix={<KucoinSVG className="h-4" />}
             onClick={() => open('https://trade.kucoin.com/LOKI-USDT', '_blank')}
             type="ghost"
@@ -419,7 +419,7 @@ export const renderShortcode = (shortcode: string) => {
             Kucoin
           </Button>
           <Button
-            wide
+            wideText={true}
             prefix={<BittrexSVG className="h-4" />}
             onClick={() =>
               open(

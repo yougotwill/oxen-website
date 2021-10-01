@@ -1,10 +1,8 @@
 import { ReactElement } from 'react';
+import Image from 'next/image';
 import classNames from 'classnames';
 
 import { Contained } from '../Contained';
-
-import { ReactComponent as BittrexSVG } from '../../assets/svgs/bittrex-logo.svg';
-import { ReactComponent as KucoinSVG } from '../../assets/svgs/kucoin-logo.svg';
 
 export default function About(): ReactElement {
   return (
@@ -60,14 +58,26 @@ export default function About(): ReactElement {
             Buy Oxen
           </h3>
           <a href="#" target="_blank" className={classNames('block my-6')}>
-            <BittrexSVG className={classNames('inline w-24 h-24')} />
-            <span className={classNames('text-5xl ml-4 font-medium')}>
+            <Image
+              src={'/svgs/bittrex-logo.svg'}
+              alt="Bittrex Logo"
+              width={96}
+              height={96}
+              quality={100}
+            />
+            <span className={classNames('text-5xl ml-4 font-medium align-top')}>
               Bittrex
             </span>
           </a>
           <a href="#" target="_blank" className={classNames('block my-6')}>
-            <KucoinSVG className={classNames('inline w-24 h-24')} />
-            <span className={classNames('text-5xl ml-4 font-medium')}>
+            <Image
+              src={'/svgs/kucoin-logo.svg'}
+              alt="Bittrex Logo"
+              width={96}
+              height={96}
+              quality={100}
+            />
+            <span className={classNames('text-5xl ml-4 font-medium align-top')}>
               Kucoin
             </span>
           </a>

@@ -3,7 +3,6 @@ import Image from 'next/image';
 import classNames from 'classnames';
 
 import { Button } from '../Button';
-import heroImage from '../../assets/svgs/hero.svg';
 import { Contained } from '../Contained';
 
 export default function Hero(): ReactElement {
@@ -57,10 +56,12 @@ export default function Hero(): ReactElement {
         )}
       >
         <Image
-          src={heroImage}
+          src={'/svgs/hero.svg'}
           alt={'Oxen written in Neon Pink'}
           width={643}
           height={426}
+          quality={100}
+          priority={true}
         />
       </div>
     </Contained>

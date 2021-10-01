@@ -8,10 +8,6 @@ import { useScreen } from '../../contexts/screen';
 import { Contained } from '../Contained';
 import CountUp from '../animations/CountUp';
 
-import dollarImage from '../../assets/svgs/dollar.svg';
-import padlockImage from '../../assets/svgs/padlock.svg';
-import nodeImage from '../../assets/svgs/node.svg';
-
 export interface StatsProps {
   currentValue: number;
   coinsLocked: number;
@@ -82,10 +78,11 @@ export default function Stats(props: StatsProps): ReactElement {
               )}
             >
               <Image
-                src={dollarImage}
+                src={'/svgs/dollar.svg'}
                 alt={'Dollar Sign'}
                 width={122}
                 height={200}
+                quality={100}
               />
             </div>
             <div className={classNames('tablet:ml-4')}>
@@ -124,10 +121,11 @@ export default function Stats(props: StatsProps): ReactElement {
               )}
             >
               <Image
-                src={padlockImage}
+                src={'/svgs/padlock.svg'}
                 alt={'Locked Padlock'}
                 width={131}
                 height={200}
+                quality={100}
               />
             </div>
             <div className={classNames('tablet:ml-4')}>
@@ -166,10 +164,11 @@ export default function Stats(props: StatsProps): ReactElement {
               )}
             >
               <Image
-                src={nodeImage}
+                src={'/svgs/node.svg'}
                 alt={'Server box'}
                 width={135}
                 height={200}
+                quality={100}
               />
             </div>
             <div className={classNames('tablet:ml-4')}>

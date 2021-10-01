@@ -5,9 +5,6 @@ import classNames from 'classnames';
 import { Contained } from '../Contained';
 import { Button } from '../Button';
 
-import sessionMockup from '../../assets/svgs/session-mockup.svg';
-import lokinetMockup from '../../assets/svgs/lokinet-mockup.svg';
-
 export default function Products(): ReactElement {
   return (
     <Contained
@@ -36,10 +33,11 @@ export default function Products(): ReactElement {
           className={classNames('relative mt-2 mx-auto w-48', 'desktop:w-56')}
         >
           <Image
-            src={sessionMockup}
+            src={'/svgs/session-mockup.svg'}
             alt={'Two smartphones with the Session logo displayed'}
             width={232}
             height={318}
+            quality={100}
           />
         </div>
         <div
@@ -83,10 +81,11 @@ export default function Products(): ReactElement {
       >
         <div className={classNames('relative mx-auto w-48', 'desktop:w-56')}>
           <Image
-            src={lokinetMockup}
+            src={'/svgs/lokinet-mockup.svg'}
             alt={'A laptop with the lokinet logo displayed'}
             width={270}
             height={295}
+            quality={100}
           />
         </div>
         <div

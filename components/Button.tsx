@@ -39,7 +39,7 @@ export function Button(props: Props) {
     className,
     prefix,
     suffix,
-    wideText: wide = false,
+    wideText = false,
   } = props;
 
   const { isDesktop, isHuge } = useScreen();
@@ -125,7 +125,7 @@ export function Button(props: Props) {
         shapeStyles,
         fontStyles,
         typeStyles,
-        wide && 'tracking-widest',
+        wideText && 'tracking-widest',
         !disabled && type !== 'text' && 'hover:text-white',
         type !== 'text' && ['border-2', 'border-solid', `border-${color}`],
         className,
