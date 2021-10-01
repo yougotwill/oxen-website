@@ -52,6 +52,7 @@ module.exports = {
         blush: '#FF7A87',
         blue: '#3F4BF5',
         purple: '#654192',
+        green: '#85AFAA',
       },
       display: ['huge', 'desktop', 'tablet', 'mobile'],
       backgroundOpacity: {

@@ -19,7 +19,7 @@ export default function About(): ReactElement {
         className={classNames(
           'flex flex-col justify-center items-center text-center pt-8',
           'tablet:max-w-lg',
-          'desktop:max-w-none desktop:w-1/2 desktop:text-left desktop:items-start',
+          'desktop:max-w-none desktop:w-7/12 desktop:text-left desktop:items-start desktop:pt-0',
         )}
       >
         <h2
@@ -30,16 +30,18 @@ export default function About(): ReactElement {
           Oxen
         </h2>
         <p className={classNames('text-2xl leading-snug mb-6')}>
-          Something here about Oxen coin, what it is, maybe the tech behind it,
-          why its good, where did it start all this kind of shit. In summary.
+          Fast, powerful, and private. The only crypto in the world with instant
+          confidential transactions.
         </p>
         <p className={classNames('text-xl leading-snug mb-6')}>
-          Here is some more detail about the privacy. Lorem ipsum dolor sit
-          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Oxen is the first coin to bring Proof of Stake to the renowned
+          CryptoNote protocol, making it the perfect network for privacy tech.
+          Oxen apps utilise our groundbreaking decentralised computing
+          infrastructure to deliver industry-leading privacy to mainstream
+          applications. Built to burn $OXEN, Oxen apps support the decentralised
+          network they run on.
         </p>
-        <a href="#" className={'text-2xl font-semibold'}>
+        <a href="#" className={'text-secondary text-2xl font-semibold'}>
           Learn More
         </a>
       </div>
@@ -47,7 +49,7 @@ export default function About(): ReactElement {
         className={classNames(
           'flex flex-col justify-center items-center text-center pt-8',
           'tablet:pt-16',
-          'desktop:max-w-none desktop:w-1/2 desktop:pt-20',
+          'desktop:w-5/12 desktop:justify-end desktop:pt-0',
         )}
       >
         <h3
@@ -69,7 +71,13 @@ export default function About(): ReactElement {
             Kucoin
           </span>
         </a>
-        <p className={classNames('my-6')}>
+        <p
+          className={classNames(
+            'text-green mt-6 mb-12 w-40',
+            'tablet:w-full',
+            'desktop:mb-0',
+          )}
+        >
           More information Coin Market Cap Coin Gecko
         </p>
       </div>
