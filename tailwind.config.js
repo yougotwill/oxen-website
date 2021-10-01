@@ -13,6 +13,7 @@ module.exports = {
       mobile: '500px',
       tablet: '768px',
       desktop: '1100px',
+      xl: '1280px',
       huge: '1920px',
     },
     fontFamily: {
