@@ -5,20 +5,23 @@ import classNames from 'classnames';
 import { Contained } from '../Contained';
 import { Button } from '../Button';
 
-import sessionImage from '../../assets/svgs/session-logo.svg';
+import sessionMockup from '../../assets/svgs/session-mockup.svg';
+import lokinetMockup from '../../assets/svgs/lokinet-mockup.svg';
 
 export default function Products(): ReactElement {
   return (
     <Contained
-      backgroundColor="primary"
+      backgroundColor="white"
       classes={classNames(
-        'text-white flex flex-col justify-center items-center',
-        'desktop:h-screen',
+        'flex flex-col justify-center items-center pb-16',
+        'tablet:pb-24',
+        'desktop:items-start desktop:pb-16',
       )}
     >
       <h2
         className={classNames(
           'text-4xl font-semibold font-prompt leading-tight mt-16 mb-8',
+          'desktop:mt-12 desktop:mb-4 desktop:ml-auto desktop:w-2/3',
         )}
       >
         Our Products
@@ -30,14 +33,13 @@ export default function Products(): ReactElement {
         )}
       >
         <div
-          className={classNames(
-            'relative bg-white rounded-full mt-8 w-48 h-48',
-          )}
+          className={classNames('relative mt-2 mx-auto w-48', 'desktop:w-56')}
         >
           <Image
-            src={sessionImage}
-            alt={'Oxen Logo Blue Background'}
-            layout="fill"
+            src={sessionMockup}
+            alt={'Two smartphones with the Session logo displayed'}
+            width={232}
+            height={318}
           />
         </div>
         <div
@@ -53,42 +55,38 @@ export default function Products(): ReactElement {
           >
             Session
           </h3>
-          <p className={classNames('mb-3')}>
-            Session is an end-to-end encrypted messenger that minimises
-            sensitive metadata, designed and built for people who want absolute
-            privacy and freedom from any form of surveillance.
-          </p>
-          <p className={classNames('text-alt font-light mb-6')}>
-            iOS Android Desktop
+          <p className={classNames('mb-8')}>
+            Anonymous and encrypted messaging. Session puts a stop to
+            surveillance with anonymous sign-up, onion routed messaging, and
+            end-to-end encryption. Putting the private in private chat.
           </p>
           <div
             className={classNames(
-              'flex justify-around items-center mb-4 w-full',
+              'flex justify-center items-center mb-4 w-full',
               'tablet:justify-start',
             )}
           >
-            <Button color="secondary">Learn more</Button>
-            <a href="#" className={classNames('font-semibold', 'tablet:ml-8')}>
+            <Button color="secondary" shape={'round'}>
+              Learn more
+            </Button>
+            <Button color="secondary" type="text">
               Download
-            </a>
+            </Button>
           </div>
         </div>
       </div>
       <div
         className={classNames(
-          'flex flex-col justify-center items-center mb-12',
-          'tablet:flex-row tablet:mb-16',
+          'flex flex-col justify-center items-center mt-4 mb-12',
+          'tablet:flex-row tablet:mt-12 tablet:mb-16',
         )}
       >
-        <div
-          className={classNames(
-            'relative bg-white rounded-full mt-8 w-48 h-48',
-          )}
-        >
+        <div className={classNames('relative mx-auto w-48', 'desktop:w-56')}>
           <Image
-            src={sessionImage}
-            alt={'Oxen Logo Blue Background'}
-            layout="fill"
+            src={lokinetMockup}
+            alt={'A laptop with the lokinet logo displayed'}
+            width={270}
+            height={295}
           />
         </div>
         <div
@@ -104,24 +102,23 @@ export default function Products(): ReactElement {
           >
             Lokinet
           </h3>
-          <p className={classNames('mb-3')}>
-            Lokinet is powered by a decentralised network of staked nodes.
-            Nobody can shut it down. Nobody can spy on you. Lokinet traffic is
-            onion-routed. Your browsing is private, secure, and anonymous.
-          </p>
-          <p className={classNames('text-alt font-light mb-6')}>
-            iOS Android Desktop
+          <p className={classNames('mb-8')}>
+            Forget VPNs. Lokinet is the future of decentralised private
+            networking. A lightning fast network anonymity app that lets you
+            create, host, and browse a censorship resistant internet.
           </p>
           <div
             className={classNames(
-              'flex justify-around items-center mb-4 w-full',
+              'flex justify-center items-center mb-4 w-full',
               'tablet:justify-start',
             )}
           >
-            <Button color="secondary">Learn more</Button>
-            <a href="#" className={classNames('font-semibold', 'tablet:ml-8')}>
+            <Button color="secondary" shape={'round'}>
+              Learn more
+            </Button>
+            <Button color="secondary" type="text">
               Download
-            </a>
+            </Button>
           </div>
         </div>
       </div>

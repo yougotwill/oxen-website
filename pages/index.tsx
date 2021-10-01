@@ -38,16 +38,6 @@ export default function Index(props: StatsProps) {
       <Products />
       <Privacy />
       <GetInvolved />
-      <div className={classNames('w-full mx-auto')} style={containerStyles}>
-        <EmailSignup
-          buttonPosition={isDesktop || isHuge ? 'left' : 'center'}
-          classes={classNames(
-            'border-none pt-10 pb-16',
-            'tablet:py-8 tablet:max-w-lg',
-            'desktop:py-12 desktop:pl-0 desktop:ml-0',
-          )}
-        />
-      </div>
       <Footer />
     </div>
   );
