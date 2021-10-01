@@ -64,6 +64,7 @@ export default function About(): ReactElement {
               width={96}
               height={96}
               quality={100}
+              priority={true}
             />
             <span className={classNames('text-5xl ml-4 font-medium align-top')}>
               Bittrex
@@ -76,6 +77,7 @@ export default function About(): ReactElement {
               width={96}
               height={96}
               quality={100}
+              priority={true}
             />
             <span className={classNames('text-5xl ml-4 font-medium align-top')}>
               Kucoin

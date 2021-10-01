@@ -71,6 +71,7 @@ export default function GetInvolved(): ReactElement {
               width={64}
               height={73}
               quality={100}
+              lazyBoundary={`500px 200px`}
             />
           </div>
         </a>
@@ -93,6 +94,7 @@ export default function GetInvolved(): ReactElement {
               width={64}
               height={73}
               quality={100}
+              lazyBoundary={`500px 200px`}
             />
           </div>
         </a>
@@ -115,6 +117,7 @@ export default function GetInvolved(): ReactElement {
               width={60}
               height={71}
               quality={100}
+              lazyBoundary={`500px 200px`}
             />
           </div>
         </a>
@@ -137,6 +140,7 @@ export default function GetInvolved(): ReactElement {
               width={62}
               height={74}
               quality={100}
+              lazyBoundary={`500px 200px`}
             />
           </div>
         </a>
@@ -159,6 +163,7 @@ export default function GetInvolved(): ReactElement {
               width={64}
               height={80}
               quality={100}
+              lazyBoundary={`500px 200px`}
             />
           </div>
         </a>
@@ -181,6 +186,7 @@ export default function GetInvolved(): ReactElement {
               width={52}
               height={77}
               quality={100}
+              lazyBoundary={`500px 200px`}
             />
           </div>
         </a>

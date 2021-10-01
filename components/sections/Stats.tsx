@@ -22,16 +22,17 @@ export default function Stats(props: StatsProps): ReactElement {
   const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const scrollOffset =
+      UI.HEADER_HEIGHT_PX +
+      (isMobile ? -1100 : isDesktop || isHuge ? 200 : 500);
     const onScroll = () => {
-      const scrollOffset =
-        UI.HEADER_HEIGHT_PX +
-        (isMobile ? -1100 : isDesktop || isHuge ? 200 : 500);
+      if (startAnimation) return;
+
       const scrollEffectStart =
         statsRef.current?.offsetTop! -
         statsRef.current?.scrollHeight! -
         scrollOffset;
       const scrollEffectStop = statsRef.current?.offsetTop! - scrollOffset;
-
       if (
         window.scrollY >= scrollEffectStart &&
         window.scrollY < scrollEffectStop
@@ -47,7 +48,7 @@ export default function Stats(props: StatsProps): ReactElement {
         onScroll();
       });
     };
-  }, [isMobile, isTablet, isDesktop, isHuge]);
+  }, [startAnimation, isMobile, isDesktop, isHuge]);
 
   return (
     <Contained backgroundColor="alt">
@@ -83,6 +84,7 @@ export default function Stats(props: StatsProps): ReactElement {
                 width={122}
                 height={200}
                 quality={100}
+                lazyBoundary={`500px 200px`}
               />
             </div>
             <div className={classNames('tablet:ml-4')}>
@@ -126,6 +128,7 @@ export default function Stats(props: StatsProps): ReactElement {
                 width={131}
                 height={200}
                 quality={100}
+                lazyBoundary={`500px 200px`}
               />
             </div>
             <div className={classNames('tablet:ml-4')}>
@@ -169,6 +172,7 @@ export default function Stats(props: StatsProps): ReactElement {
                 width={135}
                 height={200}
                 quality={100}
+                lazyBoundary={`500px 200px`}
               />
             </div>
             <div className={classNames('tablet:ml-4')}>

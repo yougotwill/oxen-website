@@ -62,6 +62,7 @@ export default function Hero(): ReactElement {
           height={426}
           quality={100}
           priority={true}
+          loading="eager"
         />
       </div>
     </Contained>

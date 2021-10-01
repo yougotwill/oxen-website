@@ -38,6 +38,7 @@ export default function Products(): ReactElement {
             width={232}
             height={318}
             quality={100}
+            lazyBoundary={`500px 200px`}
           />
         </div>
         <div
@@ -86,6 +87,7 @@ export default function Products(): ReactElement {
             width={270}
             height={295}
             quality={100}
+            lazyBoundary={`500px 200px`}
           />
         </div>
         <div
