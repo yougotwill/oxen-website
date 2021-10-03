@@ -84,6 +84,7 @@ export default function Stats(props: StatsProps): ReactElement {
                 width={122}
                 height={200}
                 quality={100}
+                priority={true}
                 lazyBoundary={`500px 200px`}
               />
             </div>
@@ -128,6 +129,7 @@ export default function Stats(props: StatsProps): ReactElement {
                 width={131}
                 height={200}
                 quality={100}
+                priority={true}
                 lazyBoundary={`500px 200px`}
               />
             </div>
@@ -172,6 +174,7 @@ export default function Stats(props: StatsProps): ReactElement {
                 width={135}
                 height={200}
                 quality={100}
+                priority={true}
                 lazyBoundary={`500px 200px`}
               />
             </div>
