@@ -1,9 +1,11 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import classNames from 'classnames';
 
-import { Contained } from '../Contained';
+import { useScreen } from '../../contexts/screen';
+
+import { Contained, containerStyles } from '../Contained';
 
 import { ReactComponent as OxenLogoSVG } from '../../assets/svgs/brand-dark.svg';
 import { ReactComponent as TriangleSVG } from '../../assets/svgs/triangle.svg';
@@ -12,7 +14,9 @@ import { ReactComponent as TwitterSVG } from '../../assets/svgs/socials/twitter.
 
 export default function Nav(): ReactElement {
   const router = useRouter();
+  const { isMobile, isTablet } = useScreen();
   const [isExpanded, setIsExpanded] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState('white');
   const toggleNav = () => {
     setIsExpanded(!isExpanded);
   };
@@ -37,12 +41,20 @@ export default function Nav(): ReactElement {
     return router.asPath.split(url).length > 1 && 'desktop:border-primary';
   };
 
+  useEffect(() => {
+    if (router.asPath === '/') {
+      setBackgroundColor('white');
+    } else {
+      setBackgroundColor('alt');
+    }
+    document.body.className = `bg-${backgroundColor}`;
+  }, [router.asPath, backgroundColor]);
+
   return (
-    <Contained backgroundColor="white">
-      <nav
-        className={classNames(
-          'relative flex flex-wrap items-center justify-between mx-auto py-8 z-10',
-        )}
+    <nav className={classNames('w-full relative mx-auto py-8 z-10')}>
+      <Contained
+        backgroundColor={backgroundColor}
+        classes={'flex flex-wrap items-center justify-between '}
       >
         <div
           className={classNames(
@@ -71,9 +83,16 @@ export default function Nav(): ReactElement {
         </div>
         <div
           className={classNames(
-            'bg-white absolute left-0 right-0 w-full overflow-hidden top-20',
+            'absolute left-0 right-0 w-full overflow-hidden top-20',
             'desktop:relative desktop:overflow-visible desktop:w-2/3 desktop:top-0',
+            router.asPath === '/' ? 'bg-white' : 'bg-alt',
           )}
+          style={{
+            paddingLeft:
+              isMobile || isTablet ? containerStyles.paddingLeft : undefined,
+            paddingRight:
+              isMobile || isTablet ? containerStyles.paddingRight : undefined,
+          }}
         >
           <div
             className={classNames(
@@ -152,7 +171,7 @@ export default function Nav(): ReactElement {
             </div>
           </div>
         </div>
-      </nav>
-    </Contained>
+      </Contained>
+    </nav>
   );
 }

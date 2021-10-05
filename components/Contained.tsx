@@ -4,7 +4,7 @@ import { UI } from '../constants';
 
 interface Props {
   id?: string;
-  backgroundColor?: 'primary' | 'secondary' | 'alt' | 'white';
+  backgroundColor?: string; // 'primary' | 'secondary' | 'alt' | 'white';
   classes?: string;
   children: ReactNode;
 }
