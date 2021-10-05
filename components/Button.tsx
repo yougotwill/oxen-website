@@ -64,13 +64,13 @@ export function Button(props: Props) {
   const solidClassNames = [
     'text-white',
     `bg-${color}`,
-    'hover:opacity-75',
-    selected && 'bg-opacity-75',
+    'filter hover:brightness-110',
+    selected && 'brightness-110',
   ];
 
   const outlineClassNames = ['py-2'];
 
-  const textTypeClassNames = [`text-${color}`, 'hover:opacity-75'];
+  const textTypeClassNames = [`text-${color}`, 'filter hover:brightness-110'];
 
   const off = disabled
     ? ['cursor-not-allowed', 'opacity-50']

@@ -119,8 +119,9 @@ export default function EmailSignup(props: Props): ReactElement {
           borderColor={'white'}
           borderStyle={'round'}
           inputMode={'text'}
+          inputClassName={'placeholder-white placeholder-opacity-80'}
           className={classNames(
-            'mb-6 rounded-sm',
+            'text-white mb-6 rounded-sm',
             'tablet:mt-4 tablet:mb-5 tablet:max-w-sm',
             textAlign === 'center' && 'tablet:mx-auto',
             'desktop:w-7/12 desktop:mr-4',

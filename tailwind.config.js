@@ -87,6 +87,7 @@ module.exports = {
     extend: {
       animation: ['hover'],
       borderWidth: ['last'],
+      brightness: ['hover'],
       fontWeight: ['last'],
     },
   },

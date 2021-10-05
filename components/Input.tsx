@@ -181,8 +181,6 @@ export function Input(props: InputProps) {
         'items-center',
         'appearance-none',
         'w-full',
-        // 'bg-white',
-        'text-gray-700',
         'leading-tight',
         'focus:outline-black',
         size === 'small' ? 'px-2' : 'px-4',

@@ -77,8 +77,6 @@ export default function GetInvolved(): ReactElement {
               <Image
                 src={'/svgs/community/discord.svg'}
                 alt={'Isomorphic Discord logo'}
-                width={70}
-                height={81}
                 layout={'fill'}
                 quality={100}
                 priority={true}
@@ -109,8 +107,6 @@ export default function GetInvolved(): ReactElement {
               <Image
                 src={'/svgs/community/youtube.svg'}
                 alt={'Isomorphic YouTube logo'}
-                width={64}
-                height={73}
                 layout={'fill'}
                 quality={100}
                 priority={true}
@@ -141,8 +137,6 @@ export default function GetInvolved(): ReactElement {
               <Image
                 src={'/svgs/community/twitter.svg'}
                 alt={'Isomorphic Twitter logo'}
-                width={64}
-                height={73}
                 layout={'fill'}
                 quality={100}
                 priority={true}
@@ -173,8 +167,6 @@ export default function GetInvolved(): ReactElement {
               <Image
                 src={'/svgs/community/telegram.svg'}
                 alt={'Isomorphic Telegram logo'}
-                width={60}
-                height={71}
                 layout={'fill'}
                 quality={100}
                 priority={true}
@@ -205,8 +197,6 @@ export default function GetInvolved(): ReactElement {
               <Image
                 src={'/svgs/community/github.svg'}
                 alt={'Isomorphic Github logo'}
-                width={62}
-                height={74}
                 layout={'fill'}
                 quality={100}
                 priority={true}
@@ -237,8 +227,6 @@ export default function GetInvolved(): ReactElement {
               <Image
                 src={'/svgs/community/reddit.svg'}
                 alt={'Isomorphic Reddit logo'}
-                width={64}
-                height={80}
                 layout={'fill'}
                 quality={100}
                 priority={true}
@@ -269,8 +257,6 @@ export default function GetInvolved(): ReactElement {
               <Image
                 src={'/svgs/community/session.svg'}
                 alt={'Isomorphic Session logo'}
-                width={52}
-                height={77}
                 layout={'fill'}
                 quality={100}
                 priority={true}
@@ -298,8 +284,6 @@ export default function GetInvolved(): ReactElement {
                 <Image
                   src={'/svgs/community/rss.svg'}
                   alt={'Isomorphic RSS logo'}
-                  width={70}
-                  height={79}
                   layout={'fill'}
                   quality={100}
                   priority={true}
