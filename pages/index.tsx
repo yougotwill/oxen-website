@@ -17,7 +17,6 @@ import Stats, { StatsProps } from '../components/sections/Stats';
 import Products from '../components/sections/Products';
 import Privacy from '../components/sections/Privacy';
 import GetInvolved from '../components/sections/GetInvolved';
-import Footer from '../components/navigation/Footer';
 
 export default function Index(props: StatsProps) {
   const { currentValue, coinsLocked, serviceNodes } = props;
@@ -34,7 +33,6 @@ export default function Index(props: StatsProps) {
       <Products />
       <Privacy />
       <GetInvolved />
-      <Footer />
     </div>
   );
 }

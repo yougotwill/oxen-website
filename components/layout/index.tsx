@@ -8,6 +8,7 @@ import { PageType } from '../../state/navigation';
 import { IState } from '../../state/reducers';
 
 import Nav from '../navigation/Nav';
+import Footer from '../navigation/Footer';
 
 interface Props {
   children: ReactNode;
@@ -65,6 +66,7 @@ export default function Layout({ children }: Props) {
           className="relative w-full duration-300"
         >
           {children}
+          <Footer />
         </div>
       </div>
     </div>

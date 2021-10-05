@@ -538,10 +538,10 @@ export const renderShortcode = (shortcode: string) => {
     );
   }
 
-  // Call to Action -> Email Signup
-  if (CMS.SHORTCODES.CTA_EMAIL_SIGNUP.test(shortcode)) {
-    return <EmailSignup />;
-  }
+  // // Call to Action -> Email Signup
+  // if (CMS.SHORTCODES.CTA_EMAIL_SIGNUP.test(shortcode)) {
+  //   return <EmailSignup />;
+  // }
 
   // All shortcode buttons with simple hrefs
   const shortcodeButton = Object.values(CMS.SHORTCODE_BUTTONS).find(item =>
