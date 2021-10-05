@@ -51,7 +51,7 @@ export default function EmailSignup(props: Props): ReactElement {
         break;
       case 400:
       default:
-        setButtonText('Signup failed ✗');
+        setButtonText('Signup error ✗');
         break;
     }
   };
@@ -132,7 +132,7 @@ export default function EmailSignup(props: Props): ReactElement {
           color="secondary"
           shape={'round'}
           size="wide"
-          className={classNames(buttonStyles, 'tablet:w-40')}
+          className={classNames(buttonStyles)}
           buttonType={'submit'}
           reference={buttonRef}
         >
