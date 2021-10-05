@@ -20,6 +20,7 @@ export default function Nav(): ReactElement {
   const toggleNav = () => {
     setIsExpanded(!isExpanded);
   };
+
   const mobileNavButtonClasses = classNames(
     'w-4 h-5 fill-current text-primary transform outline-none duration-300 cursor-pointer',
   );
@@ -47,6 +48,7 @@ export default function Nav(): ReactElement {
     } else {
       setBackgroundColor('alt');
     }
+    setIsExpanded(false);
     document.body.className = `bg-${backgroundColor}`;
   }, [router.asPath, backgroundColor]);
 
@@ -85,7 +87,7 @@ export default function Nav(): ReactElement {
           className={classNames(
             'absolute left-0 right-0 w-full overflow-hidden top-20',
             'desktop:relative desktop:overflow-visible desktop:w-2/3 desktop:top-0',
-            router.asPath === '/' ? 'bg-white' : 'bg-alt',
+            backgroundColor === 'white' ? 'bg-white' : 'bg-alt',
           )}
           style={{
             paddingLeft:
@@ -96,11 +98,11 @@ export default function Nav(): ReactElement {
         >
           <div
             className={classNames(
-              'flex flex-col items-start text-xl text-primary pt-2',
+              'flex flex-col items-start text-xl text-primary',
               'desktop:text-base desktop:flex-row desktop:items-center desktop:justify-end desktop:pt-0',
               'transform transition-all duration-300',
               isExpanded
-                ? 'h-screen translate-y-0'
+                ? 'pt-2 h-screen translate-y-0'
                 : 'h-0 -translate-y-full desktop:translate-y-0',
             )}
           >

@@ -73,7 +73,7 @@ export default function Footer(props: Props): ReactElement {
             <Link href="/terms-of-service">
               <a className={linkClasses()}>Explorer</a>
             </Link>
-            <Link href="/blog">
+            <Link href="/downloads">
               <a className={linkClasses()}>Downloads</a>
             </Link>
             <Link href="/faq">
