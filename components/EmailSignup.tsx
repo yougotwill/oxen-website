@@ -6,12 +6,21 @@ import { Input } from './Input';
 import { Button } from './Button';
 
 interface Props {
-  buttonPosition?: 'left' | 'center' | 'right';
+  buttonAlign?: 'left' | 'center' | 'right';
+  textAlign?: 'left' | 'center' | 'right';
+  backgroundColor?: 'primary' | 'alt' | 'secondary' | 'white';
+  border?: boolean;
   classes?: string;
 }
 
 export default function EmailSignup(props: Props): ReactElement {
-  const { buttonPosition = 'center', classes } = props;
+  const {
+    buttonAlign = 'center',
+    textAlign = 'left',
+    backgroundColor = 'alt',
+    border = true,
+    classes,
+  } = props;
   const router = useRouter();
   const buttonRef = useRef<HTMLButtonElement>(null);
   const setButtonText = (value: string) => {
@@ -48,59 +57,80 @@ export default function EmailSignup(props: Props): ReactElement {
   };
 
   const buttonStyles = [
-    buttonPosition === 'left' && 'ml-0 mr-auto',
-    buttonPosition === 'center' && 'mx-auto',
-    buttonPosition === 'right' && 'mr-0 ml-auto',
+    buttonAlign === 'left' && 'ml-0 mr-auto',
+    buttonAlign === 'center' && 'mx-auto',
+    buttonAlign === 'right' && 'mr-0 ml-auto',
+  ];
+
+  const textStyles = [
+    textAlign === 'left' && 'text-left',
+    textAlign === 'center' && 'text-center',
+    textAlign === 'right' && 'text-right',
+  ];
+
+  const backgroundStyles = [
+    backgroundColor === 'primary' && 'bg-primary',
+    backgroundColor === 'alt' && 'bg-alt text-primary',
+    backgroundColor === 'secondary' && 'bg-secondary',
+    backgroundColor === 'white' && 'bg-white text-primary',
   ];
 
   return (
     <div
       id="signup"
       className={classNames(
-        'bg-alt border-2 border-solid border-primary p-6 mt-6 mb-10',
-        'tablet:mx-auto tablet:py-4 tablet:px-12 tablet:mt-6 tablet:mb-8',
-        'desktop:py-6 desktop:px-14',
+        'p-12 pb-10',
+        'tablet:mx-auto tablet:pt-10 tablet:pb-12 tablet:px-12',
+        'desktop:pt-12 desktop:pb-6 desktop:px-14',
         router.asPath !== '/get-involved' ? 'tablet:w-full' : 'tablet:w-4/5',
+        border && 'border-2 border-solid border-primary',
+        backgroundStyles,
+        textStyles,
         classes,
       )}
     >
       <h3
         className={classNames(
-          'text-2xl font-semibold leading-none mb-2',
+          'text-2xl leading-tight mb-4',
           'tablet:text-3xl',
-          'desktop:text-4xl desktop:mb-3',
+          'desktop:text-2xl',
         )}
       >
-        You&apos;ve got mail!
+        Join the movement and help defend privacy in the digital world.
       </h3>
       <p
         className={classNames(
-          'leading-none mb-6',
+          'font-light leading-tight mb-6',
           'tablet:mb-3 tablet:leading-tight',
-          'desktop:mb-6 desktop:text-xl',
         )}
       >
-        Sign up to our newsletter to keep up to date with everything Oxen.
+        Sign up to the mailing list and start taking action!
       </p>
-      <form onSubmit={handleSubscription}>
+      <form
+        className={classNames('desktop:flex desktop:items-center')}
+        onSubmit={handleSubscription}
+      >
         <Input
           type="email"
-          placeholder="Your Email"
+          placeholder="Your email"
           value={email}
           onValueChange={value => setEmail(value)}
           size={'large'}
-          border={'primary'}
+          borderColor={'white'}
+          borderStyle={'round'}
           inputMode={'text'}
           className={classNames(
             'mb-6 rounded-sm',
-            'tablet:mb-4',
-            'desktop:mb-6',
+            'tablet:mt-4 tablet:mb-5 tablet:max-w-sm',
+            textAlign === 'center' && 'tablet:mx-auto',
+            'desktop:w-7/12 desktop:mr-4',
           )}
           required
         />
         <Button
-          color="primary"
-          size="medium"
+          color="secondary"
+          shape={'round'}
+          size="wide"
           className={classNames(buttonStyles, 'tablet:w-40')}
           buttonType={'submit'}
           reference={buttonRef}

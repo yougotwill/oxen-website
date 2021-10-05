@@ -5,7 +5,7 @@ import { useScreen } from '../contexts/screen';
 export interface Props {
   color?: 'primary' | 'secondary' | 'danger' | 'white';
   type?: 'text' | 'ghost' | 'solid' | 'outline';
-  size?: 'tiny' | 'small' | 'medium' | 'large';
+  size?: 'tiny' | 'small' | 'medium' | 'large' | 'wide';
   shape?: 'round' | 'semiround' | 'square';
   fontWeight?: 'normal' | 'semibold' | 'bold';
   disabled?: boolean;
@@ -79,10 +79,11 @@ export function Button(props: Props) {
   // Conditional isDesktop makes buttons more touch friendly
   // with more padding
   const sizeStyles = [
-    size === 'large' && 'text-lg py-2',
-    size === 'medium' && 'text-base py-1',
-    size === 'small' && ['text-sm', isDesktop || isHuge ? 'py-0' : 'py-1'],
-    size === 'tiny' && 'text-xs py-0',
+    size === 'large' && 'text-lg py-2 px-8',
+    size === 'medium' && 'text-base py-1 px-8',
+    size === 'small' && ['text-sm px-8', isDesktop || isHuge ? 'py-0' : 'py-1'],
+    size === 'tiny' && 'text-xs py-0 px-8',
+    size === 'wide' && 'py-1 px-12',
   ];
 
   const shapeStyles = [
@@ -115,7 +116,6 @@ export function Button(props: Props) {
         'flex',
         'justify-center',
         'items-center',
-        'px-8',
         'outline-none',
         'duration-300',
         'ease-in-out',

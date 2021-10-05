@@ -21,7 +21,8 @@ export interface InputProps {
   type?: 'text' | 'number' | 'search' | 'email' | 'password';
   name?: string;
   size?: 'large' | 'medium' | 'small';
-  border?: 'primary' | 'secondary' | 'none';
+  borderColor?: 'primary' | 'secondary' | 'white' | 'none';
+  borderStyle?: 'square' | 'round';
 
   inputMode?:
     | 'none'
@@ -78,7 +79,8 @@ export function Input(props: InputProps) {
     center = false,
     readonly = false,
     size = 'medium',
-    border = 'secondary',
+    borderColor = 'secondary',
+    borderStyle = 'square',
     style,
     prefix,
     duration = true,
@@ -159,6 +161,18 @@ export function Input(props: InputProps) {
   //   }
   // }, []);
 
+  const borderStyles = [
+    borderColor !== 'none' && 'border-2',
+    borderColor === 'primary' && 'border-primary',
+    borderColor === 'secondary' && 'border-secondary',
+    borderColor === 'secondary' && hasFocus
+      ? 'border-primary'
+      : 'border-secondary',
+    borderColor === 'white' && 'border-white',
+    borderStyle === 'square' && 'rounded-lg',
+    borderStyle === 'round' && 'rounded-full',
+  ];
+
   return (
     <div
       style={style ?? {}}
@@ -166,20 +180,15 @@ export function Input(props: InputProps) {
         'flex',
         'items-center',
         'appearance-none',
-        'rounded-lg',
         'w-full',
         // 'bg-white',
         'text-gray-700',
         'leading-tight',
         'focus:outline-black',
-        border !== 'none' && 'border-2',
         size === 'small' ? 'px-2' : 'px-4',
         duration && 'duration-300',
         disabled && 'opacity-50 cursor-not-allowed',
-        border === 'primary' && 'border-primary',
-        border === 'secondary' && hasFocus
-          ? `border-primary`
-          : 'border-secondary',
+        borderStyles,
         className,
       )}
       onClick={setInputFocus}
@@ -198,7 +207,7 @@ export function Input(props: InputProps) {
           'outline-none',
           'flex-1',
           'w-0',
-          size === 'large' && 'py-2',
+          size === 'large' && 'py-1',
           disabled && 'cursor-not-allowed',
           center && 'text-center',
           fontSize,
