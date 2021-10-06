@@ -41,7 +41,7 @@ function FAQ(props: Props) {
         title={NAVIGATION.SIDE_MENU_ITEMS[SideMenuItem.FAQ].label}
         metadata={METADATA.FAQ_PAGE}
       />
-      <div className="bg-alt">
+      <div className="bg-white">
         <div className="relative flex items-center justify-center w-full h-full pt-3 bg-gradient-to-bl from-hyper to-blush">
           <div className="relative w-full" style={{ height: '33vh' }}>
             <Image

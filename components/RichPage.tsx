@@ -38,7 +38,7 @@ export default function RichPage(props: Props) {
           },
         }}
       />
-      <div className="bg-alt">
+      <div className="bg-white">
         <div className="relative flex items-center justify-center w-full h-full pt-3 bg-gradient-to-bl from-hyper to-blush">
           <div
             className={classNames(

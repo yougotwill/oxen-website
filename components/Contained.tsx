@@ -5,7 +5,7 @@ import { UI } from '../constants';
 
 interface Props {
   id?: string;
-  backgroundColor?: string; // 'primary' | 'secondary' | 'alt' | 'white';
+  backgroundColor?: 'primary' | 'secondary' | 'alt' | 'white';
   ditherColor?: 'alt' | 'secondary';
   ditherPosition?: 'top' | 'bottom' | 'top bottom';
   ditherFlipAxis?: 'x' | 'y';

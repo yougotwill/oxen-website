@@ -43,7 +43,7 @@ export default function BlogPost(props: Props) {
           PUBLISHED_TIME: post.publishedDateISO,
         }}
       />
-      <div className="bg-alt">
+      <div className="bg-white">
         <Article {...post} />
       </div>
     </>

@@ -16,7 +16,6 @@ export default function Nav(): ReactElement {
   const router = useRouter();
   const { isMobile, isTablet } = useScreen();
   const [isExpanded, setIsExpanded] = useState(false);
-  const [backgroundColor, setBackgroundColor] = useState('white');
   const toggleNav = () => {
     setIsExpanded(!isExpanded);
   };
@@ -43,14 +42,8 @@ export default function Nav(): ReactElement {
   };
 
   useEffect(() => {
-    if (router.asPath === '/') {
-      setBackgroundColor('white');
-    } else {
-      setBackgroundColor('alt');
-    }
     setIsExpanded(false);
-    document.body.className = `bg-${backgroundColor}`;
-  }, [router.asPath, backgroundColor]);
+  }, []);
 
   return (
     <nav
@@ -58,7 +51,7 @@ export default function Nav(): ReactElement {
       className={classNames('w-full relative mx-auto py-8 z-10')}
     >
       <Contained
-        backgroundColor={backgroundColor}
+        backgroundColor="white"
         classes={'flex flex-wrap items-center justify-between '}
       >
         <div
@@ -88,9 +81,8 @@ export default function Nav(): ReactElement {
         </div>
         <div
           className={classNames(
-            'absolute left-0 right-0 w-full overflow-hidden top-20',
+            'bg-white absolute left-0 right-0 w-full overflow-hidden top-20',
             'desktop:relative desktop:overflow-visible desktop:w-2/3 desktop:top-0',
-            backgroundColor === 'white' ? 'bg-white' : 'bg-alt',
           )}
           style={{
             paddingLeft:
@@ -143,9 +135,11 @@ export default function Nav(): ReactElement {
                 FAQ
               </a>
             </Link>
-            <Link href="/team">
+            <Link href="https://optf.ngo/team">
               <a
-                aria-label="Link to Oxen Team"
+                aria-label="Link to OPTF Team"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={classNames(
                   navLinkClasses,
                   navLinkHoverClasses,
