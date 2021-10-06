@@ -23,6 +23,7 @@ export default function Hero(): ReactElement {
           'tablet:max-w-lg',
           'desktop:max-w-none desktop:w-1/2 desktop:text-left desktop:items-start',
         )}
+        tabIndex={0}
       >
         <h1
           className={classNames(

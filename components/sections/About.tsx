@@ -57,7 +57,12 @@ export default function About(): ReactElement {
           >
             Buy Oxen
           </h3>
-          <a href="#" target="_blank" className={classNames('block my-6')}>
+          <a
+            href="#"
+            target="_blank"
+            aria-label="Link to Bittrex website"
+            className={classNames('block my-6')}
+          >
             <Image
               src={'/svgs/bittrex-logo.svg'}
               alt="Bittrex Logo"
@@ -70,7 +75,12 @@ export default function About(): ReactElement {
               Bittrex
             </span>
           </a>
-          <a href="#" target="_blank" className={classNames('block my-6')}>
+          <a
+            href="#"
+            target="_blank"
+            aria-label="Link to Kucoin website"
+            className={classNames('block my-6')}
+          >
             <Image
               src={'/svgs/kucoin-logo.svg'}
               alt="Bittrex Logo"

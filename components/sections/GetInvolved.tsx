@@ -57,6 +57,7 @@ export default function GetInvolved(): ReactElement {
       >
         <a
           href="https://discord.com/invite/67GXfD6"
+          aria-label="Link to Discord"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -87,6 +88,7 @@ export default function GetInvolved(): ReactElement {
         </a>
         <a
           href="https://www.youtube.com/channel/UCN7LL0dEffQ7FSjbY5wwlnw"
+          aria-label="Link to YouTube"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -117,6 +119,7 @@ export default function GetInvolved(): ReactElement {
         </a>
         <a
           href="https://twitter.com/Oxen_io"
+          aria-label="Link to Oxen Twitter account"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -147,6 +150,7 @@ export default function GetInvolved(): ReactElement {
         </a>
         <a
           href="https://t.me/Oxen_Community"
+          aria-label="Link to Oxen Telegram Group"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -177,6 +181,7 @@ export default function GetInvolved(): ReactElement {
         </a>
         <a
           href="https://github.com/oxen-io"
+          aria-label="Link to Oxen Github"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -207,6 +212,7 @@ export default function GetInvolved(): ReactElement {
         </a>
         <a
           href="https://www.reddit.com/r/oxen_io/"
+          aria-label="Link to Reddit"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -237,6 +243,7 @@ export default function GetInvolved(): ReactElement {
         </a>
         <a
           href="https://sessiongroups.com/"
+          aria-label="Link to Session Open Group"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -266,7 +273,7 @@ export default function GetInvolved(): ReactElement {
           </div>
         </a>
         <Link href="/feed">
-          <a target="_self">
+          <a target="_self" aria-label="Link to RSS feed">
             <div
               className={classNames(
                 'bg-alt rounded-full w-28 h-28 my-4 mx-5 flex justify-center items-center',

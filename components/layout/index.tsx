@@ -57,7 +57,8 @@ export default function Layout({ children }: Props) {
         }}
         className="flex w-full"
       >
-        <div
+        <main
+          role="main"
           ref={ref}
           style={{
             marginLeft,
@@ -67,7 +68,7 @@ export default function Layout({ children }: Props) {
         >
           {children}
           <Footer />
-        </div>
+        </main>
       </div>
     </div>
   );

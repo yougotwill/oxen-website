@@ -53,7 +53,10 @@ export default function Nav(): ReactElement {
   }, [router.asPath, backgroundColor]);
 
   return (
-    <nav className={classNames('w-full relative mx-auto py-8 z-10')}>
+    <nav
+      role="navigation"
+      className={classNames('w-full relative mx-auto py-8 z-10')}
+    >
       <Contained
         backgroundColor={backgroundColor}
         classes={'flex flex-wrap items-center justify-between '}
@@ -65,7 +68,7 @@ export default function Nav(): ReactElement {
           )}
         >
           <Link href="/">
-            <a>
+            <a aria-label="Link to Homepage">
               <OxenLogoSVG className={classNames('fill-current', 'h-10')} />
             </a>
           </Link>
@@ -108,6 +111,7 @@ export default function Nav(): ReactElement {
           >
             <Link href="/blog">
               <a
+                aria-label="Link to Blog"
                 className={classNames(
                   navLinkClasses,
                   navLinkHoverClasses,
@@ -119,6 +123,7 @@ export default function Nav(): ReactElement {
             </Link>
             <Link href="https://docs.oxen.io/">
               <a
+                aria-label="Link to Oxen Documentation"
                 className={classNames(navLinkClasses, navLinkHoverClasses)}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -128,6 +133,7 @@ export default function Nav(): ReactElement {
             </Link>
             <Link href="/faq">
               <a
+                aria-label="Link to FAQ page"
                 className={classNames(
                   navLinkClasses,
                   navLinkHoverClasses,
@@ -139,6 +145,7 @@ export default function Nav(): ReactElement {
             </Link>
             <Link href="/team">
               <a
+                aria-label="Link to Oxen Team"
                 className={classNames(
                   navLinkClasses,
                   navLinkHoverClasses,
@@ -150,6 +157,7 @@ export default function Nav(): ReactElement {
             </Link>
             <Link href="/downloads">
               <a
+                aria-label="Link to Download page"
                 className={classNames(
                   navLinkClasses,
                   navLinkHoverClasses,
@@ -161,12 +169,20 @@ export default function Nav(): ReactElement {
             </Link>
             <div className={classNames(navLinkClasses, 'flex pt-4')}>
               <Link href="https://twitter.com/Oxen_io">
-                <a target="_blank" rel="noopener noreferrer">
+                <a
+                  aria-label="Link to Oxen Twitter page"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <TwitterSVG className={svgClasses} />
                 </a>
               </Link>
               <Link href="https://t.me/Oxen_Community">
-                <a target="_blank" rel="noopener noreferrer">
+                <a
+                  aria-label="Link to Oxen Telegram Group"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <TelegramSVG className={svgClasses} />
                 </a>
               </Link>
