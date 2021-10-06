@@ -8,23 +8,25 @@ export default function Privacy(): ReactElement {
   return (
     <Contained
       backgroundColor="alt"
+      ditherColor="secondary"
+      ditherPosition={'bottom'}
       classes={classNames(
         'pb-16',
-        'tablet:flex tablet:flex-col tablet:justify-center tablet:items-center',
-        'desktop:pb-36 desktop:flex-row',
+        'tablet:flex tablet:flex-col tablet:justify-center tablet:items-center tablet:pb-48',
+        'desktop:flex-row desktop:pb-96',
       )}
     >
       <div
         className={classNames(
-          'flex flex-col justify-center items-center text-center pt-8',
+          'flex flex-col justify-center items-center text-center',
           'desktop:pt-0 desktop:text-left desktop:items-start',
         )}
       >
         <div
           className={classNames(
             'text-6xl font-medium font-prompt leading-tight mt-2 mb-6',
-            'tablet:my-8',
-            'desktop:text-5xl desktop:mt-16 desktop:mb-12',
+            'tablet:mb-8',
+            'desktop:text-5xl desktop:mt-0 desktop:mb-12',
           )}
         >
           <h2 className={classNames('mb-2', 'tablet:inline')}>Work. </h2>

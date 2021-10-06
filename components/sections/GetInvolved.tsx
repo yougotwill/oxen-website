@@ -10,16 +10,16 @@ export default function GetInvolved(): ReactElement {
     <Contained
       backgroundColor="secondary"
       classes={classNames(
-        'text-white pt-4 pb-24',
+        'text-white pb-24',
         'tablet:flex tablet:flex-col tablet:justify-center tablet:items-center',
-        'desktop:pb-36 desktop:flex-row desktop:justify-between',
+        'desktop:pb-64 desktop:flex-row desktop:justify-between',
       )}
     >
       <div
         className={classNames(
-          'flex flex-col justify-center items-center text-center pt-8',
+          'flex flex-col justify-center items-center text-center',
           'tablet:max-w-lg',
-          'desktop:pt-0 desktop:max-w-none desktop:w-1/2 desktop:text-left desktop:items-start',
+          'desktop:max-w-none desktop:w-1/2 desktop:text-left desktop:items-start desktop:-mt-8',
           'xl:w-7/12',
         )}
       >
@@ -27,7 +27,7 @@ export default function GetInvolved(): ReactElement {
           className={classNames(
             'text-5xl font-medium font-prompt leading-tight mt-2 mb-8',
             'tablet:my-8',
-            'desktop:text-4xl desktop:mt-16',
+            'desktop:text-4xl',
           )}
         >
           Get Involved

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { UI } from '../../constants';
 import { useScreen } from '../../contexts/screen';
 
-import { Contained } from '../Contained';
+import { Contained, containerStyles } from '../Contained';
 import CountUp from '../animations/CountUp';
 
 export interface StatsProps {
@@ -51,146 +51,168 @@ export default function Stats(props: StatsProps): ReactElement {
   }, [startAnimation, isMobile, isDesktop, isHuge]);
 
   return (
-    <Contained backgroundColor="alt">
-      <div
-        className={classNames(
-          'flex flex-col justify-center items-center text-black text-center pt-16 pb-24',
-          'tablet:flex-row tablet:text-left',
-        )}
-        ref={statsRef}
-      >
+    <Contained
+      backgroundColor="white"
+      ditherColor="alt"
+      ditherPosition={'bottom'}
+      ditherFlipAxis="y"
+      fullWidth={true}
+      classes={classNames('pb-16', 'tablet:pb-36', 'desktop:pb-48')}
+    >
+      <div className={classNames('bg-alt w-full my-0 mx-auto pb-8')}>
         <div
           className={classNames(
-            'flex flex-col justify-center items-center',
-            'tablet:flex-row tablet:w-full',
+            'flex flex-col justify-center items-center text-black text-center pt-16',
+            'tablet:flex-row tablet:text-left',
           )}
+          ref={statsRef}
+          style={{
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            paddingLeft: `${containerStyles.paddingLeft}`,
+            paddingRight: `${containerStyles.paddingRight}`,
+            maxWidth: `${containerStyles.maxWidth}`,
+          }}
         >
           <div
             className={classNames(
-              'leading-tight',
-              'tablet:flex tablet:items-center tablet:mr-8',
-              'desktop:w-1/3 desktop:leading-snug desktop:pr-16',
+              'flex flex-col justify-center items-center',
+              'tablet:flex-row tablet:w-full',
             )}
           >
             <div
               className={classNames(
-                'relative mx-auto pb-4',
-                'desktop:ml-0 desktop:mr-2',
+                'leading-tight',
+                'tablet:flex tablet:items-center tablet:mr-8',
+                'desktop:w-1/3 desktop:leading-snug desktop:pr-16',
               )}
             >
-              <Image
-                src={'/svgs/dollar.svg'}
-                alt={'Dollar Sign'}
-                width={122}
-                height={200}
-                quality={100}
-                priority={true}
-                lazyBoundary={`500px 200px`}
-              />
-            </div>
-            <div className={classNames('tablet:ml-4')}>
-              <p className={classNames('text-lg', 'desktop:w-24 desktop:pt-2')}>
-                Current Value:
-              </p>
-              <h3
+              <div
                 className={classNames(
-                  'text-7xl font-light',
-                  'tablet:text-5xl tablet:w-28',
-                  'desktop:text-7xl',
+                  'relative mx-auto pb-4',
+                  'desktop:ml-0 desktop:mr-2',
                 )}
               >
-                <CountUp
-                  decimal={true}
-                  wait={!startAnimation}
-                  classes={'font-semibold'}
+                <Image
+                  src={'/svgs/dollar.svg'}
+                  alt={'Dollar Sign'}
+                  width={122}
+                  height={200}
+                  quality={100}
+                  priority={true}
+                  lazyBoundary={`500px 200px`}
+                />
+              </div>
+              <div className={classNames('tablet:ml-4')}>
+                <p
+                  className={classNames('text-lg', 'desktop:w-24 desktop:pt-2')}
                 >
-                  {currentValue}
-                </CountUp>
-                c
-              </h3>
-            </div>
-          </div>
-          <div
-            className={classNames(
-              'mt-16 leading-tight',
-              'tablet:mt-0 tablet:flex tablet:items-center tablet:mr-8',
-              'desktop:w-1/3 desktop:leading-snug desktop:pr-16',
-            )}
-          >
-            <div
-              className={classNames(
-                'relative mx-auto pb-4',
-                'desktop:ml-0 desktop:mr-2',
-              )}
-            >
-              <Image
-                src={'/svgs/padlock.svg'}
-                alt={'Locked Padlock'}
-                width={131}
-                height={200}
-                quality={100}
-                priority={true}
-                lazyBoundary={`500px 200px`}
-              />
-            </div>
-            <div className={classNames('tablet:ml-4')}>
-              <p className={classNames('text-lg', 'desktop:w-24 desktop:pt-2')}>
-                Coins Locked:
-              </p>
-              <h3
-                className={classNames(
-                  'text-7xl font-light',
-                  'tablet:text-5xl tablet:w-28',
-                  'desktop:text-7xl',
-                )}
-              >
-                <CountUp
-                  percentage={true}
-                  wait={!startAnimation}
-                  classes={'font-semibold'}
+                  Current Value:
+                </p>
+                <h3
+                  className={classNames(
+                    'text-7xl font-light',
+                    'tablet:text-5xl tablet:w-28',
+                    'desktop:text-7xl',
+                  )}
                 >
-                  {coinsLocked}
-                </CountUp>
-                %
-              </h3>
+                  <CountUp
+                    decimal={true}
+                    wait={!startAnimation}
+                    classes={'font-semibold'}
+                  >
+                    {currentValue}
+                  </CountUp>
+                  c
+                </h3>
+              </div>
             </div>
-          </div>
-          <div
-            className={classNames(
-              'mt-16 leading-tight',
-              'tablet:mt-0 tablet:flex tablet:items-center',
-              'desktop:w-1/3 desktop:leading-snug desktop:pr-16',
-            )}
-          >
             <div
               className={classNames(
-                'relative mx-auto pb-4',
-                'desktop:ml-0 desktop:mr-2',
+                'mt-16 leading-tight',
+                'tablet:mt-0 tablet:flex tablet:items-center tablet:mr-8',
+                'desktop:w-1/3 desktop:leading-snug desktop:pr-16',
               )}
             >
-              <Image
-                src={'/svgs/node.svg'}
-                alt={'Server box'}
-                width={135}
-                height={200}
-                quality={100}
-                priority={true}
-                lazyBoundary={`500px 200px`}
-              />
-            </div>
-            <div className={classNames('tablet:ml-4')}>
-              <p className={classNames('text-lg', 'desktop:w-24 desktop:pt-2')}>
-                Service Nodes:
-              </p>
-              <h3
+              <div
                 className={classNames(
-                  'text-7xl font-semibold',
-                  'tablet:text-5xl tablet:w-28',
-                  'desktop:text-7xl',
+                  'relative mx-auto pb-4',
+                  'desktop:ml-0 desktop:mr-2',
                 )}
               >
-                <CountUp wait={!startAnimation}>{serviceNodes}</CountUp>
-              </h3>
+                <Image
+                  src={'/svgs/padlock.svg'}
+                  alt={'Locked Padlock'}
+                  width={131}
+                  height={200}
+                  quality={100}
+                  priority={true}
+                  lazyBoundary={`500px 200px`}
+                />
+              </div>
+              <div className={classNames('tablet:ml-4')}>
+                <p
+                  className={classNames('text-lg', 'desktop:w-24 desktop:pt-2')}
+                >
+                  Coins Locked:
+                </p>
+                <h3
+                  className={classNames(
+                    'text-7xl font-light',
+                    'tablet:text-5xl tablet:w-28',
+                    'desktop:text-7xl',
+                  )}
+                >
+                  <CountUp
+                    percentage={true}
+                    wait={!startAnimation}
+                    classes={'font-semibold'}
+                  >
+                    {coinsLocked}
+                  </CountUp>
+                  %
+                </h3>
+              </div>
+            </div>
+            <div
+              className={classNames(
+                'mt-16 leading-tight',
+                'tablet:mt-0 tablet:flex tablet:items-center',
+                'desktop:w-1/3 desktop:leading-snug desktop:pr-16',
+              )}
+            >
+              <div
+                className={classNames(
+                  'relative mx-auto pb-4',
+                  'desktop:ml-0 desktop:mr-2',
+                )}
+              >
+                <Image
+                  src={'/svgs/node.svg'}
+                  alt={'Server box'}
+                  width={135}
+                  height={200}
+                  quality={100}
+                  priority={true}
+                  lazyBoundary={`500px 200px`}
+                />
+              </div>
+              <div className={classNames('tablet:ml-4')}>
+                <p
+                  className={classNames('text-lg', 'desktop:w-24 desktop:pt-2')}
+                >
+                  Service Nodes:
+                </p>
+                <h3
+                  className={classNames(
+                    'text-7xl font-semibold',
+                    'tablet:text-5xl tablet:w-28',
+                    'desktop:text-7xl',
+                  )}
+                >
+                  <CountUp wait={!startAnimation}>{serviceNodes}</CountUp>
+                </h3>
+              </div>
             </div>
           </div>
         </div>

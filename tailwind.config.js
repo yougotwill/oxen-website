@@ -42,6 +42,13 @@ module.exports = {
         push: 'push 0.3s linear 1',
         float: 'float 9s infinite',
       },
+      backgroundImage: {
+        'dithered-alt': "url('/svgs/dither-gradient-alt.svg')",
+        'dithered-alt-mobile': "url('/svgs/dither-gradient-alt-mobile.svg')",
+        'dithered-secondary': "url('/svgs/dither-gradient-secondary.svg')",
+        'dithered-secondary-mobile':
+          "url('/svgs/dither-gradient-secondary-mobile.svg')",
+      },
       borderWidth: {
         3: '3px',
       },
@@ -77,6 +84,9 @@ module.exports = {
         push: {
           '50%': { transform: 'scale(0.8)' },
         },
+      },
+      scale: {
+        '-1': '-1',
       },
       transitionProperty: {
         height: 'height',

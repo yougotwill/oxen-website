@@ -9,16 +9,18 @@ export default function Products(): ReactElement {
   return (
     <Contained
       backgroundColor="white"
+      ditherColor="alt"
+      ditherPosition={'bottom'}
       classes={classNames(
-        'flex flex-col justify-center items-center pb-8',
-        'tablet:pb-24',
-        'desktop:items-start desktop:pb-16',
+        'flex flex-col justify-center items-center pb-16',
+        'tablet:pb-36',
+        'desktop:items-start desktop:pb-80',
       )}
     >
       <h2
         className={classNames(
-          'text-4xl font-semibold font-prompt leading-tight mt-16 mb-8',
-          'desktop:mt-12 desktop:mb-4 desktop:ml-auto desktop:w-2/3',
+          'text-4xl font-semibold font-prompt leading-tight mt-12 mb-8',
+          'desktop:mt-16 desktop:mb-4 desktop:ml-auto desktop:w-2/3',
         )}
       >
         Our Products

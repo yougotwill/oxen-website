@@ -9,8 +9,10 @@ export default function Hero(): ReactElement {
   return (
     <Contained
       backgroundColor="white"
+      ditherColor="alt"
+      ditherPosition="bottom"
       classes={classNames(
-        'h-full',
+        'h-full pb-24',
         'tablet:flex tablet:flex-col tablet:justify-start tablet:items-center tablet:pt-8',
         'desktop:h-screen desktop:flex-row desktop:items-start desktop:pt-32 desktop:overflow-x-hidden',
       )}

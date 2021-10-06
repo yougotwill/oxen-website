@@ -10,14 +10,14 @@ export default function About(): ReactElement {
       <div
         className={classNames(
           'tablet:flex tablet:flex-col tablet:justify-center tablet:items-center',
-          'desktop:h-screen desktop:flex-row',
+          'desktop:flex-row desktop:-mt-16',
         )}
       >
         <div
           className={classNames(
-            'flex flex-col justify-center items-center text-center pt-8',
+            'flex flex-col justify-center items-center text-center',
             'tablet:max-w-lg',
-            'desktop:max-w-none desktop:w-7/12 desktop:text-left desktop:items-start desktop:pt-0',
+            'desktop:max-w-none desktop:w-7/12 desktop:text-left desktop:items-start',
           )}
         >
           <h2
@@ -47,7 +47,7 @@ export default function About(): ReactElement {
           className={classNames(
             'flex flex-col justify-center items-center text-center pt-8',
             'tablet:pt-16',
-            'desktop:w-5/12 desktop:pb-8',
+            'desktop:w-5/12 desktop:pb-16',
           )}
         >
           <h3
