@@ -44,10 +44,7 @@ module.exports = {
       },
       backgroundImage: {
         'dithered-alt': "url('/svgs/dither-gradient-alt.svg')",
-        'dithered-alt-mobile': "url('/svgs/dither-gradient-alt-mobile.svg')",
         'dithered-secondary': "url('/svgs/dither-gradient-secondary.svg')",
-        'dithered-secondary-mobile':
-          "url('/svgs/dither-gradient-secondary-mobile.svg')",
       },
       borderWidth: {
         3: '3px',
