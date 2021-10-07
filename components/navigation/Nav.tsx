@@ -37,8 +37,9 @@ export default function Nav(): ReactElement {
     'transition duration-300',
     'hover:animate-push',
   );
+
   const isActiveNavLink = (url: string) => {
-    return router.asPath.split(url).length > 1 && 'desktop:border-primary';
+    return router.asPath.includes(url) !== false && 'desktop:border-primary';
   };
 
   useEffect(() => {
@@ -108,6 +109,7 @@ export default function Nav(): ReactElement {
                   navLinkClasses,
                   navLinkHoverClasses,
                   isActiveNavLink('/blog'),
+                  isActiveNavLink('/blog/'),
                 )}
               >
                 Blog
