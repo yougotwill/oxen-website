@@ -49,6 +49,7 @@ function Roadmap() {
                 height={horizontal ? '9992' : '12009'}
                 layout="responsive"
                 quality={100}
+                lazyBoundary={`500px 200px`}
                 className="rounded-md"
               />
             </div>
@@ -66,6 +67,7 @@ function Roadmap() {
                 height={horizontal ? '3808' : '10150'}
                 layout="responsive"
                 quality={100}
+                lazyBoundary={`500px 200px`}
                 className="rounded-md"
               />
             </div>

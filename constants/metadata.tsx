@@ -62,7 +62,7 @@ const METADATA = {
   MSAPPLICATION_TILECOLOR: '#343132',
   THEME_COLOR: '#ffffff',
   404: {
-    DESCRIPTION: "Oopsy, here's our 404 page.",
+    DESCRIPTION: 'It looks like the link pointing here was faulty.',
   },
   BLOG_PAGE: {
     TYPE: 'article',
