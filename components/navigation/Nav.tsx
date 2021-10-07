@@ -25,7 +25,7 @@ export default function Nav(): ReactElement {
   );
   const navLinkClasses = classNames(
     'w-full py-2 border-primary',
-    'desktop:pt-2 desktop:px-2 desktop:w-auto desktop:border-transparent desktop:border-b-3',
+    'desktop:pt-2 desktop:px-4 desktop:w-auto desktop:border-transparent desktop:border-b-3',
     isExpanded && 'border-t',
   );
   const navLinkHoverClasses = classNames(
@@ -34,6 +34,7 @@ export default function Nav(): ReactElement {
   );
   const svgClasses = classNames(
     'bg-primary text-white fill-current w-9 h-9 rounded-full mr-4',
+    'desktop:mr-3',
     'transition duration-300',
     'hover:animate-push',
   );
@@ -102,63 +103,41 @@ export default function Nav(): ReactElement {
                 : 'h-0 -translate-y-full desktop:translate-y-0',
             )}
           >
-            <Link href="/blog">
+            <Link href="/Products">
               <a
-                aria-label="Link to Blog"
+                aria-label="Link to Oxen Products"
                 className={classNames(
                   navLinkClasses,
                   navLinkHoverClasses,
-                  isActiveNavLink('/blog'),
-                  isActiveNavLink('/blog/'),
+                  isActiveNavLink('/products'),
+                  isActiveNavLink('/products/'),
                 )}
               >
-                Blog
+                Products
               </a>
             </Link>
-            <Link href="/docs">
+            <Link href="/learn">
               <a
-                aria-label="Link to Oxen Documentation"
-                className={classNames(navLinkClasses, navLinkHoverClasses)}
-              >
-                Docs
-              </a>
-            </Link>
-            <Link href="/faq">
-              <a
-                aria-label="Link to FAQ page"
+                aria-label="Link to learning more about Oxen"
                 className={classNames(
                   navLinkClasses,
                   navLinkHoverClasses,
-                  isActiveNavLink('/faq'),
+                  isActiveNavLink('/learn'),
                 )}
               >
-                FAQ
+                Learn
               </a>
             </Link>
-            <Link href="https://optf.ngo/team">
+            <Link href="/news">
               <a
-                aria-label="Link to OPTF Team"
-                target="_blank"
-                rel="noopener noreferrer"
+                aria-label="Link to News page"
                 className={classNames(
                   navLinkClasses,
                   navLinkHoverClasses,
-                  isActiveNavLink('/team'),
+                  isActiveNavLink('/news'),
                 )}
               >
-                Team
-              </a>
-            </Link>
-            <Link href="/downloads">
-              <a
-                aria-label="Link to Download page"
-                className={classNames(
-                  navLinkClasses,
-                  navLinkHoverClasses,
-                  isActiveNavLink('/downloads'),
-                )}
-              >
-                Downloads
+                News
               </a>
             </Link>
             <div className={classNames(navLinkClasses, 'flex pt-4')}>
