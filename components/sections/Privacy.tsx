@@ -24,7 +24,7 @@ export default function Privacy(): ReactElement {
       >
         <div
           className={classNames(
-            'text-6xl font-medium font-prompt leading-tight mt-2 mb-6',
+            'text-6xl font-medium leading-tight mt-2 mb-6',
             'tablet:mb-8',
             'desktop:text-5xl desktop:mt-0 desktop:mb-12',
           )}

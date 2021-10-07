@@ -62,7 +62,7 @@ export default function RichPage(props: Props) {
         </div>
 
         <Contained>
-          <h1 className="mt-12 mb-4 text-4xl font-bold leading-none text-primary font-prompt">
+          <h1 className="mt-12 mb-4 text-4xl font-bold leading-none text-primary">
             {page?.title}
           </h1>
 

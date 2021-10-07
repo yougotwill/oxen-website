@@ -27,7 +27,7 @@ export default function Hero(): ReactElement {
       >
         <h1
           className={classNames(
-            'text-primary text-4xl font-semibold font-prompt leading-tight mb-4',
+            'text-primary text-4xl font-semibold leading-tight mb-4',
             'desktop:w-3/4',
           )}
         >

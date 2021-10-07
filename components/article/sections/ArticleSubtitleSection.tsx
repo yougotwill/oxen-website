@@ -20,7 +20,7 @@ export function ArticleSubtitleSection({ subtitle }: Props) {
           style={{
             maxWidth: isDesktop || isHuge ? '700px' : undefined,
           }}
-          className="w-full mb-3 font-sans text-lg font-medium text-center text-gray-900 desktop:mb-6 desktop:text-2xl"
+          className="w-full mb-3 text-lg font-medium text-center text-gray-900 desktop:mb-6 desktop:text-2xl"
         >
           {subtitle}
         </span>

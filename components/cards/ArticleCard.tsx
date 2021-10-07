@@ -64,7 +64,7 @@ export function ArticleCard(props: IPost): JSX.Element {
               <p
                 className={classNames(
                   isSmall ? 'text-base' : 'text-lg',
-                  'font-sans overflow-hidden cursor-pointer mb-3 hover:underline leading-none text-primary',
+                  'overflow-hidden cursor-pointer mb-3 hover:underline leading-none text-primary',
                 )}
               >
                 {title}
@@ -83,7 +83,7 @@ export function ArticleCard(props: IPost): JSX.Element {
           </p>
 
           <div className="flex flex-col space-y-1">
-            <p className="mt-2 font-sans text-xs text-gray-800">
+            <p className="mt-2 text-xs text-gray-800">
               {publishedDate} — {author?.name}
             </p>
             <TagRow tags={tags} limit={3} />

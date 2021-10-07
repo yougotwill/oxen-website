@@ -58,7 +58,7 @@ export function ArticleCardFeature(props: IPost) {
           <Link href={href} as={as}>
             <a
               style={{ height: '2.95em' }}
-              className="overflow-hidden font-sans text-3xl font-medium leading-none hover:underline"
+              className="overflow-hidden text-3xl font-medium leading-none hover:underline"
             >
               {title}
             </a>
@@ -75,7 +75,7 @@ export function ArticleCardFeature(props: IPost) {
         </div>
 
         <div className="relative">
-          <p className="mt-3 mb-2 font-sans text-xs font-thin">
+          <p className="mt-3 mb-2 text-xs">
             {publishedDate} — {author?.name}
           </p>
 

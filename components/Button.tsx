@@ -93,7 +93,6 @@ export function Button(props: Props) {
   ];
 
   const fontStyles = [
-    'font-raleway',
     fontWeight === 'normal' && 'font-normal',
     fontWeight === 'semibold' && 'font-semibold',
     fontWeight === 'bold' && 'font-bold',

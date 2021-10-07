@@ -13,7 +13,7 @@ export default function Footer(props: Props): ReactElement {
   const {} = props;
   const { isMobile } = useScreen();
   const headingClasses = classNames(
-    'text-white uppercase text-xl font-semibold mb-2',
+    'text-white text-xl font-semibold mb-2',
     'desktop:text-2xl',
   );
   const linkClasses = (isOrgLink = false) => {
@@ -22,7 +22,9 @@ export default function Footer(props: Props): ReactElement {
       'tablet:text-sm tablet:mr-8',
       'desktop:text-lg',
       'transition-colors duration-300',
-      isOrgLink ? 'text-secondary hover:text-white' : 'hover:text-secondary',
+      isOrgLink
+        ? 'text-secondary font-light hover:text-white'
+        : 'hover:text-secondary',
     );
   };
 
@@ -104,13 +106,13 @@ export default function Footer(props: Props): ReactElement {
             )}
           >
             <h3 className={headingClasses}>Links</h3>
-            <Link href="https://oxen.io/">
+            <Link href="https://getsession.org/">
               <a
                 className={linkClasses(true)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                oxen.io
+                getsession.org
               </a>
             </Link>
             <Link href="https://lokinet.org/">

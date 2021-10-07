@@ -67,7 +67,7 @@ export function SideMenuInner() {
           {!(isDesktop || isHuge) && (
             <div
               className={classNames(
-                'flex flex-col pt-8 pl-6 font-medium uppercase font-prompt text-lg',
+                'flex flex-col pt-8 pl-6 font-medium uppercase text-lg',
               )}
             >
               {_.chunk(NAVIGATION.MENU_ITEMS, 2).map(group => (

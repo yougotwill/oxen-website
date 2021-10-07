@@ -13,9 +13,7 @@ export function ArticleWidgetAuthor({ author, publishedDate }: Props) {
 
       <div className="flex leading-tight">
         <span>{publishedDate}</span> —
-        <span className="ml-1 font-sans text-sm tracking-wider">
-          {author?.name}
-        </span>
+        <span className="ml-1 text-sm tracking-wider">{author?.name}</span>
       </div>
     </div>
   );

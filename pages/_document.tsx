@@ -16,7 +16,7 @@ class MyDocument extends Document {
     return (
       <Html prefix="og: http://ogp.me/ns#" lang="en">
         <Head />
-        <body>
+        <body className="antialiased">
           <Main />
           <NextScript />
         </body>

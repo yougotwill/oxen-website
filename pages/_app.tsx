@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { Provider as StoreProvider } from 'react-redux';
 import { createStore } from 'redux';
 
-import '../assets/style.css';
+import '../styles/globals.css';
 import { NAVIGATION } from '../constants';
 import { ScreenProvider } from '../contexts/screen';
 import {

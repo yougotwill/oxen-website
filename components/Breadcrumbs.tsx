@@ -9,7 +9,7 @@ export function Breadcrumbs() {
   console.log('Breadcrumbs ➡️   path:', path);
 
   return (
-    <div className="flex items-center font-sans">
+    <div className="flex items-center">
       {/* <HomeSVG className="w-4 h-4 mr-1 fill-current text-primary" /> */}
       <span className="last:font-medium">
         {path.map((item, index) => (

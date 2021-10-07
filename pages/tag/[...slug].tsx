@@ -63,13 +63,13 @@ export default function Tag(props: Props): ReactElement {
         <Contained>
           <div
             className={classNames(
-              'flex w-full space-x-2 font-sans',
+              'flex w-full space-x-2',
               tagHasPosts
                 ? 'items-center'
                 : 'flex-col tablet:flex-row tablet:items-center',
             )}
           >
-            <h1 className="mb-2 mr-1 text-3xl font-medium upercase font-prompt">
+            <h1 className="mb-2 mr-1 text-3xl font-medium upercase">
               {tagHasPosts
                 ? 'Tag Results:'
                 : 'There are no posts with the tag:'}
@@ -99,9 +99,7 @@ export default function Tag(props: Props): ReactElement {
         )}
 
         <Contained>
-          <h3 className="-mb-2 text-3xl font-prompt text-primary">
-            Recent Posts
-          </h3>
+          <h3 className="-mb-2 text-3xl text-primary">Recent Posts</h3>
         </Contained>
 
         <CardGrid>

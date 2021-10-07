@@ -45,9 +45,7 @@ export function ArticleCardRow(post: IPost) {
           <div className="flex w-full space-x-6">
             <ArticlePreviewImage />
             <div className="w-2/3">
-              <h3 className="font-sans text-twoxl text-primary">
-                {post.title}
-              </h3>
+              <h3 className="text-primary">{post.title}</h3>
             </div>
           </div>
 
@@ -61,7 +59,7 @@ export function ArticleCardRow(post: IPost) {
             className="flex flex-col flex-grow"
           >
             <Link href={href} as={as}>
-              <a className="font-sans text-xl text-primary">{post.title}</a>
+              <a className="text-xl text-primary">{post.title}</a>
             </Link>
 
             <ArticlePreviewContent />

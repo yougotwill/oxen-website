@@ -19,7 +19,7 @@ export default function Products(): ReactElement {
     >
       <h2
         className={classNames(
-          'text-4xl font-semibold font-prompt leading-tight mt-12 mb-8',
+          'text-4xl font-semibold leading-tight mt-12 mb-8',
           'desktop:mt-16 desktop:mb-4 desktop:ml-auto desktop:w-2/3',
         )}
       >
@@ -51,7 +51,7 @@ export default function Products(): ReactElement {
         >
           <h3
             className={classNames(
-              'text-3xl font-semibold font-prompt leading-tight mt-8 mb-4',
+              'text-3xl font-semibold leading-tight mt-8 mb-4',
             )}
           >
             Session
@@ -100,7 +100,7 @@ export default function Products(): ReactElement {
         >
           <h3
             className={classNames(
-              'text-3xl font-semibold font-prompt leading-tight mt-8 mb-4',
+              'text-3xl font-semibold leading-tight mt-8 mb-4',
             )}
           >
             Lokinet

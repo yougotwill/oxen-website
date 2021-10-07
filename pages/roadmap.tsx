@@ -35,7 +35,7 @@ function Roadmap() {
 
         <div className="flex flex-col pb-6">
           <div>
-            <h2 className="my-6 text-3xl font-medium text-center tablet:text-4xl font-prompt text-primary">
+            <h2 className="my-6 text-3xl font-medium text-center tablet:text-4xl text-primary">
               Session in 2021
             </h2>
             <div
@@ -56,7 +56,7 @@ function Roadmap() {
           </div>
 
           <div>
-            <h2 className="my-6 text-3xl font-medium text-center tablet:text-4xl font-prompt text-primary">
+            <h2 className="my-6 text-3xl font-medium text-center tablet:text-4xl text-primary">
               Lokinet in 2021
             </h2>
             <div className={classNames(imageClasses)} style={{ height: '90%' }}>

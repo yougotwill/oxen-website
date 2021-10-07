@@ -20,11 +20,7 @@ export default function About(): ReactElement {
             'desktop:max-w-none desktop:w-7/12 desktop:text-left desktop:items-start',
           )}
         >
-          <h2
-            className={classNames(
-              'text-4xl font-medium font-prompt leading-tight mb-4',
-            )}
-          >
+          <h2 className={classNames('text-4xl font-medium leading-tight mb-4')}>
             Oxen
           </h2>
           <p className={classNames('text-2xl leading-snug mb-6')}>
@@ -51,9 +47,7 @@ export default function About(): ReactElement {
           )}
         >
           <h3
-            className={classNames(
-              'text-3xl font-semibold font-prompt leading-tight mb-4',
-            )}
+            className={classNames('text-3xl font-semibold leading-tight mb-4')}
           >
             Buy Oxen
           </h3>

@@ -104,11 +104,7 @@ export function RichBody(props: Props): ReactElement {
             );
           }
           return (
-            <p
-              className={classNames(
-                'mb-3 font-sans tracking-wide text-justify',
-              )}
-            >
+            <p className={classNames('mb-3 tracking-wide text-justify')}>
               {children}
             </p>
           );
@@ -118,7 +114,7 @@ export function RichBody(props: Props): ReactElement {
         <h1
           id={hasLocalID(node)}
           className={classNames(
-            'mt-8 mb-4 text-4xl font-semibold font-prompt',
+            'mt-8 mb-4 text-4xl font-semibold',
             headingClasses,
           )}
         >
@@ -129,7 +125,7 @@ export function RichBody(props: Props): ReactElement {
         <h2
           id={hasLocalID(node)}
           className={classNames(
-            'mt-8 mb-2 font-sans text-3xl font-semibold tracking-wide',
+            'mt-8 mb-2 text-3xl font-semibold tracking-wide',
             headingClasses,
           )}
         >
@@ -140,7 +136,7 @@ export function RichBody(props: Props): ReactElement {
         <h3
           id={hasLocalID(node)}
           className={classNames(
-            'mt-6 mb-2 font-sans text-xl font-semibold',
+            'mt-6 mb-2 text-xl font-semibold',
             headingClasses,
           )}
         >
@@ -150,10 +146,7 @@ export function RichBody(props: Props): ReactElement {
       [BLOCKS.HEADING_4]: (node, children) => (
         <h4
           id={hasLocalID(node)}
-          className={classNames(
-            'mt-6 mb-2 font-sans text-lg font-bold',
-            headingClasses,
-          )}
+          className={classNames('mt-6 mb-2 text-lg font-bold', headingClasses)}
         >
           {children}
         </h4>
@@ -176,7 +169,7 @@ export function RichBody(props: Props): ReactElement {
           if (child.type === 'p') {
             const newProps = {
               ...child.props,
-              className: 'mb-3 font-sans tracking-wide',
+              className: 'mb-3 tracking-wide',
             };
             return cloneElement(child, newProps);
           }
@@ -198,5 +191,14 @@ export function RichBody(props: Props): ReactElement {
   };
 
   const richBody = documentToReactComponents(body, options);
-  return <div className={classNames('text-primary', classes)}>{richBody}</div>;
+  return (
+    <div
+      className={classNames(
+        'text-primary font-work subpixel-antialiased',
+        classes,
+      )}
+    >
+      {richBody}
+    </div>
+  );
 }

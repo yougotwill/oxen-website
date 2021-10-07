@@ -1,6 +1,6 @@
 module.exports = {
   purge: [
-    './assets/style.css',
+    './styles/globals.css',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './services/**/*.{js,ts,jsx,tsx}',
@@ -17,8 +17,8 @@ module.exports = {
       huge: '1920px',
     },
     fontFamily: {
-      prompt: ['Prompt'],
-      sans: ['WorkSans'],
+      sans: ['Prompt', 'sans-serif'],
+      work: ['WorkSans', 'sans-serif'],
     },
     fontSize: {
       '2xs': ['.50rem'],

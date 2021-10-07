@@ -36,8 +36,7 @@ export function Title(props: Props) {
       {level === 1 && (
         <h1
           className={classNames(
-            'font-raleway',
-            small ? 'text-xl' : 'text-twoxl',
+            small ? 'text-xl' : 'text-2xl',
             bold ? 'font-bold' : 'font-semibold',
             commonClassNames,
           )}
@@ -48,7 +47,6 @@ export function Title(props: Props) {
       {level === 2 && (
         <h2
           className={classNames(
-            'font-raleway',
             small ? 'text-lg' : 'text-xl',
             bold ? 'font-bold' : 'font-light',
             commonClassNames,
@@ -60,7 +58,6 @@ export function Title(props: Props) {
       {level === 3 && (
         <h3
           className={classNames(
-            'font-raleway',
             small ? 'text-base' : 'text-lg',
             bold ? 'font-bold' : 'font-light',
             commonClassNames,
@@ -72,7 +69,6 @@ export function Title(props: Props) {
       {level === 4 && (
         <h4
           className={classNames(
-            'font-raleway',
             small ? 'text-sm' : 'text-base',
             bold ? 'font-bold' : 'font-light',
             commonClassNames,

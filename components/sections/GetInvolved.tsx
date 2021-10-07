@@ -25,7 +25,7 @@ export default function GetInvolved(): ReactElement {
       >
         <h2
           className={classNames(
-            'text-5xl font-medium font-prompt leading-tight mt-2 mb-8',
+            'text-5xl font-medium leading-tight mt-2 mb-8',
             'tablet:my-8',
             'desktop:text-4xl',
           )}

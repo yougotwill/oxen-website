@@ -62,7 +62,7 @@ export default function Stats(props: StatsProps): ReactElement {
       <div className={classNames('bg-alt w-full my-0 mx-auto pb-8')}>
         <div
           className={classNames(
-            'flex flex-col justify-center items-center text-black text-center pt-16',
+            'flex flex-col justify-center items-center text-center pt-16',
             'tablet:flex-row tablet:text-left',
           )}
           ref={statsRef}
@@ -105,13 +105,16 @@ export default function Stats(props: StatsProps): ReactElement {
               </div>
               <div className={classNames('tablet:ml-4')}>
                 <p
-                  className={classNames('text-lg', 'desktop:w-24 desktop:pt-2')}
+                  className={classNames(
+                    'text-lg font-light',
+                    'desktop:w-24 desktop:pt-2',
+                  )}
                 >
                   Current Value:
                 </p>
                 <h3
                   className={classNames(
-                    'text-7xl font-light',
+                    'text-7xl font-extralight',
                     'tablet:text-5xl tablet:w-28',
                     'desktop:text-7xl',
                   )}
@@ -152,13 +155,16 @@ export default function Stats(props: StatsProps): ReactElement {
               </div>
               <div className={classNames('tablet:ml-4')}>
                 <p
-                  className={classNames('text-lg', 'desktop:w-24 desktop:pt-2')}
+                  className={classNames(
+                    'text-lg font-light',
+                    'desktop:w-24 desktop:pt-2',
+                  )}
                 >
                   Coins Locked:
                 </p>
                 <h3
                   className={classNames(
-                    'text-7xl font-light',
+                    'text-7xl font-extralight',
                     'tablet:text-5xl tablet:w-28',
                     'desktop:text-7xl',
                   )}
@@ -199,7 +205,10 @@ export default function Stats(props: StatsProps): ReactElement {
               </div>
               <div className={classNames('tablet:ml-4')}>
                 <p
-                  className={classNames('text-lg', 'desktop:w-24 desktop:pt-2')}
+                  className={classNames(
+                    'text-lg font-light',
+                    'desktop:w-24 desktop:pt-2',
+                  )}
                 >
                   Service Nodes:
                 </p>
