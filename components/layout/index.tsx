@@ -55,7 +55,7 @@ export default function Layout({ children }: Props) {
         style={{
           height: `calc(100vh - ${UI.HEADER_HEIGHT_PX}px`,
         }}
-        className="flex w-full"
+        className="w-full"
       >
         <main
           role="main"
@@ -67,8 +67,8 @@ export default function Layout({ children }: Props) {
           className="relative w-full duration-300"
         >
           {children}
-          <Footer />
         </main>
+        <Footer />
       </div>
     </div>
   );

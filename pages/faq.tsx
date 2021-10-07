@@ -56,7 +56,7 @@ function FAQ(props: Props) {
         </div>
 
         <Contained>
-          <div className="flex flex-col pb-6 mx-4">
+          <div className="flex flex-col mx-4 mb-20">
             <div>
               <h1 className="mt-6 mb-3 text-3xl font-medium text-left tablet:text-4xl font-prompt text-primary">
                 FAQ

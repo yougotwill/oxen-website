@@ -59,28 +59,25 @@ export default function Tag(props: Props): ReactElement {
           },
         }}
       />
-      <div className="flex flex-col w-full mt-12 mb-6 space-y-6 bg-white">
+      <div className="flex flex-col w-full mt-4 mb-16 space-y-6 bg-white">
         <Contained>
-          <h1 className="mb-2 text-4xl font-medium uppercase font-prompt">
-            Oxen Blogs
-          </h1>
           <div
             className={classNames(
-              'flex w-full mt-4 space-x-2 font-sans',
+              'flex w-full space-x-2 font-sans',
               tagHasPosts
                 ? 'items-center'
                 : 'flex-col tablet:flex-row tablet:items-center',
             )}
           >
-            <p className={'mb-0'}>
+            <h1 className="mb-2 mr-1 text-3xl font-medium upercase font-prompt">
               {tagHasPosts
                 ? 'Tag Results:'
                 : 'There are no posts with the tag:'}
-            </p>
+            </h1>
             <TagBlock
               size="large"
               tag={tag}
-              classes={classNames(!tagHasPosts && 'mt-3 tablet:mt-0')}
+              classes={classNames(!tagHasPosts ? 'mt-3 tablet:mt-0' : '-mt-1')}
             />
           </div>
         </Contained>

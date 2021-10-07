@@ -66,7 +66,7 @@ export default function RichPage(props: Props) {
             {page?.title}
           </h1>
 
-          <div className="mb-10">
+          <div className="mb-20">
             <RichBody body={page?.body} />
           </div>
         </Contained>

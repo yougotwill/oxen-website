@@ -59,11 +59,8 @@ export default function Blog(props: Props): ReactElement {
           },
         }}
       />
-      <div className="flex flex-col w-full mt-12 mb-6 space-y-6 bg-white">
-        <Contained classes={'mb-6'}>
-          <h1 className="mb-2 text-4xl font-medium uppercase font-prompt">
-            Oxen Blogs
-          </h1>
+      <div className="flex flex-col w-full mt-8 mb-16 space-y-6 bg-white">
+        <Contained>
           {featuredPost && <ArticleCardFeature {...featuredPost} />}
         </Contained>
 

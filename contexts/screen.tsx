@@ -3,6 +3,7 @@ import { ReactElement, ReactNode, createContext, useContext } from 'react';
 
 interface IScreen {
   width: number;
+  height: number;
   isMobile: boolean;
   isTablet: boolean;
   isDesktop: boolean;
@@ -11,6 +12,7 @@ interface IScreen {
 
 const ScreenContext = createContext<IScreen>({
   width: 0,
+  height: 0,
   isMobile: true,
   isTablet: false,
   isDesktop: false,

@@ -3,7 +3,7 @@ import { useWindowSize } from 'react-use';
 import { UI } from '../constants';
 
 export function useScreenSize() {
-  const { width } = useWindowSize();
+  const { width, height } = useWindowSize();
 
   // Mobile first
   const [isMobile, setIsMobile] = useState(true);
@@ -25,5 +25,5 @@ export function useScreenSize() {
     setIsHuge(_isHuge);
   }, [width]);
 
-  return { width, isMobile, isTablet, isDesktop, isHuge };
+  return { width, height, isMobile, isTablet, isDesktop, isHuge };
 }
