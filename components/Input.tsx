@@ -193,7 +193,7 @@ export function Input(props: InputProps) {
     >
       {prefix && (
         <span
-          className={classNames(`text-black`, 'flex', 'items-center', 'pr-4')}
+          className={classNames(`text-primary`, 'flex', 'items-center', 'pr-4')}
         >
           {prefix}
         </span>

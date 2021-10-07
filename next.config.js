@@ -81,6 +81,16 @@ const nextConfig = {
         destination: '/blog/session-the-road-to-monetisation',
         permanent: true,
       },
+      {
+        source: '/docs',
+        destination: 'https://docs.oxen.io/',
+        permanent: true,
+      },
+      {
+        source: '/downloads',
+        destination: 'https://docs.oxen.io/downloads',
+        permanent: true,
+      },
     ],
   },
   async redirects() {

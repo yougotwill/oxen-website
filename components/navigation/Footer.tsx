@@ -87,14 +87,8 @@ export default function Footer(props: Props): ReactElement {
             <Link href="/blog">
               <a className={linkClasses()}>Blog</a>
             </Link>
-            <Link href="https://docs.oxen.io'">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                className={linkClasses()}
-              >
-                Docs
-              </a>
+            <Link href="/docs">
+              <a className={linkClasses()}>Docs</a>
             </Link>
           </div>
           <div

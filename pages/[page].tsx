@@ -1,9 +1,10 @@
 import { GetStaticPaths } from 'next';
+import getConfig from 'next/config';
 
 import { CMS, NAVIGATION } from '../constants';
 import { CmsApi, generateLinkMeta, unslugify } from '../services/cms';
 import { SideMenuItem } from '../state/navigation';
-import { IPath } from '../types';
+import { IPath, IRedirection } from '../types';
 import { IPost, ISplitPage, isPost } from '../types/cms';
 import { isLocal } from '../utils/links';
 
@@ -58,6 +59,11 @@ export async function getStaticProps({ params }) {
     if (SideMenuItem[id]) {
       page = await cms.fetchPageById(SideMenuItem[id]);
     } else {
+      const redirects = getConfig().serverRuntimeConfig.redirects.filter(
+        (item: IRedirection) => `/${url}` == item.source,
+      );
+      if (redirects.length > 0) return { redirect: redirects[0] };
+
       page = await cms.fetchEntryBySlug(url, 'post');
       // embedded links in post body need metadata for preview
       page.body = await generateLinkMeta(page.body);

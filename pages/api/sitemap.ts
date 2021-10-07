@@ -6,12 +6,7 @@ import { CMS, METADATA, NAVIGATION } from '../../constants';
 import { CmsApi } from '../../services/cms';
 import { isLocal } from '../../utils/links';
 import { SideMenuItem } from '../../state/navigation';
-
-interface IRedirection {
-  source: string;
-  destination: string;
-  permanent: boolean;
-}
+import { IRedirection } from '../../types';
 
 export default async function handler(
   req: NextApiRequest,

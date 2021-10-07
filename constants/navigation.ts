@@ -95,8 +95,8 @@ const MENU_ITEMS: IMenuItem[] = [
   },
   {
     label: 'Docs',
-    href: 'https://docs.oxen.io',
-    newTab: true,
+    href: '/docs',
+    newTab: false,
     subtle: false,
     external: true,
   },
@@ -117,8 +117,8 @@ const MENU_ITEMS: IMenuItem[] = [
   },
   {
     label: 'Downloads',
-    href: 'https://docs.oxen.io/downloads',
-    newTab: true,
+    href: '/downloads',
+    newTab: false,
     subtle: true,
     external: true,
   },

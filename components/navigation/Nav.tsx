@@ -115,12 +115,10 @@ export default function Nav(): ReactElement {
                 Blog
               </a>
             </Link>
-            <Link href="https://docs.oxen.io/">
+            <Link href="/docs">
               <a
                 aria-label="Link to Oxen Documentation"
                 className={classNames(navLinkClasses, navLinkHoverClasses)}
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 Docs
               </a>
