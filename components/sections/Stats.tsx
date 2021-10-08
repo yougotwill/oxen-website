@@ -57,7 +57,12 @@ export default function Stats(props: StatsProps): ReactElement {
       ditherPosition={'bottom'}
       ditherFlipAxis="y"
       fullWidth={true}
-      classes={classNames('pb-16', 'tablet:pb-36', 'desktop:pb-48')}
+      classes={classNames(
+        'pb-16',
+        'tablet:pb-36',
+        'desktop:pb-48',
+        'huge:pb-96',
+      )}
     >
       <div className={classNames('bg-alt w-full my-0 mx-auto pb-8')}>
         <div

@@ -82,6 +82,9 @@ module.exports = {
           '50%': { transform: 'scale(0.8)' },
         },
       },
+      padding: {
+        128: '32rem',
+      },
       scale: {
         '-1': '-1',
       },

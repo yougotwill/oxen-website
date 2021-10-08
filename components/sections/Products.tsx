@@ -15,6 +15,7 @@ export default function Products(): ReactElement {
         'flex flex-col justify-center items-center pb-16',
         'tablet:pb-36',
         'desktop:items-start desktop:pb-80',
+        'huge:pt-8 huge:pb-128',
       )}
     >
       <h2

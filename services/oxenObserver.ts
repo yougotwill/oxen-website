@@ -7,22 +7,40 @@ async function api(query: string) {
 }
 
 export async function fetchCurrentPrice(fiat: string = 'usd'): Promise<Number> {
-  const data = await api(`/price/${fiat}`);
-  return Number(data[`${fiat}`]);
+  const fallbackPrice = 0.6; // updated on 08/10/2021
+  try {
+    const data = await api(`/price/${fiat}`);
+    return Number(data[`${fiat}`]);
+  } catch (err) {
+    console.error('Oxen Observer API: Error fetching current price ', err);
+    return fallbackPrice;
+  }
 }
 
 export async function fetchActiveNodes(): Promise<Number> {
-  const nodeStats = await api(`/service_node_stats`);
-  const activeNodes = nodeStats.data['active'];
-  return Number(activeNodes);
+  const fallbackActiveNodes = 1745; // updated on 08/10/2021
+  try {
+    const nodeStats = await api(`/service_node_stats`);
+    const activeNodes = nodeStats.data['active'];
+    return Number(activeNodes);
+  } catch (err) {
+    console.error('Oxen Observer API: Error fetching active nodes ', err);
+    return fallbackActiveNodes;
+  }
 }
 
 export async function fetchCoinsLocked(): Promise<Number> {
-  const circulatingSupply = await api(`/circulating_supply`);
-  const nodeStats = await api(`/service_node_stats`);
-  const staked = nodeStats.data['staked'];
+  const fallbackCoinsLocked = 0.48; // updated on 08/10/2021
+  try {
+    const circulatingSupply = await api(`/circulating_supply`);
+    const nodeStats = await api(`/service_node_stats`);
+    const staked = nodeStats.data['staked'];
 
-  return Number(
-    (parseFloat(staked) / parseFloat(circulatingSupply)).toFixed(2),
-  );
+    return Number(
+      (parseFloat(staked) / parseFloat(circulatingSupply)).toFixed(2),
+    );
+  } catch (err) {
+    console.error('Oxen Observer API: Error fetching coins locked ', err);
+    return fallbackCoinsLocked;
+  }
 }

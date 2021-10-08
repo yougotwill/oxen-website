@@ -14,6 +14,7 @@ export default function Privacy(): ReactElement {
         'pb-16',
         'tablet:flex tablet:flex-col tablet:justify-center tablet:items-center tablet:pb-48',
         'desktop:flex-row desktop:pb-96',
+        'huge:pb-128',
       )}
     >
       <div
