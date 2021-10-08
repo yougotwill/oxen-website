@@ -91,6 +91,9 @@ module.exports = {
       transitionProperty: {
         height: 'height',
       },
+      width: {
+        68: '17rem',
+      },
     },
   },
   variants: {

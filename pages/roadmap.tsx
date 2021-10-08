@@ -43,7 +43,7 @@ function Roadmap() {
               style={{ height: horizontal ? '90%' : 'auto' }}
             >
               <Image
-                src={`/img/session-${horizontal ? 'x' : 'y'}.png`}
+                src={`/img/session-${horizontal ? 'x' : 'y'}.jpg`}
                 alt="Session's Roadmap and Plans for the future."
                 width={horizontal ? '17138' : '4688'}
                 height={horizontal ? '9992' : '12009'}
