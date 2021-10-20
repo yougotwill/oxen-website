@@ -13,6 +13,7 @@ export async function fetchCurrentPrice(fiat: string = 'usd'): Promise<Number> {
     return Number(data[`${fiat}`]);
   } catch (err) {
     console.error('Oxen Observer API: Error fetching current price ', err);
+    console.log('Oxen Observer API: Using fallback value ', fallbackPrice);
     return fallbackPrice;
   }
 }
@@ -25,6 +26,10 @@ export async function fetchActiveNodes(): Promise<Number> {
     return Number(activeNodes);
   } catch (err) {
     console.error('Oxen Observer API: Error fetching active nodes ', err);
+    console.log(
+      'Oxen Observer API: Using fallback value ',
+      fallbackActiveNodes,
+    );
     return fallbackActiveNodes;
   }
 }
@@ -41,6 +46,10 @@ export async function fetchCoinsLocked(): Promise<Number> {
     );
   } catch (err) {
     console.error('Oxen Observer API: Error fetching coins locked ', err);
+    console.log(
+      'Oxen Observer API: Using fallback value ',
+      fallbackCoinsLocked,
+    );
     return fallbackCoinsLocked;
   }
 }
