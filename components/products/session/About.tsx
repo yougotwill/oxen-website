@@ -21,9 +21,17 @@ export default function About(): ReactElement {
             'xl:mr-8',
           )}
         >
-          <p className={classNames('text-2xl leading-snug mb-6')}>
-            Session is an end-to-end encrypted messenger that minimises
-            sensitive metadata, designed and built for people.
+          <p
+            className={classNames(
+              'text-2xl leading-snug mb-6',
+              'desktop:max-w-xs desktop:-mt-16 desktop:ml-auto desktop:mr-16',
+            )}
+          >
+            The first messaging app in the world to combine{' '}
+            <span className={classNames('desktop:inline-block')}>
+              end-to-end encryption,
+            </span>{' '}
+            anonymous sign-up, decentralisation, and onion-routing.
           </p>
         </div>
         <div
@@ -38,7 +46,7 @@ export default function About(): ReactElement {
             <div
               className={classNames(
                 'relative w-24 mx-auto mb-4',
-                'desktop:w-14',
+                'desktop:w-20',
               )}
             >
               <Image
@@ -53,14 +61,16 @@ export default function About(): ReactElement {
               <h3 className={classNames('font-semibold mb-4', 'desktop:mb-2')}>
                 Group chats
               </h3>
-              <p>Something shorter about group chats. Only a couple of lines</p>
+              <p>
+                Keep your personal conversations between you and your friends.
+              </p>
             </div>
           </div>
           <div className={classNames('desktop:flex desktop:max-w-md')}>
             <div
               className={classNames(
                 'relative w-10 mx-auto mb-4',
-                'desktop:w-6 desktop:ml-3 desktop:mr-3',
+                'desktop:w-8 desktop:-mt-2 desktop:ml-3 desktop:mr-3',
               )}
             >
               <Image
@@ -73,16 +83,21 @@ export default function About(): ReactElement {
             </div>
             <div className={classNames('mb-16', 'desktop:mb-8 desktop:ml-8')}>
               <h3 className={classNames('font-semibold mb-4', 'desktop:mb-2')}>
-                Group chats
+                Voice messages
               </h3>
-              <p>Something shorter about group chats. Only a couple of lines</p>
+              <p>
+                Private, encrypted communication{' '}
+                <span className={classNames('desktop:inline-block')}>
+                  with a personal touch.
+                </span>
+              </p>
             </div>
           </div>
           <div className={classNames('desktop:flex desktop:max-w-md')}>
             <div
               className={classNames(
                 'relative w-12 mx-auto mb-4',
-                'desktop:w-8  desktop:ml-2 desktop:mr-2',
+                'desktop:w-20 desktop:-mt-2 desktop:ml-2 desktop:mr-1',
               )}
             >
               <Image
@@ -95,9 +110,12 @@ export default function About(): ReactElement {
             </div>
             <div className={classNames('mb-16', 'desktop:mb-8 desktop:ml-8')}>
               <h3 className={classNames('font-semibold mb-4', 'desktop:mb-2')}>
-                Group chats
+                Attachments
               </h3>
-              <p>Something shorter about group chats. Only a couple of lines</p>
+              <p>
+                Send all your files, images, and attachments through a network
+                that takes your privacy seriously.
+              </p>
             </div>
           </div>
         </div>
