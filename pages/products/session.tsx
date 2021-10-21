@@ -1,4 +1,5 @@
 import About from '../../components/products/session/About';
+import CallToAction from '../../components/products/session/CallToAction';
 import Hero from '../../components/products/session/Hero';
 import { ReactElement } from 'react';
 import classNames from 'classnames';
@@ -14,7 +15,7 @@ export default function Session(props: Props): ReactElement {
       <About />
       {/* <Video /> */}
       {/* <Benefits /> */}
-      {/* <CallToAction /> */}
+      <CallToAction />
     </div>
   );
 }

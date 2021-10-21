@@ -2,9 +2,14 @@ import Image from 'next/image';
 import { ReactElement } from 'react';
 import classNames from 'classnames';
 
-export default function AppStoreLinks(): ReactElement {
+interface Props {
+  isBig?: boolean;
+}
+
+export default function AppStoreLinks(props: Props): ReactElement {
+  const { isBig = false } = props;
   return (
-    <div>
+    <div className={classNames('flex items-start')}>
       <a
         href="https://play.google.com/store/apps/details?id=network.loki.messenger"
         aria-label="Download link to the Google Playstore"
@@ -14,8 +19,8 @@ export default function AppStoreLinks(): ReactElement {
       >
         <Image
           src="/svgs/download-playstore.svg"
-          width={149}
-          height={44}
+          width={isBig ? 224 : 149}
+          height={isBig ? 66 : 44}
           layout="intrinsic"
           alt="Download link to the Google Playstore"
         />
@@ -29,8 +34,8 @@ export default function AppStoreLinks(): ReactElement {
       >
         <Image
           src="/svgs/download-appstore.svg"
-          width={129}
-          height={46}
+          width={isBig ? 196 : 128}
+          height={isBig ? 67 : 45}
           layout="intrinsic"
           alt="Download link to the Apple App Store"
         />
