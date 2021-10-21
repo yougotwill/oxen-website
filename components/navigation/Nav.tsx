@@ -1,5 +1,4 @@
 import { ReactElement, useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 import classNames from 'classnames';
 
@@ -8,12 +7,13 @@ import { useScreen } from '../../contexts/screen';
 import { Contained, containerStyles } from '../Contained';
 
 import { ReactComponent as OxenLogoSVG } from '../../assets/svgs/brand-dark.svg';
-import { ReactComponent as TriangleSVG } from '../../assets/svgs/triangle.svg';
+import { ReactComponent as TriangleSVG } from '../../assets/svgs/triangle-outlined.svg';
 import { ReactComponent as TelegramSVG } from '../../assets/svgs/socials/telegram.svg';
 import { ReactComponent as TwitterSVG } from '../../assets/svgs/socials/twitter.svg';
+import { NAVIGATION } from '../../constants';
+import NavItem, { navLinkClasses } from './NavItem';
 
 export default function Nav(): ReactElement {
-  const router = useRouter();
   const { isMobile, isTablet } = useScreen();
   const [isExpanded, setIsExpanded] = useState(false);
   const toggleNav = () => {
@@ -21,27 +21,15 @@ export default function Nav(): ReactElement {
   };
 
   const mobileNavButtonClasses = classNames(
-    'w-4 h-5 fill-current text-primary transform outline-none duration-300 cursor-pointer',
+    'w-4 h-5 fill-current transform outline-none duration-300 cursor-pointer',
   );
-  const navLinkClasses = classNames(
-    'w-full py-2 border-primary',
-    'desktop:pt-2 desktop:px-4 desktop:w-auto desktop:border-transparent desktop:border-b-3',
-    isExpanded && 'border-t',
-  );
-  const navLinkHoverClasses = classNames(
-    'transition-colors duration-300',
-    'hover:bg-gray-200 desktop:hover:border-primary desktop:hover:text-primary desktop:hover:bg-transparent',
-  );
+
   const svgClasses = classNames(
     'bg-primary text-white fill-current w-9 h-9 rounded-full mr-4',
     'desktop:mr-3',
     'transition duration-300',
     'hover:animate-push',
   );
-
-  const isActiveNavLink = (url: string) => {
-    return router.asPath.includes(url) !== false && 'desktop:border-primary';
-  };
 
   useEffect(() => {
     setIsExpanded(false);
@@ -75,7 +63,7 @@ export default function Nav(): ReactElement {
               <TriangleSVG
                 className={classNames(
                   mobileNavButtonClasses,
-                  isExpanded ? 'rotate-90' : '',
+                  isExpanded ? 'rotate-90 text-primary' : 'text-transparent',
                 )}
               />
             </button>
@@ -103,62 +91,41 @@ export default function Nav(): ReactElement {
                 : 'h-0 -translate-y-full desktop:translate-y-0',
             )}
           >
-            <Link href="/Products">
-              <a
-                aria-label="Link to Oxen Products"
-                className={classNames(
-                  navLinkClasses,
-                  navLinkHoverClasses,
-                  isActiveNavLink('/products'),
-                  isActiveNavLink('/products/'),
-                )}
-              >
-                Products
-              </a>
-            </Link>
-            <Link href="/learn">
-              <a
-                aria-label="Link to learning more about Oxen"
-                className={classNames(
-                  navLinkClasses,
-                  navLinkHoverClasses,
-                  isActiveNavLink('/learn'),
-                )}
-              >
-                Learn
-              </a>
-            </Link>
-            <Link href="/news">
-              <a
-                aria-label="Link to News page"
-                className={classNames(
-                  navLinkClasses,
-                  navLinkHoverClasses,
-                  isActiveNavLink('/news'),
-                )}
-              >
-                News
-              </a>
-            </Link>
-            <div className={classNames(navLinkClasses, 'flex pt-4')}>
-              <Link href="https://twitter.com/Oxen_io">
-                <a
-                  aria-label="Link to Oxen Twitter page"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <TwitterSVG className={svgClasses} />
-                </a>
-              </Link>
-              <Link href="https://t.me/Oxen_Community">
-                <a
-                  aria-label="Link to Oxen Telegram Group"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <TelegramSVG className={svgClasses} />
-                </a>
-              </Link>
+            {Object.entries(NAVIGATION.NAV_ITEMS).map(([key, value], index) => {
+              return (
+                <NavItem
+                  key={`${key}${index}`}
+                  navItem={value}
+                  title={key}
+                  isExpanded={isExpanded}
+                />
+              );
+            })}
+            <div
+              className={classNames(navLinkClasses(isExpanded), 'flex pt-4')}
+            >
+              <NavItem
+                navItem={{
+                  href: 'https://twitter.com/Oxen_io',
+                  alt: 'Link to Oxen Twitter page',
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                }}
+                title={<TwitterSVG className={svgClasses} />}
+                isIcon={true}
+                hoverEffect={false}
+              />
+              <NavItem
+                navItem={{
+                  href: 'https://t.me/Oxen_Community',
+                  alt: 'Link to Oxen Telegram Group',
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                }}
+                title={<TelegramSVG className={svgClasses} />}
+                isIcon={true}
+                hoverEffect={false}
+              />
             </div>
           </div>
         </div>

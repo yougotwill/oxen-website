@@ -102,6 +102,7 @@ module.exports = {
       borderWidth: ['last'],
       brightness: ['hover'],
       fontWeight: ['last'],
+      transitionDuration: ['group-hover'],
     },
   },
   plugins: [require('@tailwindcss/aspect-ratio')],

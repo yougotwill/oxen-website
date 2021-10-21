@@ -10,6 +10,48 @@ export interface IMenuItem {
   mobileMenuOnly?: boolean;
 }
 
+export interface INavItem {
+  href: string;
+  alt: string;
+  target: '_self' | '_blank';
+  rel?: string;
+  items?: INavList;
+}
+
+interface INavList {
+  [key: string]: INavItem; // key is what user sees
+}
+
+const NAV_ITEMS: INavList = {
+  Products: {
+    href: '/products',
+    alt: 'Heading of Oxen Products',
+    target: '_self',
+    items: {
+      Session: {
+        href: '/products/session',
+        alt: 'Link to product Session',
+        target: '_self',
+      },
+      Lokinet: {
+        href: '/products/lokinet',
+        alt: 'Link to product Lokinet',
+        target: '_self',
+      },
+    },
+  },
+  Learn: {
+    href: '/learn',
+    alt: 'Link to learning more about Oxen',
+    target: '_self',
+  },
+  News: {
+    href: '/news',
+    alt: 'Link to News page',
+    target: '_self',
+  },
+};
+
 const airdropFinishedTimestamp = 1624975200000;
 const shouldHideAirdropItem = Date.now() > airdropFinishedTimestamp;
 
@@ -125,6 +167,7 @@ const MENU_ITEMS: IMenuItem[] = [
 ];
 
 const NAVIGATION = {
+  NAV_ITEMS,
   MENU_ITEMS,
   SIDE_MENU_ITEMS,
   BLOG_REGEX: /^\/(blog|tag)/,
