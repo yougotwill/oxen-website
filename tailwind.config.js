@@ -91,6 +91,9 @@ module.exports = {
       transitionProperty: {
         height: 'height',
       },
+      height: {
+        120: '30rem',
+      },
       width: {
         68: '17rem',
       },

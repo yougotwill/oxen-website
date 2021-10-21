@@ -1,5 +1,6 @@
+import React, { LegacyRef, ReactNode } from 'react';
+
 import classNames from 'classnames';
-import React, { LegacyRef } from 'react';
 import { useScreen } from '../contexts/screen';
 
 export interface Props {
@@ -13,7 +14,7 @@ export interface Props {
   buttonType?: 'submit';
   reference?: LegacyRef<HTMLButtonElement>;
   onClick?(): any;
-  children?: string;
+  children?: string | ReactNode;
   className?: string;
 
   // Icons

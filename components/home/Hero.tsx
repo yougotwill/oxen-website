@@ -1,9 +1,8 @@
-import { ReactElement } from 'react';
-import Image from 'next/image';
-import classNames from 'classnames';
-
 import { Button } from '../Button';
 import { Contained } from '../Contained';
+import Image from 'next/image';
+import { ReactElement } from 'react';
+import classNames from 'classnames';
 
 export default function Hero(): ReactElement {
   return (
