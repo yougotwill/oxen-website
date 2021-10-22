@@ -1,8 +1,7 @@
+import { Button } from '../Button';
+import { Contained } from '../Contained';
 import { ReactElement } from 'react';
 import classNames from 'classnames';
-
-import { Contained } from '../Contained';
-import { Button } from '../Button';
 
 export default function Privacy(): ReactElement {
   return (
@@ -14,7 +13,7 @@ export default function Privacy(): ReactElement {
         'pb-16',
         'tablet:flex tablet:flex-col tablet:justify-center tablet:items-center tablet:pb-48',
         'desktop:flex-row desktop:pb-96',
-        'huge:pb-128',
+        'enormous:pb-128',
       )}
     >
       <div

@@ -14,7 +14,7 @@ export default function Hero(): ReactElement {
         'h-full pb-24',
         'tablet:flex tablet:flex-col tablet:justify-start tablet:items-center tablet:pt-8',
         'desktop:h-screen desktop:flex-row desktop:items-start desktop:pt-32 desktop:overflow-hidden',
-        'huge:h-full huge:pt-48 huge:pb-128',
+        'enormous:h-full enormous:pt-48 enormous:pb-128',
       )}
     >
       <div

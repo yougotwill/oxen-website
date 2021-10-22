@@ -1,13 +1,12 @@
-import { useScreen } from '../../../contexts/screen';
 import { IPost } from '../../../types/cms';
-
 import { RichBody } from '../../RichBody';
+import { useScreen } from '../../../contexts/screen';
 
 export function ArticleSectionContent(post: IPost) {
-  const { isDesktop, isHuge } = useScreen();
+  const { isDesktop, isHuge, isEnormous } = useScreen();
   return (
     <>
-      {!(isDesktop || isHuge) ? (
+      {!(isDesktop || isHuge || isEnormous) ? (
         <MobileContent {...post} />
       ) : (
         <DesktopContent {...post} />

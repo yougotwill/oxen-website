@@ -14,7 +14,8 @@ module.exports = {
       tablet: '768px',
       desktop: '1100px',
       xl: '1280px',
-      huge: '1920px',
+      huge: '1536px',
+      enormous: '1920px',
     },
     fontFamily: {
       sans: ['Prompt', 'sans-serif'],

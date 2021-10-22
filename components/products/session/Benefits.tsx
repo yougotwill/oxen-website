@@ -20,7 +20,7 @@ export default function Benefits(): ReactElement {
           'flex flex-col justify-center items-center pb-8',
           'tablet:max-w-lg tablet:mx-auto',
           'desktop:max-w-none desktop:mx-0 desktop:pb-24',
-          'huge:pt-8 huge:pb-96',
+          'enormous:pt-8 enormous:pb-96',
         )}
       >
         <h2
@@ -36,7 +36,7 @@ export default function Benefits(): ReactElement {
             'text-xl flex flex-col justify-center items-center text-center pt-8',
             'tablet:w-full tablet:pt-16',
             'desktop:flex-row desktop:items-end desktop:text-lg desktop:px-16',
-            'huge:px-0',
+            'enormous:px-0',
           )}
         >
           <div className={cardContainerClasses}>

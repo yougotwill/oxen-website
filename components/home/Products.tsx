@@ -1,9 +1,8 @@
-import { ReactElement } from 'react';
-import Image from 'next/image';
-import classNames from 'classnames';
-
-import { Contained } from '../Contained';
 import { Button } from '../Button';
+import { Contained } from '../Contained';
+import Image from 'next/image';
+import { ReactElement } from 'react';
+import classNames from 'classnames';
 
 export default function Products(): ReactElement {
   return (
@@ -15,7 +14,7 @@ export default function Products(): ReactElement {
         'flex flex-col justify-center items-center pb-16',
         'tablet:pb-36',
         'desktop:items-start desktop:pb-80',
-        'huge:pt-8 huge:pb-128',
+        'enormous:pt-8 enormous:pb-128',
       )}
     >
       <h2

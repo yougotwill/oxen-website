@@ -11,7 +11,7 @@ export default function About(): ReactElement {
           'flex flex-col justify-center items-center pb-8',
           'tablet:max-w-md tablet:mx-auto',
           'desktop:flex-row desktop:max-w-none desktop:mx-0 desktop:pb-24',
-          'huge:pt-8 huge:pb-96',
+          'enormous:pt-8 enormous:pb-96',
         )}
       >
         <div

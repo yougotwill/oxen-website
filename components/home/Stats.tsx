@@ -1,12 +1,11 @@
-import { ReactElement, useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
-import classNames from 'classnames';
-
-import { UI } from '../../constants';
-import { useScreen } from '../../contexts/screen';
-
 import { Contained, containerStyles } from '../Contained';
+import { ReactElement, useEffect, useRef, useState } from 'react';
+
 import CountUp from '../animations/CountUp';
+import Image from 'next/image';
+import { UI } from '../../constants';
+import classNames from 'classnames';
+import { useScreen } from '../../contexts/screen';
 
 export interface StatsProps {
   currentValue: number;
@@ -16,7 +15,7 @@ export interface StatsProps {
 
 export default function Stats(props: StatsProps): ReactElement {
   const { currentValue, coinsLocked, serviceNodes } = props;
-  const { isMobile, isTablet, isDesktop, isHuge } = useScreen();
+  const { isMobile, isTablet, isDesktop, isHuge, isEnormous } = useScreen();
 
   const [startAnimation, setStartAnimation] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
@@ -24,7 +23,7 @@ export default function Stats(props: StatsProps): ReactElement {
   useEffect(() => {
     const scrollOffset =
       UI.HEADER_HEIGHT_PX +
-      (isMobile ? -1100 : isDesktop || isHuge ? 200 : 500);
+      (isMobile ? -1100 : isDesktop || isHuge || isEnormous ? 200 : 500);
     const onScroll = () => {
       if (startAnimation) return;
 
@@ -48,7 +47,7 @@ export default function Stats(props: StatsProps): ReactElement {
         onScroll();
       });
     };
-  }, [startAnimation, isMobile, isDesktop, isHuge]);
+  }, [startAnimation, isMobile, isDesktop, isHuge, isEnormous]);
 
   return (
     <Contained
@@ -61,7 +60,7 @@ export default function Stats(props: StatsProps): ReactElement {
         'pb-16',
         'tablet:pb-36',
         'desktop:pb-48',
-        'huge:pb-96',
+        'enormous:pb-96',
       )}
     >
       <div className={classNames('bg-alt w-full my-0 mx-auto pb-8')}>
