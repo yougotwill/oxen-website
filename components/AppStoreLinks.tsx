@@ -1,17 +1,19 @@
 import Image from 'next/image';
+import { LINKS } from '../constants';
 import { ReactElement } from 'react';
 import classNames from 'classnames';
 
 interface Props {
+  product: 'session' | 'lokinet';
   isBig?: boolean;
 }
 
-export default function AppStoreLinks(props: Props): ReactElement {
-  const { isBig = false } = props;
+export default function AppStoreLinksSession(props: Props): ReactElement {
+  const { product, isBig = false } = props;
   return (
     <div className={classNames('flex items-start')}>
       <a
-        href="https://play.google.com/store/apps/details?id=network.loki.messenger"
+        href={LINKS[product.toUpperCase()]['PLAYSTORE']}
         aria-label="Download link to the Google Playstore"
         target="_blank"
         rel="noopener noreferrer"
@@ -26,7 +28,7 @@ export default function AppStoreLinks(props: Props): ReactElement {
         />
       </a>
       <a
-        href="https://apps.apple.com/app/session-private-messenger/id1470168868?ls=1"
+        href={LINKS[product.toUpperCase()]['APPSTORE']}
         aria-label="Download link to the Apple App Store"
         target="_blank"
         rel="noopener noreferrer"

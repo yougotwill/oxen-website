@@ -60,7 +60,7 @@ export default function Hero(): ReactElement {
             'desktop:items-start',
           )}
         >
-          <AppStoreLinks />
+          <AppStoreLinks product="session" />
           <Button
             color="secondary"
             shape={'round'}

@@ -27,7 +27,7 @@ export default function CallToAction(): ReactElement {
           getsession.org
         </a>
       </Button>
-      <AppStoreLinks isBig={true} />
+      <AppStoreLinks product="session" isBig={true} />
     </Contained>
   );
 }
