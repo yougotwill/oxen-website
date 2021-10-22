@@ -17,10 +17,10 @@ export default function Benefits(): ReactElement {
     <Contained backgroundColor="alt" classes={classNames('py-4')}>
       <div
         className={classNames(
-          'flex flex-col justify-center items-center pb-8',
-          'tablet:max-w-lg tablet:mx-auto',
-          'desktop:max-w-none desktop:mx-0 desktop:pb-24',
-          'enormous:pt-8 enormous:pb-96',
+          'flex flex-col justify-center items-center pt-12 pb-8',
+          'tablet:pt-16 tablet:max-w-lg tablet:mx-auto',
+          'desktop:max-w-none desktop:mx-0 desktop:py-24',
+          'enormous:pb-96',
         )}
       >
         <h2
@@ -36,7 +36,7 @@ export default function Benefits(): ReactElement {
             'text-xl flex flex-col justify-center items-center text-center pt-8',
             'tablet:w-full tablet:pt-16',
             'desktop:flex-row desktop:items-end desktop:text-lg desktop:px-16',
-            'enormous:px-0',
+            'enormous:pt-24 enormous:px-0',
           )}
         >
           <div className={cardContainerClasses}>
