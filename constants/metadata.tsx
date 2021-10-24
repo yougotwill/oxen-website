@@ -85,13 +85,13 @@ const METADATA = {
     },
   },
   SESSION_PAGE: {
-    TITLE: 'Oxen | Session Private Messenger',
+    TITLE: 'Session Private Messenger',
     DESCRIPTION:
       'Session is a private messenger that aims to remove any chance of metadata collection by routing all messages through an onion routing network.',
     OG_IMAGE: {
-      URL: '/svgs/session-mockup.svg',
-      WIDTH: 354,
-      HEIGHT: 485.42,
+      URL: '/img/session.png',
+      WIDTH: 960,
+      HEIGHT: 510,
       ALT:
         'Two phones next to each other. One showing the Session logo and the other showing a conversation.',
     },
