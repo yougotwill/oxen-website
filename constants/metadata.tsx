@@ -84,6 +84,18 @@ const METADATA = {
       ALT: 'Question mark with server boxes surrounding it',
     },
   },
+  SESSION_PAGE: {
+    TITLE: 'Oxen | Session Private Messenger',
+    DESCRIPTION:
+      'Session is a private messenger that aims to remove any chance of metadata collection by routing all messages through an onion routing network.',
+    OG_IMAGE: {
+      URL: '/svgs/session-mockup.svg',
+      WIDTH: 354,
+      HEIGHT: 485.42,
+      ALT:
+        'Two phones next to each other. One showing the Session logo and the other showing a conversation.',
+    },
+  },
 };
 
 export default METADATA;

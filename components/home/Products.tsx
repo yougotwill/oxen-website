@@ -1,6 +1,7 @@
 import { Button } from '../Button';
 import { Contained } from '../Contained';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ReactElement } from 'react';
 import classNames from 'classnames';
 
@@ -68,10 +69,19 @@ export default function Products(): ReactElement {
             )}
           >
             <Button color="secondary" shape={'round'}>
-              Learn more
+              <Link href="/products/session">
+                <a aria-label="Link to product Session">Learn more</a>
+              </Link>
             </Button>
             <Button color="secondary" type="text">
-              Download
+              <a
+                href="https://getsession.org/download"
+                aria-label="Link to Session Download Page"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download
+              </a>
             </Button>
           </div>
         </div>
@@ -117,10 +127,19 @@ export default function Products(): ReactElement {
             )}
           >
             <Button color="secondary" shape={'round'}>
-              Learn more
+              <Link href="/products/lokinet">
+                <a aria-label="Link to product Lokinet">Learn more</a>
+              </Link>
             </Button>
             <Button color="secondary" type="text">
-              Download
+              <a
+                href="https://lokinet.org/"
+                aria-label="Link to Lokinet Website"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download
+              </a>
             </Button>
           </div>
         </div>
