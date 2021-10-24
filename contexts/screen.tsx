@@ -1,5 +1,6 @@
-import { useScreenSize } from '../hooks/screen';
 import { ReactElement, ReactNode, createContext, useContext } from 'react';
+
+import { useScreenSize } from '../hooks/screen';
 
 interface IScreen {
   width: number;
@@ -7,7 +8,9 @@ interface IScreen {
   isMobile: boolean;
   isTablet: boolean;
   isDesktop: boolean;
+  isXL: boolean;
   isHuge: boolean;
+  isEnormous: boolean;
 }
 
 const ScreenContext = createContext<IScreen>({
@@ -16,7 +19,9 @@ const ScreenContext = createContext<IScreen>({
   isMobile: true,
   isTablet: false,
   isDesktop: false,
+  isXL: false,
   isHuge: false,
+  isEnormous: false,
 });
 
 export function useScreen() {

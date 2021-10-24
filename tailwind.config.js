@@ -1,6 +1,8 @@
 module.exports = {
   purge: [
     './styles/globals.css',
+    './node_modules/video.js/dist/video-js.min.css',
+    './node_modules/@silvermine/videojs-quality-selector/dist/css/quality-selector.css',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './services/**/*.{js,ts,jsx,tsx}',
@@ -14,7 +16,8 @@ module.exports = {
       tablet: '768px',
       desktop: '1100px',
       xl: '1280px',
-      huge: '1920px',
+      huge: '1536px',
+      enormous: '1920px',
     },
     fontFamily: {
       sans: ['Prompt', 'sans-serif'],
@@ -90,6 +93,9 @@ module.exports = {
       },
       transitionProperty: {
         height: 'height',
+      },
+      height: {
+        120: '30rem',
       },
       width: {
         68: '17rem',

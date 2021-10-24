@@ -1,16 +1,13 @@
-import { useRef } from 'react';
+import { ISideMenuItem } from './SideMenu';
+import Link from 'next/link';
+import { ReactComponent as TriangleOutlinedSVG } from '../../assets/svgs/triangle-outlined.svg';
+import { UI } from '../../constants';
+import classNames from 'classnames';
+import { collapseSideMenu } from '../../state/navigation';
 import { useDispatch } from 'react-redux';
 import { useHoverDirty } from 'react-use';
-import Link from 'next/link';
-import classNames from 'classnames';
-
-import { UI } from '../../constants';
+import { useRef } from 'react';
 import { useScreen } from '../../contexts/screen';
-import { collapseSideMenu } from '../../state/navigation';
-
-import { ISideMenuItem } from './SideMenu';
-
-import { ReactComponent as TriangleOutlinedSVG } from '../../assets/svgs/triangle-outlined.svg';
 
 interface SideMenuRowProps {
   item: ISideMenuItem;
@@ -18,7 +15,7 @@ interface SideMenuRowProps {
 }
 
 export function SideMenuRow({ item, isActive }: SideMenuRowProps) {
-  const { isMobile, isTablet, isDesktop, isHuge } = useScreen();
+  const { isMobile, isTablet, isDesktop, isHuge, isEnormous } = useScreen();
   const isCollapsible = isMobile || isTablet;
   const dispatch = useDispatch();
 
@@ -43,7 +40,7 @@ export function SideMenuRow({ item, isActive }: SideMenuRowProps) {
       }}
       className={classNames(
         'flex flex-1 space-x-6 justify-between text-primary items-center cursor-pointer border-b border-black py-4 hover:bg-secondary duration-300 whitespace-nowrap',
-        isDesktop || isHuge ? 'text-2xl' : 'text-xl',
+        isDesktop || isHuge || isEnormous ? 'text-2xl' : 'text-xl',
         isActive ? 'bg-secondary' : 'bg-transparent',
         item.shouldHide ? 'hidden' : '',
       )}

@@ -1,22 +1,21 @@
 import { GetStaticProps, GetStaticPropsContext } from 'next';
-import classNames from 'classnames';
-
-import { IPost } from '../types/cms';
-import { CMS } from '../constants';
-import { CmsApi } from '../services/cms';
-import generateRSSFeed from '../utils/rss';
+import Stats, { StatsProps } from '../components/home/Stats';
 import {
-  fetchCurrentPrice,
   fetchActiveNodes,
   fetchCoinsLocked,
+  fetchCurrentPrice,
 } from '../services/oxenObserver';
 
-import Hero from '../components/sections/Hero';
-import About from '../components/sections/About';
-import Stats, { StatsProps } from '../components/sections/Stats';
-import Products from '../components/sections/Products';
-import Privacy from '../components/sections/Privacy';
-import GetInvolved from '../components/sections/GetInvolved';
+import About from '../components/home/About';
+import { CMS } from '../constants';
+import { CmsApi } from '../services/cms';
+import GetInvolved from '../components/home/GetInvolved';
+import Hero from '../components/home/Hero';
+import { IPost } from '../types/cms';
+import Privacy from '../components/home/Privacy';
+import Products from '../components/home/Products';
+import classNames from 'classnames';
+import generateRSSFeed from '../utils/rss';
 
 export default function Index(props: StatsProps) {
   const { currentValue, coinsLocked, serviceNodes } = props;

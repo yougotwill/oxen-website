@@ -1,14 +1,13 @@
-import { ReactElement, CSSProperties } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import classNames from 'classnames';
 import { Block, Inline } from '@contentful/rich-text-types';
-
-import { UI } from '../constants';
-import sanitize from '../utils/sanitize';
-import { useScreen } from '../contexts/screen';
+import { CSSProperties, ReactElement } from 'react';
 
 import EmbedContent from '../components/EmbedContent';
+import Image from 'next/image';
+import Link from 'next/link';
+import { UI } from '../constants';
+import classNames from 'classnames';
+import sanitize from '../utils/sanitize';
+import { useScreen } from '../contexts/screen';
 
 function Markup(node: any): ReactElement {
   const frontTags: string[] = [];
@@ -60,7 +59,7 @@ function EmbeddedLink(node: any, isInline = false): ReactElement {
 }
 
 function EmbeddedMedia(node: any, isInline = false): ReactElement {
-  const { isMobile, isTablet, isDesktop, isHuge } = useScreen();
+  const { isMobile, isTablet, isDesktop, isHuge, isEnormous } = useScreen();
   // is either an asset or entry
   const media = node.file.fields ?? node;
   const url = media.file.url.replace('//', 'https://');
@@ -89,7 +88,7 @@ function EmbeddedMedia(node: any, isInline = false): ReactElement {
     if (!isMobile && node.position) {
       figureStyles.width = imageWidth;
     }
-    if (isDesktop || isHuge) {
+    if (isDesktop || isHuge || isEnormous) {
       figureStyles.maxWidth = '800px';
     }
     return (

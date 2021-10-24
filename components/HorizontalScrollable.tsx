@@ -1,12 +1,11 @@
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import { useScroll, useWindowSize } from 'react-use';
-import classNames from 'classnames';
 
-import { UI } from '../constants';
-import { useScreen } from '../contexts/screen';
 import { Contained } from './Contained';
-
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { UI } from '../constants';
+import classNames from 'classnames';
+import { useScreen } from '../contexts/screen';
 
 interface Props {
   onScroll?: (x: number) => void;
@@ -15,11 +14,11 @@ interface Props {
 }
 
 export function HorizontalScrollable(props: Props) {
-  const { isDesktop, isHuge } = useScreen();
+  const { isDesktop, isHuge, isEnormous } = useScreen();
 
   return (
     <>
-      {!(isDesktop || isHuge) ? (
+      {!(isDesktop || isHuge || isEnormous) ? (
         <HorizontalScrollableInner {...props} />
       ) : (
         <Contained>
@@ -42,7 +41,7 @@ function HorizontalScrollableInner(props: Props) {
 
   const [rightScrollHidden, setRightScrollHidden] = useState(false);
 
-  const { isDesktop, isHuge } = useScreen();
+  const { isDesktop, isHuge, isEnormous } = useScreen();
 
   const handleLeftScroll = () => {
     scrollRef.current.scrollBy({
@@ -80,7 +79,7 @@ function HorizontalScrollableInner(props: Props) {
       <div
         className={classNames(
           'absolute left-0 flex items-center justify-between h-full w-full',
-          !(isDesktop || isHuge) && 'hidden',
+          !(isDesktop || isHuge || isEnormous) && 'hidden',
         )}
       >
         <div
@@ -114,7 +113,9 @@ function HorizontalScrollableInner(props: Props) {
           'w-full',
           'hide_scroll',
           'scrolling-touch hide-scroll',
-          isDesktop || isHuge ? 'overflow-x-scroll' : 'overflow-x-scroll',
+          isDesktop || isHuge || isEnormous
+            ? 'overflow-x-scroll'
+            : 'overflow-x-scroll',
         )}
       >
         <div
@@ -123,10 +124,14 @@ function HorizontalScrollableInner(props: Props) {
           style={{
             width: 'min-content',
             marginLeft: `${
-              !(isDesktop || isHuge) ? UI.PAGE_CONTAINED_PADDING_VW : 0
+              !(isDesktop || isHuge || isEnormous)
+                ? UI.PAGE_CONTAINED_PADDING_VW
+                : 0
             }vw`,
             paddingRight: `${
-              !(isDesktop || isHuge) ? UI.PAGE_CONTAINED_PADDING_VW : 0
+              !(isDesktop || isHuge || isEnormous)
+                ? UI.PAGE_CONTAINED_PADDING_VW
+                : 0
             }vw`,
           }}
         >

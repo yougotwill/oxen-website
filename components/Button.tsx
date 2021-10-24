@@ -1,5 +1,6 @@
+import React, { LegacyRef, ReactNode } from 'react';
+
 import classNames from 'classnames';
-import React, { LegacyRef } from 'react';
 import { useScreen } from '../contexts/screen';
 
 export interface Props {
@@ -13,7 +14,7 @@ export interface Props {
   buttonType?: 'submit';
   reference?: LegacyRef<HTMLButtonElement>;
   onClick?(): any;
-  children?: string;
+  children?: string | ReactNode;
   className?: string;
 
   // Icons
@@ -42,7 +43,7 @@ export function Button(props: Props) {
     wideText = false,
   } = props;
 
-  const { isDesktop, isHuge } = useScreen();
+  const { isDesktop, isHuge, isEnormous } = useScreen();
 
   const clickHandler = (e: React.MouseEvent) => {
     if (onClick) {
@@ -81,7 +82,10 @@ export function Button(props: Props) {
   const sizeStyles = [
     size === 'large' && 'text-lg py-2 px-8',
     size === 'medium' && 'text-base py-1 px-8',
-    size === 'small' && ['text-sm px-8', isDesktop || isHuge ? 'py-0' : 'py-1'],
+    size === 'small' && [
+      'text-sm px-8',
+      isDesktop || isHuge || isEnormous ? 'py-0' : 'py-1',
+    ],
     size === 'tiny' && 'text-xs py-0 px-8',
     size === 'wide' && 'py-1 px-12',
   ];

@@ -1,9 +1,9 @@
-import classNames from 'classnames';
-import _ from 'lodash';
-import { useMeasure } from 'react-use';
-import { v4 as uuid } from 'uuid';
-import { useScreen } from '../../contexts/screen';
 import { Contained } from '../Contained';
+import _ from 'lodash';
+import classNames from 'classnames';
+import { useMeasure } from 'react-use';
+import { useScreen } from '../../contexts/screen';
+import { v4 as uuid } from 'uuid';
 
 interface Props {
   rows?: number;
@@ -11,7 +11,7 @@ interface Props {
 }
 
 export function CardGrid({ rows, children }: Props) {
-  const { isTablet, isDesktop, isHuge } = useScreen();
+  const { isTablet, isDesktop, isHuge, isEnormous } = useScreen();
 
   const [ref, { width }] = useMeasure();
   const widthOfCardPx = 200;
@@ -19,7 +19,7 @@ export function CardGrid({ rows, children }: Props) {
   const numPaddingCards =
     Math.ceil(children.length / grouping) * grouping - children.length;
 
-  const spacing = isDesktop || isHuge ? 3 : isTablet ? 6 : 4;
+  const spacing = isDesktop || isHuge || isEnormous ? 3 : isTablet ? 6 : 4;
   const spacingY = `space-y-${spacing}`;
   const spacingX = `space-x-${spacing}`;
 

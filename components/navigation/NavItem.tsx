@@ -20,6 +20,14 @@ export interface NavItemProps extends DropdownProps {
 
 function NavDropdown(props: DropdownProps): ReactElement {
   const { title, navItem } = props;
+  const router = useRouter();
+
+  const isActiveNavLink = (url: string) => {
+    return (
+      router.asPath.includes(url) !== false &&
+      'desktop:bg-secondary desktop:text-white desktop:border-secondary'
+    );
+  };
   const navItemClasses = classNames(
     'block w-full py-2',
     'desktop:pl-0 desktop:my-2 desktop:bg-white desktop:border desktop:border-gray-100 desktop:rounded-xl desktop:text-center desktop:w-full',
@@ -37,7 +45,11 @@ function NavDropdown(props: DropdownProps): ReactElement {
           aria-label={navItem.alt}
           target={navItem.target}
           ref={navItem.rel ?? undefined}
-          className={classNames(navItemClasses, navItemHoverClasses)}
+          className={classNames(
+            navItemClasses,
+            navItemHoverClasses,
+            isActiveNavLink(navItem.href),
+          )}
         >
           {title}
         </a>

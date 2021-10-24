@@ -1,21 +1,20 @@
-import { useRouter } from 'next/router';
 import { ReactNode, useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
 
-import { UI } from '../../constants';
-import { useScreen } from '../../contexts/screen';
-import { PageType } from '../../state/navigation';
-import { IState } from '../../state/reducers';
-
-import Nav from '../navigation/Nav';
 import Footer from '../navigation/Footer';
+import { IState } from '../../state/reducers';
+import Nav from '../navigation/Nav';
+import { PageType } from '../../state/navigation';
+import { UI } from '../../constants';
+import { useRouter } from 'next/router';
+import { useScreen } from '../../contexts/screen';
+import { useSelector } from 'react-redux';
 
 interface Props {
   children: ReactNode;
 }
 
 export default function Layout({ children }: Props) {
-  const { isMobile, isTablet, isDesktop, isHuge } = useScreen();
+  const { isMobile, isTablet, isDesktop, isHuge, isEnormous } = useScreen();
   const { pageType, headerMobileMenuExpanded } = useSelector(
     (state: IState) => state.navigation,
   );

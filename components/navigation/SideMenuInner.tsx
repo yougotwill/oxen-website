@@ -1,32 +1,29 @@
-/* eslint-disable react/jsx-no-target-blank */
-import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+
+import CoinGeckoImage from '../../public/img/coingecko.png';
+import CoinMarketCapImage from '../../public/img/coinmarketcap.png';
+import { Contained } from '../Contained';
+import { ReactComponent as GithubSVG } from '../../assets/svgs/socials/github.svg';
+import { IState } from '../../state/reducers';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useDispatch, useSelector } from 'react-redux';
-import { v4 as uuid } from 'uuid';
-import classNames from 'classnames';
-import _ from 'lodash';
-
 import { NAVIGATION } from '../../constants';
-import { useScreen } from '../../contexts/screen';
-import { IState } from '../../state/reducers';
-
-import { Contained } from '../Contained';
-import { SideMenuRow } from './SideMenuRow';
-
-import CoinMarketCapImage from '../../public/img/coinmarketcap.png';
-import CoinGeckoImage from '../../public/img/coingecko.png';
-
-import { ReactComponent as GithubSVG } from '../../assets/svgs/socials/github.svg';
 import { ReactComponent as RedditSVG } from '../../assets/svgs/socials/reddit.svg';
 import { ReactComponent as RssSVG } from '../../assets/svgs/socials/rss.svg';
 import { ReactComponent as SessionSVG } from '../../assets/svgs/socials/session.svg';
+import { SideMenuRow } from './SideMenuRow';
 import { ReactComponent as TelegramSVG } from '../../assets/svgs/socials/telegram.svg';
 import { ReactComponent as TwitterSVG } from '../../assets/svgs/socials/twitter.svg';
 import { ReactComponent as YouTubeSVG } from '../../assets/svgs/socials/youtube.svg';
+import _ from 'lodash';
+import classNames from 'classnames';
+/* eslint-disable react/jsx-no-target-blank */
+import { useRouter } from 'next/router';
+import { useScreen } from '../../contexts/screen';
+import { v4 as uuid } from 'uuid';
 
 export function SideMenuInner() {
-  const { isDesktop, isHuge } = useScreen();
+  const { isDesktop, isHuge, isEnormous } = useScreen();
   const { pages } = useSelector((state: IState) => state.navigation);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -64,7 +61,7 @@ export function SideMenuInner() {
 
       <Contained>
         <div className="flex flex-col w-full mb-4 space-y-6">
-          {!(isDesktop || isHuge) && (
+          {!(isDesktop || isHuge || isEnormous) && (
             <div
               className={classNames(
                 'flex flex-col pt-8 pl-6 font-medium uppercase text-lg',
@@ -84,7 +81,7 @@ export function SideMenuInner() {
         </div>
       </Contained>
 
-      {isDesktop || isHuge ? (
+      {isDesktop || isHuge || isEnormous ? (
         <div className="px-3 pb-3">
           <SocialsRow />
 
