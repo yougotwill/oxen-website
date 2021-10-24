@@ -19,7 +19,7 @@ export default function Benefits(): ReactElement {
         className={classNames(
           'flex flex-col justify-center items-center pt-12 pb-8',
           'tablet:pt-16 tablet:max-w-lg tablet:mx-auto',
-          'desktop:max-w-none desktop:mx-0 desktop:py-24',
+          'desktop:max-w-none desktop:mx-0 desktop:pt-24 desktop:pb-36',
           'enormous:pb-96',
         )}
       >

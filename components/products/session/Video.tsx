@@ -1,8 +1,11 @@
 import { Contained } from '../../Contained';
 import { ReactElement } from 'react';
-import VideoPlayer from '../../VideoPlayer';
 import { VideoPlayerProps } from '../../VideoPlayer';
 import classNames from 'classnames';
+import dynamic from 'next/dynamic';
+
+// optimise build sizes by loading dynamically
+const DynamicVideoPlayer = dynamic(() => import('../../VideoPlayer'));
 
 export default function Video(): ReactElement {
   const videoProps: VideoPlayerProps = {
@@ -60,7 +63,7 @@ export default function Video(): ReactElement {
           'huge:-mt-16',
         )}
       >
-        <VideoPlayer {...videoProps} />
+        <DynamicVideoPlayer {...videoProps} />
       </div>
     </Contained>
   );
