@@ -106,6 +106,14 @@ const nextConfig = {
         source: '/feed/:slug',
         destination: '/api/feed/:slug',
       },
+      {
+        source: '/login',
+        destination: '/api/login',
+      },
+      {
+        source: '/logout',
+        destination: '/api/logout',
+      },
       // Redirects blog posts i.e. https://oxen.io/blog/hello or https://oxen.io/blog/hello-world
       // Ignores page results i.e. https://oxen.io/blog/1
       {

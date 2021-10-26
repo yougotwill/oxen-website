@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 
 import Footer from '../navigation/Footer';
 import { IState } from '../../state/reducers';
@@ -8,6 +8,7 @@ import { UI } from '../../constants';
 import { useRouter } from 'next/router';
 import { useScreen } from '../../contexts/screen';
 import { useSelector } from 'react-redux';
+import LockedPage from '../LockedPage';
 
 interface Props {
   children: ReactNode;
@@ -20,6 +21,7 @@ export default function Layout({ children }: Props) {
   );
 
   const router = useRouter();
+  const [locked, setLocked] = useState(false);
 
   // const marginLeft = `${
   //   pageType === PageType.NORMAL && (isMobile || isTablet)
@@ -46,6 +48,17 @@ export default function Layout({ children }: Props) {
     };
   }, []);
 
+  useEffect(() => {
+    // deny access to the staging environment unless you login with the correct token
+    if (
+      process.env.NODE_ENV === 'production' &&
+      process.env.NEXT_PUBLIC_SITE_ENV === 'development' &&
+      !router.isPreview
+    ) {
+      setLocked(true);
+    }
+  }, [router.isPreview]);
+
   return (
     <div className="relative flex flex-col justify-between w-full text-primary">
       <Nav />
@@ -56,17 +69,21 @@ export default function Layout({ children }: Props) {
         }}
         className="w-full"
       >
-        <main
-          role="main"
-          ref={ref}
-          style={{
-            marginLeft,
-            filter: `brightness(${mobileMenuOpen ? 0.85 : 1})`,
-          }}
-          className="relative w-full duration-300"
-        >
-          {children}
-        </main>
+        {locked ? (
+          <LockedPage />
+        ) : (
+          <main
+            role="main"
+            ref={ref}
+            style={{
+              marginLeft,
+              filter: `brightness(${mobileMenuOpen ? 0.85 : 1})`,
+            }}
+            className="relative w-full duration-300"
+          >
+            {children}
+          </main>
+        )}
         <Footer />
       </div>
     </div>
