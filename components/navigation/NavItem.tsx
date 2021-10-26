@@ -23,15 +23,18 @@ function NavDropdown(props: DropdownProps): ReactElement {
   const router = useRouter();
 
   const isActiveNavLink = (url: string) => {
-    return (
-      router.asPath.includes(url) !== false &&
-      'desktop:bg-secondary desktop:text-white desktop:border-secondary'
+    return router.asPath.includes(url) !== false;
+  };
+
+  const navItemClasses = url => {
+    return classNames(
+      'block w-full py-2',
+      'desktop:pl-0 desktop:my-2 desktop:border desktop:rounded-xl desktop:text-center desktop:w-full',
+      isActiveNavLink(url)
+        ? 'desktop:bg-secondary desktop:text-white desktop:border-secondary'
+        : 'desktop:bg-white desktop:border-gray-100',
     );
   };
-  const navItemClasses = classNames(
-    'block w-full py-2',
-    'desktop:pl-0 desktop:my-2 desktop:bg-white desktop:border desktop:border-gray-100 desktop:rounded-xl desktop:text-center desktop:w-full',
-  );
   const navItemHoverClasses = classNames(
     'transition-colors duration-100',
     'hover:bg-secondary hover:text-white hover:border-secondary',
@@ -46,9 +49,8 @@ function NavDropdown(props: DropdownProps): ReactElement {
           target={navItem.target}
           ref={navItem.rel ?? undefined}
           className={classNames(
-            navItemClasses,
+            navItemClasses(navItem.href),
             navItemHoverClasses,
-            isActiveNavLink(navItem.href),
           )}
         >
           {title}
