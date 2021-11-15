@@ -61,6 +61,8 @@ const METADATA = {
   MASK_ICON: { PATH: '/safari-pinned-tab.svg', COLOR: '#5bbad5' },
   MSAPPLICATION_TILECOLOR: '#343132',
   THEME_COLOR: '#ffffff',
+  TWITTER_CREATOR: 'Oxen_io',
+  ITUNES_ID: 'app-id=1547745078',
   404: {
     DESCRIPTION: 'It looks like the link pointing here was faulty.',
   },

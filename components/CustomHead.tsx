@@ -1,9 +1,9 @@
-import { ReactElement } from 'react';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import METADATA, { IMetadata, generateTitle } from '../constants/metadata';
 
-import METADATA, { generateTitle, IMetadata } from '../constants/metadata';
+import Head from 'next/head';
+import { ReactElement } from 'react';
 import { isLocal } from '..//utils/links';
+import { useRouter } from 'next/router';
 
 interface Props {
   title?: string;
@@ -186,11 +186,15 @@ export default function CustomHead(props: Props): ReactElement {
         name="twitter:site"
         content={METADATA.HOST_URL}
       />
-      <meta key="twitter:creator" name="twitter:creator" content="Oxen_io" />
+      <meta
+        key="twitter:creator"
+        name="twitter:creator"
+        content={METADATA.TWITTER_CREATOR}
+      />
       <meta
         key="apple-itunes-app"
         name="apple-itunes-app"
-        content="app-id=1547745078"
+        content={METADATA.ITUNES_ID}
       />
       <meta
         key="msapplication-TileColor"
