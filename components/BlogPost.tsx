@@ -31,6 +31,7 @@ export default function BlogPost(props: Props) {
         metadata={{
           TYPE: METADATA.BLOG_PAGE.TYPE,
           DESCRIPTION: post?.description,
+          CANONICAL_URL: `${METADATA.HOST_URL}/blog`,
           OG_IMAGE: {
             URL: post?.featureImage.imageUrl ?? METADATA.OG_IMAGE.URL,
             WIDTH: Number(post?.featureImage?.width) ?? METADATA.OG_IMAGE.WIDTH,
