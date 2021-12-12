@@ -1,6 +1,6 @@
 import { ReactElement, ReactNode, createContext, useContext } from 'react';
 
-import { useScreenSize } from '../hooks/screen';
+import { useScreenSize } from '@/hooks/screen';
 
 interface IScreen {
   width: number;

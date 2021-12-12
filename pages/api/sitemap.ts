@@ -1,12 +1,12 @@
-import { CMS, METADATA, NAVIGATION } from '../../constants';
+import { CMS, METADATA, NAVIGATION } from '@/constants';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { CmsApi } from '../../services/cms';
-import { IPost } from '../../types/cms';
-import { IRedirection } from '../../types';
-import { SideMenuItem } from '../../state/navigation';
+import { CmsApi } from '@/services/cms';
+import { IPost } from '@/types/cms';
+import { IRedirection } from '@/types';
+import { SideMenuItem } from '@/state/navigation';
 import getConfig from 'next/config';
-import { isLocal } from '../../utils/links';
+import { isLocal } from '@/utils/links';
 import { readdirSync } from 'fs';
 
 export default async function handler(

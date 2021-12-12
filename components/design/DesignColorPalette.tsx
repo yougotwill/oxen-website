@@ -1,5 +1,4 @@
-import React from 'react';
-import { SectionTitle } from '../SectionTitle';
+import { SectionTitle } from '@/components/SectionTitle';
 
 export function ColorPalette() {
   return (

@@ -1,12 +1,11 @@
-import { useRef } from 'react';
+import { NAVIGATION, UI } from '@/constants';
+import React, { useRef } from 'react';
+
 import Link from 'next/link';
+import { ReactComponent as OxenLogoSVG } from '@/assets/svgs/brand.svg';
+import { useScreen } from '@/contexts/screen';
 import classNames from 'classnames';
 import { v4 as uuid } from 'uuid';
-
-import { NAVIGATION, UI } from '../../constants';
-import { useScreen } from '../../contexts/screen';
-
-import { ReactComponent as OxenLogoSVG } from '../../assets/svgs/brand-dark.svg';
 
 export function DesktopHeader() {
   const { width } = useScreen();

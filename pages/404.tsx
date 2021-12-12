@@ -1,10 +1,9 @@
+import { Contained } from '@/components/Contained';
+import CustomHead from '@/components/CustomHead';
+// import _404 from '@/assets/svgs/404.svg';
+import { METADATA } from '@/constants';
 import { ReactElement } from 'react';
 import classNames from 'classnames';
-
-import { METADATA } from '../constants';
-
-import CustomHead from '../components/CustomHead';
-import { Contained } from '../components/Contained';
 
 export default function Custom404(): ReactElement {
   return (

@@ -1,7 +1,7 @@
 import React, { LegacyRef, ReactNode } from 'react';
 
 import classNames from 'classnames';
-import { useScreen } from '../contexts/screen';
+import { useScreen } from '@/contexts/screen';
 
 export interface Props {
   color?: 'primary' | 'secondary' | 'danger' | 'white';

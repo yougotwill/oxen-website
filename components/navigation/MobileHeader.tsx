@@ -1,22 +1,20 @@
-import Link from 'next/link';
-import { useDispatch, useSelector } from 'react-redux';
-import classNames from 'classnames';
-
-import { UI } from '../../constants';
-import { useScreen } from '../../contexts/screen';
 import {
+  PageType,
   collapseMobileHeader,
   collapseSideMenu,
   expandMobileHeaderMenu,
   expandSideMenu,
-  PageType,
-} from '../../state/navigation';
-import { IState } from '../../state/reducers';
+} from '@/state/navigation';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { MobileMenu } from './MobileMenu';
-
-import { ReactComponent as OxenLogoSVG } from '../../assets/svgs/brand-dark.svg';
-import { ReactComponent as TriangleSVG } from '../../assets/svgs/triangle.svg';
+import { IState } from '@/state/reducers';
+import Link from 'next/link';
+import { MobileMenu } from '@/components/navigation/MobileMenu';
+import { ReactComponent as OxenLogoSVG } from '@/assets/svgs/brand.svg';
+import { useScreen } from '@/contexts/screen';
+import { ReactComponent as TriangleSVG } from '@/assets/svgs/triangle.svg';
+import { UI } from '@/constants';
+import classNames from 'classnames';
 
 export function MobileHeader() {
   const { isMobile, isTablet } = useScreen();

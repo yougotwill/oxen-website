@@ -1,8 +1,8 @@
-import { Contained } from '../Contained';
+import { Contained } from '@/components/Contained';
+import { useScreen } from '@/contexts/screen';
 import _ from 'lodash';
 import classNames from 'classnames';
 import { useMeasure } from 'react-use';
-import { useScreen } from '../../contexts/screen';
 import { v4 as uuid } from 'uuid';
 
 interface Props {

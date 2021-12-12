@@ -1,17 +1,12 @@
-import { useRouter } from 'next/router';
+import { NAVIGATION, UI } from '@/constants';
+import { PageType, collapseSideMenu, expandSideMenu } from '@/state/navigation';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { IState } from '@/state/reducers';
+import { useScreen } from '@/contexts/screen';
+import { ReactComponent as TriangleSVG } from '@/assets/svgs/triangle.svg';
 import classNames from 'classnames';
-
-import { NAVIGATION, UI } from '../../constants';
-import { useScreen } from '../../contexts/screen';
-import {
-  collapseSideMenu,
-  expandSideMenu,
-  PageType,
-} from '../../state/navigation';
-import { IState } from '../../state/reducers';
-
-import { ReactComponent as TriangleSVG } from '../../assets/svgs/triangle.svg';
+import { useRouter } from 'next/router';
 
 export enum SideBarMode {
   MENU = 'MENU',

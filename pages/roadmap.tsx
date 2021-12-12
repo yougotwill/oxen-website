@@ -1,11 +1,11 @@
-import { METADATA, NAVIGATION } from '../constants';
+import { METADATA, NAVIGATION } from '@/constants';
 
-import { Contained } from '../components/Contained';
-import CustomHead from '../components/CustomHead';
+import { Contained } from '@/components/Contained';
+import CustomHead from '@/components/CustomHead';
 import Image from 'next/image';
-import { SideMenuItem } from '../state/navigation';
+import { SideMenuItem } from '@/state/navigation';
 import classNames from 'classnames';
-import { useScreen } from '../contexts/screen';
+import { useScreen } from '@/contexts/screen';
 
 function Roadmap() {
   const { isMobile } = useScreen();

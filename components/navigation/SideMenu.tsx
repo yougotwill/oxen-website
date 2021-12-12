@@ -1,11 +1,9 @@
+import { IState } from '@/state/reducers';
+import { PageType } from '@/state/navigation';
+import { SideMenuFullscreen } from '@/components/navigation/SideMenuFullscreen';
+import { SideMenuSplit } from '@/components/navigation/SideMenuSplit';
+import { useScreen } from '@/contexts/screen';
 import { useSelector } from 'react-redux';
-
-import { useScreen } from '../../contexts/screen';
-import { PageType } from '../../state/navigation';
-import { IState } from '../../state/reducers';
-
-import { SideMenuFullscreen } from './SideMenuFullscreen';
-import { SideMenuSplit } from './SideMenuSplit';
 
 export interface ISideMenuItem {
   id: number;

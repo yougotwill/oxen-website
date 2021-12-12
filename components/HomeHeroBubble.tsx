@@ -1,7 +1,7 @@
+import { useScreen } from '@/contexts/screen';
 import classNames from 'classnames';
-import { expandSideMenu } from '../state/navigation';
+import { expandSideMenu } from '@/state/navigation';
 import { useDispatch } from 'react-redux';
-import { useScreen } from '../contexts/screen';
 
 export function HomeHeroBubble() {
   const { isMobile, isTablet, isDesktop, isHuge, isEnormous } = useScreen();

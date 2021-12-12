@@ -1,6 +1,6 @@
-import { DesktopHeader } from './DesktopHeader';
-import { MobileHeader } from './MobileHeader';
-import { useScreen } from '../../contexts/screen';
+import { DesktopHeader } from '@/components/navigation/DesktopHeader';
+import { MobileHeader } from '@/components/navigation/MobileHeader';
+import { useScreen } from '@/contexts/screen';
 
 export function Header() {
   const { isDesktop, isHuge, isEnormous } = useScreen();

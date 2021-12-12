@@ -1,13 +1,14 @@
-import { ISideMenuItem } from './SideMenu';
+import { useRef } from 'react';
+
+import { ISideMenuItem } from '@/components/navigation/SideMenu';
 import Link from 'next/link';
-import { ReactComponent as TriangleOutlinedSVG } from '../../assets/svgs/triangle-outlined.svg';
-import { UI } from '../../constants';
+import { useScreen } from '@/contexts/screen';
+import { ReactComponent as TriangleOutlinedSVG } from '@/assets/svgs/triangle-outlined.svg';
+import { UI } from '@/constants';
 import classNames from 'classnames';
-import { collapseSideMenu } from '../../state/navigation';
+import { collapseSideMenu } from '@/state/navigation';
 import { useDispatch } from 'react-redux';
 import { useHoverDirty } from 'react-use';
-import { useRef } from 'react';
-import { useScreen } from '../../contexts/screen';
 
 interface SideMenuRowProps {
   item: ISideMenuItem;

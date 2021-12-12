@@ -1,15 +1,14 @@
+import { CMS, NAVIGATION } from '@/constants';
+import { CmsApi, generateLinkMeta, unslugify } from '@/services/cms';
+import { IPath, IRedirection } from '@/types';
+import { IPost, ISplitPage, isPost } from '@/types/cms';
+
+import BlogPost from '@/components/BlogPost';
 import { GetStaticPaths } from 'next';
+import RichPage from '@/components/RichPage';
+import { SideMenuItem } from '@/state/navigation';
 import getConfig from 'next/config';
-
-import { CMS, NAVIGATION } from '../constants';
-import { CmsApi, generateLinkMeta, unslugify } from '../services/cms';
-import { SideMenuItem } from '../state/navigation';
-import { IPath, IRedirection } from '../types';
-import { IPost, ISplitPage, isPost } from '../types/cms';
-import { isLocal } from '../utils/links';
-
-import BlogPost from '../components/BlogPost';
-import RichPage from '../components/RichPage';
+import { isLocal } from '@/utils/links';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   // Get paths to all pages stored in navigation constants.

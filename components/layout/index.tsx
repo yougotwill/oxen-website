@@ -1,14 +1,14 @@
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { ReactNode, useState, useEffect, useRef } from 'react';
 
-import Footer from '../navigation/Footer';
-import { IState } from '../../state/reducers';
-import Nav from '../navigation/Nav';
-import { PageType } from '../../state/navigation';
-import { UI } from '../../constants';
+import { IState } from '@/state/reducers';
+import { PageType } from '@/state/navigation';
+import { useScreen } from '@/contexts/screen';
+import { UI } from '@/constants';
 import { useRouter } from 'next/router';
-import { useScreen } from '../../contexts/screen';
 import { useSelector } from 'react-redux';
-import LockedPage from '../LockedPage';
+import LockedPage from '@/components/LockedPage';
+import Nav from '@/components/navigation/Nav';
+import Footer from '@/components/navigation/Footer';
 
 interface Props {
   children: ReactNode;

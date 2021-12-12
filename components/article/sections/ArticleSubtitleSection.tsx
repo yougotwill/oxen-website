@@ -1,5 +1,5 @@
-import { Contained } from '../../Contained';
-import { useScreen } from '../../../contexts/screen';
+import { Contained } from '@/components/Contained';
+import { useScreen } from '@/contexts/screen';
 
 interface Props {
   subtitle: string;

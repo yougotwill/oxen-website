@@ -1,7 +1,7 @@
+import { IPost } from '@/types/cms';
 import Link from 'next/link';
-import { useScreen } from '../../contexts/screen';
-import { IPost } from '../../types/cms';
-import { generateURL } from '../../utils/routing';
+import { useScreen } from '@/contexts/screen';
+import { generateURL } from '@/utils/routing';
 
 export function ArticleCardRow(post: IPost) {
   const { isMobile } = useScreen();

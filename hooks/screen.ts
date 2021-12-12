@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { UI } from '../constants';
+import { UI } from '@/constants';
 import { useWindowSize } from 'react-use';
 
 export function useScreenSize() {

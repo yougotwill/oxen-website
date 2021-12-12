@@ -1,9 +1,9 @@
-import { ReactElement, useState, useRef, FormEventHandler } from 'react';
-import { useRouter } from 'next/router';
-import classNames from 'classnames';
+import { FormEventHandler, ReactElement, useRef, useState } from 'react';
 
-import { Input } from './Input';
-import { Button } from './Button';
+import { Button } from '@/components/Button';
+import { Input } from '@/components/Input';
+import classNames from 'classnames';
+import { useRouter } from 'next/router';
 
 interface Props {
   buttonAlign?: 'left' | 'center' | 'right';
