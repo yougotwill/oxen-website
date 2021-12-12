@@ -14,12 +14,12 @@ import {
 import { SideMenuItem, TPages } from '@/state/navigation';
 import { format, parseISO } from 'date-fns';
 
-import { ReactComponent as BittrexSVG } from '@/assets/svgs/bittrex-logo.svg';
+import { ReactComponent as BittrexSVG } from '@/public/svgs/bittrex-logo.svg';
 import { Button } from '@/components/Button';
 import { CMS } from '@/constants';
 import { ReactComponent as DiscordSVG } from '@/assets/svgs/socials/brand-discord.svg';
 import EmailSignup from '@/components/EmailSignup';
-import { ReactComponent as KucoinSVG } from '@/assets/svgs/kucoin-logo.svg';
+import { ReactComponent as KucoinSVG } from '@/public/svgs/kucoin-logo.svg';
 import React from 'react';
 import { ReactComponent as RedditSVG } from '@/assets/svgs/socials/brand-reddit.svg';
 import { ReactComponent as TelegramSVG } from '@/assets/svgs/socials/brand-telegram.svg';

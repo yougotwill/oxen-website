@@ -1,4 +1,4 @@
-import '@/assets/style.css';
+import '@/styles/globals.css';
 
 import {
   PageType,
